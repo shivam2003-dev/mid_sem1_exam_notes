@@ -424,6 +424,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../module1-introduction/" class="md-nav__link">
         
   
@@ -1140,10 +1168,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
         
           
-          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="">
             
   
   
@@ -1161,8 +1189,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1901,34 +1929,56 @@
 <h2 id="impurity-measures">Impurity Measures</h2>
 <h3 id="entropy">Entropy</h3>
 <p><strong>Entropy</strong> measures uncertainty/randomness in data.</p>
-<p><strong>Formula</strong>:
-$$H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)$$</p>
+<p><strong>Formula</strong>:</p>
+<div class="arithmatex">\[
+H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)
+\]</div>
 <p>Where:
-- $S$ = set of examples
-- $c$ = number of classes
-- $p_i$ = proportion of class $i$ in $S$</p>
+- <span class="arithmatex">\(S\)</span> = set of examples
+- <span class="arithmatex">\(c\)</span> = number of classes
+- <span class="arithmatex">\(p_i\)</span> = proportion of class <span class="arithmatex">\(i\)</span> in <span class="arithmatex">\(S\)</span></p>
 <p><strong>Properties</strong>:
 - <strong>Entropy = 0</strong>: Pure node (all same class)
 - <strong>Entropy = 1</strong>: Maximum impurity (equal distribution for binary)
-- <strong>Maximum Entropy</strong>: $\log_2(c)$ for $c$ classes</p>
+- <strong>Maximum Entropy</strong>: <span class="arithmatex">\(\log_2(c)\)</span> for <span class="arithmatex">\(c\)</span> classes</p>
 <p><strong>Example</strong> (Binary Classification):
-- Pure node: [10 Yes, 0 No] → $H = -1 \log_2(1) - 0 \log_2(0) = 0$
-- Impure node: [5 Yes, 5 No] → $H = -0.5 \log_2(0.5) - 0.5 \log_2(0.5) = 1$
-- Mixed: [7 Yes, 3 No] → $H = -0.7 \log_2(0.7) - 0.3 \log_2(0.3) \approx 0.88$</p>
+- <strong>Pure node</strong>: [10 Yes, 0 No] → <span class="arithmatex">\(H = -1 \cdot \log_2(1) - 0 \cdot \log_2(0) = -1 \cdot 0 - 0 = 0\)</span>
+- <strong>Impure node</strong>: [5 Yes, 5 No] → <span class="arithmatex">\(H = -0.5 \cdot \log_2(0.5) - 0.5 \cdot \log_2(0.5) = -0.5 \cdot (-1) - 0.5 \cdot (-1) = 1\)</span>
+- <strong>Mixed node</strong>: [7 Yes, 3 No] → <span class="arithmatex">\(H = -0.7 \cdot \log_2(0.7) - 0.3 \cdot \log_2(0.3) \approx 0.88\)</span></p>
+<div class="admonition tip">
+<p class="admonition-title">Remember</p>
+<p>When <span class="arithmatex">\(p_i = 0\)</span>, we define <span class="arithmatex">\(p_i \log_2(p_i) = 0\)</span> (by convention) to avoid <span class="arithmatex">\(\log(0)\)</span> which is undefined.</p>
+</div>
+<div class="admonition recommendation">
+<p class="admonition-title">Exam Tip</p>
+<p>For binary classification, memorize: Maximum entropy = 1 when classes are perfectly balanced (50-50 split).</p>
+</div>
 <h3 id="gini-impurity-gini-index">Gini Impurity (Gini Index)</h3>
-<p><strong>Gini Impurity</strong> measures probability of misclassifying a randomly chosen element.</p>
-<p><strong>Formula</strong>:
-$$\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2$$</p>
+<p><strong>Gini Impurity</strong> measures the probability of misclassifying a randomly chosen element.</p>
+<p><strong>Formula</strong>:</p>
+<div class="arithmatex">\[
+\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2
+\]</div>
 <p>Where:
-- $p_i$ = proportion of class $i$ in $S$</p>
+- <span class="arithmatex">\(S\)</span> = set of examples
+- <span class="arithmatex">\(c\)</span> = number of classes
+- <span class="arithmatex">\(p_i\)</span> = proportion of class <span class="arithmatex">\(i\)</span> in <span class="arithmatex">\(S\)</span></p>
 <p><strong>Properties</strong>:
 - <strong>Gini = 0</strong>: Pure node (all same class)
 - <strong>Gini = 0.5</strong>: Maximum impurity for binary classification
-- <strong>Maximum Gini</strong>: $1 - \frac{1}{c}$ for $c$ classes</p>
+- <strong>Maximum Gini</strong>: <span class="arithmatex">\(1 - \frac{1}{c}\)</span> for <span class="arithmatex">\(c\)</span> classes</p>
 <p><strong>Example</strong> (Binary Classification):
-- Pure: [10 Yes, 0 No] → Gini = $1 - (1^2 + 0^2) = 0$
-- Impure: [5 Yes, 5 No] → Gini = $1 - (0.5^2 + 0.5^2) = 0.5$
-- Mixed: [7 Yes, 3 No] → Gini = $1 - (0.7^2 + 0.3^2) = 0.42$</p>
+- <strong>Pure node</strong>: [10 Yes, 0 No] → <span class="arithmatex">\(\text{Gini} = 1 - (1^2 + 0^2) = 1 - 1 = 0\)</span>
+- <strong>Impure node</strong>: [5 Yes, 5 No] → <span class="arithmatex">\(\text{Gini} = 1 - (0.5^2 + 0.5^2) = 1 - 0.5 = 0.5\)</span>
+- <strong>Mixed node</strong>: [7 Yes, 3 No] → <span class="arithmatex">\(\text{Gini} = 1 - (0.7^2 + 0.3^2) = 1 - (0.49 + 0.09) = 0.42\)</span></p>
+<div class="admonition note">
+<p class="admonition-title">Key Point</p>
+<p>Gini Impurity is computationally faster than Entropy because it doesn't require logarithms. Use Gini when performance is critical.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Common Mistake</p>
+<p>Don't confuse Gini Impurity with Gini Coefficient (used in economics). They are different concepts!</p>
+</div>
 <h3 id="comparison-entropy-vs-gini">Comparison: Entropy vs Gini</h3>
 <table>
 <thead>
@@ -1941,8 +1991,8 @@ $$\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2$$</p>
 <tbody>
 <tr>
 <td><strong>Range</strong></td>
-<td>[0, $\log_2(c)$]</td>
-<td>[0, $1-\frac{1}{c}$]</td>
+<td>[0, <span class="arithmatex">\(\log_2(c)\)</span>]</td>
+<td>[0, <span class="arithmatex">\(1-\frac{1}{c}\)</span>]</td>
 </tr>
 <tr>
 <td><strong>Calculation</strong></td>
@@ -1972,13 +2022,13 @@ $$\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2$$</p>
 <h3 id="definition">Definition</h3>
 <p><strong>Information Gain</strong> measures reduction in entropy after splitting on a feature.</p>
 <p><strong>Formula</strong>:
-$$\text{IG}(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v)$$</p>
+$<span class="arithmatex">\(\text{IG}(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v)\)</span>$</p>
 <p>Where:
-- $S$ = set of examples
-- $A$ = feature/attribute
-- $S_v$ = subset where feature $A$ has value $v$
-- $H(S)$ = entropy of $S$
-- $H(S_v)$ = entropy of subset $S_v$</p>
+- <span class="arithmatex">\(S\)</span> = set of examples
+- <span class="arithmatex">\(A\)</span> = feature/attribute
+- <span class="arithmatex">\(S_v\)</span> = subset where feature <span class="arithmatex">\(A\)</span> has value <span class="arithmatex">\(v\)</span>
+- <span class="arithmatex">\(H(S)\)</span> = entropy of <span class="arithmatex">\(S\)</span>
+- <span class="arithmatex">\(H(S_v)\)</span> = entropy of subset <span class="arithmatex">\(S_v\)</span></p>
 <p><strong>Interpretation</strong>:
 - <strong>High IG</strong>: Feature provides good split (reduces uncertainty)
 - <strong>IG = 0</strong>: Feature doesn't help (no reduction in entropy)</p>
@@ -1986,9 +2036,9 @@ $$\text{IG}(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v
 <p><strong>Problem</strong>: Information Gain favors features with many values.</p>
 <p><strong>Solution</strong>: Normalize by <strong>Split Information</strong></p>
 <p><strong>Split Information</strong>:
-$$\text{SplitInfo}(S, A) = -\sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \log_2\left(\frac{|S_v|}{|S|}\right)$$</p>
+$<span class="arithmatex">\(\text{SplitInfo}(S, A) = -\sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \log_2\left(\frac{|S_v|}{|S|}\right)\)</span>$</p>
 <p><strong>Information Gain Ratio</strong>:
-$$\text{IGR}(S, A) = \frac{\text{IG}(S, A)}{\text{SplitInfo}(S, A)}$$</p>
+$<span class="arithmatex">\(\text{IGR}(S, A) = \frac{\text{IG}(S, A)}{\text{SplitInfo}(S, A)}\)</span>$</p>
 <p><strong>Use</strong>: C4.5 algorithm uses Information Gain Ratio</p>
 <hr />
 <h2 id="decision-tree-algorithms">Decision Tree Algorithms</h2>
@@ -2134,26 +2184,26 @@ $$\text{IGR}(S, A) = \frac{\text{IG}(S, A)}{\text{SplitInfo}(S, A)}$$</p>
 <p>Total: 14 examples
 - Yes: 9
 - No: 5</p>
-<p>$$H(S) = -\frac{9}{14}\log_2\left(\frac{9}{14}\right) - \frac{5}{14}\log_2\left(\frac{5}{14}\right) \approx 0.940$$</p>
+<div class="arithmatex">\[H(S) = -\frac{9}{14}\log_2\left(\frac{9}{14}\right) - \frac{5}{14}\log_2\left(\frac{5}{14}\right) \approx 0.940\]</div>
 <h3 id="step-2-calculate-information-gain-for-each-feature">Step 2: Calculate Information Gain for Each Feature</h3>
 <p><strong>For Outlook</strong>:
-- Sunny: [2 Yes, 3 No] → $H = 0.971$
-- Overcast: [4 Yes, 0 No] → $H = 0$
-- Rainy: [3 Yes, 2 No] → $H = 0.971$</p>
-<p>$$\text{IG}(S, \text{Outlook}) = 0.940 - \left(\frac{5}{14} \times 0.971 + \frac{4}{14} \times 0 + \frac{5}{14} \times 0.971\right) = 0.246$$</p>
+- Sunny: [2 Yes, 3 No] → <span class="arithmatex">\(H = 0.971\)</span>
+- Overcast: [4 Yes, 0 No] → <span class="arithmatex">\(H = 0\)</span>
+- Rainy: [3 Yes, 2 No] → <span class="arithmatex">\(H = 0.971\)</span></p>
+<div class="arithmatex">\[\text{IG}(S, \text{Outlook}) = 0.940 - \left(\frac{5}{14} \times 0.971 + \frac{4}{14} \times 0 + \frac{5}{14} \times 0.971\right) = 0.246\]</div>
 <p><strong>For Humidity</strong>:
-- High: [3 Yes, 4 No] → $H = 0.985$
-- Normal: [6 Yes, 1 No] → $H = 0.592$</p>
-<p>$$\text{IG}(S, \text{Humidity}) = 0.940 - \left(\frac{7}{14} \times 0.985 + \frac{7}{14} \times 0.592\right) = 0.152$$</p>
+- High: [3 Yes, 4 No] → <span class="arithmatex">\(H = 0.985\)</span>
+- Normal: [6 Yes, 1 No] → <span class="arithmatex">\(H = 0.592\)</span></p>
+<div class="arithmatex">\[\text{IG}(S, \text{Humidity}) = 0.940 - \left(\frac{7}{14} \times 0.985 + \frac{7}{14} \times 0.592\right) = 0.152\]</div>
 <p><strong>For Wind</strong>:
-- Weak: [6 Yes, 2 No] → $H = 0.811$
-- Strong: [3 Yes, 3 No] → $H = 1.0$</p>
-<p>$$\text{IG}(S, \text{Wind}) = 0.940 - \left(\frac{8}{14} \times 0.811 + \frac{6}{14} \times 1.0\right) = 0.048$$</p>
+- Weak: [6 Yes, 2 No] → <span class="arithmatex">\(H = 0.811\)</span>
+- Strong: [3 Yes, 3 No] → <span class="arithmatex">\(H = 1.0\)</span></p>
+<div class="arithmatex">\[\text{IG}(S, \text{Wind}) = 0.940 - \left(\frac{8}{14} \times 0.811 + \frac{6}{14} \times 1.0\right) = 0.048\]</div>
 <p><strong>For Temperature</strong>:
-- Hot: [2 Yes, 2 No] → $H = 1.0$
-- Mild: [4 Yes, 2 No] → $H = 0.918$
-- Cool: [3 Yes, 1 No] → $H = 0.811$</p>
-<p>$$\text{IG}(S, \text{Temperature}) = 0.940 - \left(\frac{4}{14} \times 1.0 + \frac{6}{14} \times 0.918 + \frac{4}{14} \times 0.811\right) = 0.029$$</p>
+- Hot: [2 Yes, 2 No] → <span class="arithmatex">\(H = 1.0\)</span>
+- Mild: [4 Yes, 2 No] → <span class="arithmatex">\(H = 0.918\)</span>
+- Cool: [3 Yes, 1 No] → <span class="arithmatex">\(H = 0.811\)</span></p>
+<div class="arithmatex">\[\text{IG}(S, \text{Temperature}) = 0.940 - \left(\frac{4}{14} \times 1.0 + \frac{6}{14} \times 0.918 + \frac{4}{14} \times 0.811\right) = 0.029\]</div>
 <p><strong>Result</strong>: Outlook has highest Information Gain (0.246) → <strong>Split on Outlook</strong></p>
 <h3 id="step-3-build-tree-recursively">Step 3: Build Tree Recursively</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>                    Outlook
@@ -2198,14 +2248,14 @@ $$\text{IGR}(S, A) = \frac{\text{IG}(S, A)}{\text{SplitInfo}(S, A)}$$</p>
 <strong>Disadvantages</strong>: More expensive</p>
 <h3 id="cost-complexity-pruning">Cost Complexity Pruning</h3>
 <p><strong>Objective</strong>: Minimize
-$$\text{Cost} = \text{Error} + \alpha \times \text{Complexity}$$</p>
+$<span class="arithmatex">\(\text{Cost} = \text{Error} + \alpha \times \text{Complexity}\)</span>$</p>
 <p>Where:
-- $\alpha$ = complexity parameter
-- Larger $\alpha$ → Simpler tree</p>
+- <span class="arithmatex">\(\alpha\)</span> = complexity parameter
+- Larger <span class="arithmatex">\(\alpha\)</span> → Simpler tree</p>
 <p><strong>Algorithm</strong>:
 1. Build full tree
-2. For each $\alpha$, find subtree that minimizes cost
-3. Choose $\alpha$ using cross-validation</p>
+2. For each <span class="arithmatex">\(\alpha\)</span>, find subtree that minimizes cost
+3. Choose <span class="arithmatex">\(\alpha\)</span> using cross-validation</p>
 <hr />
 <h2 id="regression-trees">Regression Trees</h2>
 <h3 id="difference-from-classification">Difference from Classification</h3>
@@ -2219,27 +2269,27 @@ $$\text{Cost} = \text{Error} + \alpha \times \text{Complexity}$$</p>
 - Leaf = mean (or median) of target values</p>
 <h3 id="splitting-criterion-for-regression">Splitting Criterion for Regression</h3>
 <p><strong>MSE (Mean Squared Error)</strong>:
-$$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2$$</p>
+$<span class="arithmatex">\(\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2\)</span>$</p>
 <p><strong>Information Gain (Regression)</strong>:
-$$\text{IG} = \text{MSE}<em _text_left="\text{left">{\text{parent}} - \left(\frac{n</em>}}}{n} \text{MSE<em _text_right="\text{right">{\text{left}} + \frac{n</em>\right)$$}}}{n} \text{MSE}_{\text{right}</p>
+$<span class="arithmatex">\(\text{IG} = \text{MSE}_{\text{parent}} - \left(\frac{n_{\text{left}}}{n} \text{MSE}_{\text{left}} + \frac{n_{\text{right}}}{n} \text{MSE}_{\text{right}}\right)\)</span>$</p>
 <p>Choose split that maximizes information gain (minimizes weighted MSE).</p>
 <hr />
 <h2 id="key-formulas-summary">Key Formulas Summary</h2>
 <h3 id="entropy_1">Entropy</h3>
-<p>$$H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)$$</p>
+<div class="arithmatex">\[H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)\]</div>
 <h3 id="gini-impurity">Gini Impurity</h3>
-<p>$$\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2$$</p>
+<div class="arithmatex">\[\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2\]</div>
 <h3 id="information-gain_1">Information Gain</h3>
-<p>$$\text{IG}(S, A) = H(S) - \sum_{v} \frac{|S_v|}{|S|} H(S_v)$$</p>
+<div class="arithmatex">\[\text{IG}(S, A) = H(S) - \sum_{v} \frac{|S_v|}{|S|} H(S_v)\]</div>
 <h3 id="information-gain-ratio_1">Information Gain Ratio</h3>
-<p>$$\text{IGR}(S, A) = \frac{\text{IG}(S, A)}{\text{SplitInfo}(S, A)}$$</p>
+<div class="arithmatex">\[\text{IGR}(S, A) = \frac{\text{IG}(S, A)}{\text{SplitInfo}(S, A)}\]</div>
 <h3 id="regression-mse">Regression MSE</h3>
-<p>$$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2$$</p>
+<div class="arithmatex">\[\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2\]</div>
 <hr />
 <h2 id="important-points-to-remember">Important Points to Remember</h2>
 <p>✅ <strong>Decision Trees</strong>: Tree structure, easy to interpret</p>
-<p>✅ <strong>Entropy</strong>: Measures uncertainty, range [0, $\log_2(c)$]</p>
-<p>✅ <strong>Gini</strong>: Measures impurity, range [0, $1-\frac{1}{c}$]</p>
+<p>✅ <strong>Entropy</strong>: Measures uncertainty, range [0, <span class="arithmatex">\(\log_2(c)\)</span>]</p>
+<p>✅ <strong>Gini</strong>: Measures impurity, range [0, <span class="arithmatex">\(1-\frac{1}{c}\)</span>]</p>
 <p>✅ <strong>Information Gain</strong>: Reduction in entropy after split</p>
 <p>✅ <strong>ID3</strong>: Uses Entropy, categorical features only</p>
 <p>✅ <strong>C4.5</strong>: Uses Information Gain Ratio, handles continuous features</p>
@@ -2269,7 +2319,7 @@ $$\text{IG} = \text{MSE}<em _text_left="\text{left">{\text{parent}} - \left(\fra
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 15, 2025 19:52:44 UTC">December 15, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 15, 2025 20:13:32 UTC">December 15, 2025</span>
   </span>
 
     
@@ -2338,6 +2388,10 @@ $$\text{IG} = \text{MSE}<em _text_left="\text{left">{\text{parent}} - \left(\fra
     
     
       <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
