@@ -1,0 +1,2174 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive revision notes and solved papers for Mid Semester 1 exams">
+      
+      
+        <meta name="author" content="Shivam Kumar">
+      
+      
+      
+        <link rel="prev" href="../module3-classification-evaluation/">
+      
+      
+        <link rel="next" href="../module5-decision-trees/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Module 4 - Unsupervised Learning - Mid Semester 1 Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-4-unsupervised-learning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mid Semester 1 Exam Notes" class="md-header__button md-logo" aria-label="Mid Semester 1 Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mid Semester 1 Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 4 - Unsupervised Learning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/shivam2003-dev/mid_sem1_exam_notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mid_sem1_exam_notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Machine Learning
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mid Semester 1 Exam Notes" class="md-nav__button md-logo" aria-label="Mid Semester 1 Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Mid Semester 1 Exam Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/shivam2003-dev/mid_sem1_exam_notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mid_sem1_exam_notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Machine Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module1-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 1 - Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module2-supervised-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 2 - Supervised Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module3-classification-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 3 - Classification & Evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 4 - Unsupervised Learning
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 4 - Unsupervised Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clustering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clustering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k-means-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K-Means Clustering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="K-Means Clustering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-formulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mathematical Formulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distance-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distance Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing K
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-and-disadvantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages and Disadvantages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-means-algorithm-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K-Means Algorithm Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hierarchical-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hierarchical Clustering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hierarchical Clustering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agglomerative-clustering-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agglomerative Clustering Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkage-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linkage Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dendrogram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dendrogram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-and-disadvantages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages and Disadvantages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dimensionality-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dimensionality Reduction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dimensionality Reduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#principal-component-analysis-pca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principal Component Analysis (PCA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Principal Component Analysis (PCA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mathematical Foundation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variance-explained" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variance Explained
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-number-of-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing Number of Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties-of-pca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties of PCA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pca-algorithm-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCA Algorithm Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#association-rule-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Association Rule Learning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Association Rule Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apriori-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apriori Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-formulas-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Formulas Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Formulas Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#k-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K-Means
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#association-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Association Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-points-to-remember" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module5-decision-trees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 5 - Decision Trees
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Previous Year Papers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Previous Year Papers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../papers/2024-regular-solved/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2024 Regular Paper - Solved
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../papers/2024-makeup-solved/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2024 Makeup Paper - Solved
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../papers/2025-practice-solved/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025 Practice Set - Solved
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clustering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clustering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k-means-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K-Means Clustering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="K-Means Clustering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-formulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mathematical Formulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distance-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distance Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing K
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-and-disadvantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages and Disadvantages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-means-algorithm-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K-Means Algorithm Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hierarchical-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hierarchical Clustering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hierarchical Clustering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agglomerative-clustering-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agglomerative Clustering Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkage-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linkage Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dendrogram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dendrogram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-and-disadvantages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages and Disadvantages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dimensionality-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dimensionality Reduction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dimensionality Reduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#principal-component-analysis-pca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principal Component Analysis (PCA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Principal Component Analysis (PCA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mathematical Foundation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variance-explained" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variance Explained
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-number-of-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing Number of Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties-of-pca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties of PCA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pca-algorithm-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCA Algorithm Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#association-rule-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Association Rule Learning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Association Rule Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apriori-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apriori Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-formulas-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Formulas Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Formulas Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#k-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K-Means
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#association-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Association Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-points-to-remember" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="module-4-unsupervised-learning">Module 4: Unsupervised Learning</h1>
+<h2 id="overview">Overview</h2>
+<p>Unsupervised learning finds hidden patterns in data without labeled outputs. This module covers clustering, dimensionality reduction, and association rules.</p>
+<hr />
+<h2 id="clustering">Clustering</h2>
+<h3 id="introduction">Introduction</h3>
+<p><strong>Clustering</strong> groups similar data points together. The goal is to find natural groupings in data.</p>
+<p><strong>Applications</strong>:
+- Customer segmentation
+- Image segmentation
+- Anomaly detection
+- Document clustering
+- Market research</p>
+<p><strong>Key Concepts</strong>:
+- <strong>Cluster</strong>: Group of similar data points
+- <strong>Centroid</strong>: Center point of a cluster
+- <strong>Distance Metric</strong>: How to measure similarity</p>
+<hr />
+<h2 id="k-means-clustering">K-Means Clustering</h2>
+<h3 id="algorithm">Algorithm</h3>
+<p><strong>K-Means</strong> partitions data into $K$ clusters by minimizing within-cluster variance.</p>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li><strong>Initialize</strong>: Randomly choose $K$ cluster centroids</li>
+<li>
+<p>Can use random data points or random positions</p>
+</li>
+<li>
+<p><strong>Assignment Step</strong>: Assign each data point to nearest centroid</p>
+</li>
+<li>Calculate distance to all centroids</li>
+<li>
+<p>Assign to closest one</p>
+</li>
+<li>
+<p><strong>Update Step</strong>: Recalculate centroids</p>
+</li>
+<li>
+<p>New centroid = mean of all points in cluster</p>
+</li>
+<li>
+<p><strong>Repeat</strong>: Steps 2-3 until convergence</p>
+</li>
+<li>Centroids don't change (or change &lt; threshold)</li>
+<li>Maximum iterations reached</li>
+</ol>
+<p><strong>Convergence</strong>: When assignments don't change between iterations</p>
+<h3 id="mathematical-formulation">Mathematical Formulation</h3>
+<p><strong>Objective Function</strong> (Within-cluster sum of squares):</p>
+<p>$$J = \sum_{i=1}^{m} \sum_{k=1}^{K} w_{ik} ||x^{(i)} - \mu_k||^2$$</p>
+<p>Where:
+- $m$ = number of data points
+- $K$ = number of clusters
+- $w_{ik} = 1$ if point $i$ belongs to cluster $k$, else $0$
+- $\mu_k$ = centroid of cluster $k$
+- $||x^{(i)} - \mu_k||^2$ = squared distance from point to centroid</p>
+<p><strong>Goal</strong>: Minimize $J$</p>
+<h3 id="distance-metrics">Distance Metrics</h3>
+<p><strong>Euclidean Distance</strong> (most common):
+$$d(x, y) = \sqrt{\sum_{i=1}^{n} (x_i - y_i)^2}$$</p>
+<p><strong>Manhattan Distance</strong>:
+$$d(x, y) = \sum_{i=1}^{n} |x_i - y_i|$$</p>
+<p><strong>Cosine Similarity</strong> (for high-dimensional data):
+$$\text{similarity} = \frac{x \cdot y}{||x|| \cdot ||y||}$$</p>
+<h3 id="choosing-k">Choosing K</h3>
+<p><strong>Methods</strong>:</p>
+<ol>
+<li><strong>Elbow Method</strong>:</li>
+<li>Plot $J$ (cost) vs $K$</li>
+<li>Look for "elbow" where cost decreases sharply then plateaus</li>
+<li>
+<p>Choose $K$ at elbow</p>
+</li>
+<li>
+<p><strong>Domain Knowledge</strong>:</p>
+</li>
+<li>Use prior knowledge about data</li>
+<li>
+<p>Example: If segmenting customers into 3 groups, use $K = 3$</p>
+</li>
+<li>
+<p><strong>Cross-Validation</strong>:</p>
+</li>
+<li>Evaluate clustering quality for different $K$</li>
+<li>Use metric like silhouette score</li>
+</ol>
+<h3 id="initialization">Initialization</h3>
+<p><strong>Problem</strong>: K-Means can converge to local minima</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li><strong>Multiple Random Initializations</strong>:</li>
+<li>Run algorithm multiple times with different random starts</li>
+<li>
+<p>Choose result with lowest cost</p>
+</li>
+<li>
+<p><strong>K-Means++</strong> (Better initialization):</p>
+</li>
+<li>Choose first centroid randomly</li>
+<li>Choose subsequent centroids far from existing ones</li>
+<li>Reduces chance of poor local minima</li>
+</ol>
+<h3 id="advantages-and-disadvantages">Advantages and Disadvantages</h3>
+<p><strong>Advantages</strong>:
+- ✅ Simple and fast
+- ✅ Works well with spherical clusters
+- ✅ Scales to large datasets</p>
+<p><strong>Disadvantages</strong>:
+- ❌ Need to specify $K$ beforehand
+- ❌ Sensitive to initialization
+- ❌ Assumes spherical clusters
+- ❌ Sensitive to outliers</p>
+<h3 id="k-means-algorithm-summary">K-Means Algorithm Summary</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1. Randomly initialize K centroids
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>2. Repeat until convergence:
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   a. For each point, assign to nearest centroid
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   b. For each cluster, update centroid (mean of points)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>3. Return clusters and centroids
+</code></pre></div>
+<hr />
+<h2 id="hierarchical-clustering">Hierarchical Clustering</h2>
+<h3 id="introduction_1">Introduction</h3>
+<p><strong>Hierarchical Clustering</strong> creates a tree of clusters (dendrogram) without pre-specifying number of clusters.</p>
+<p><strong>Types</strong>:</p>
+<ol>
+<li><strong>Agglomerative</strong> (Bottom-up):</li>
+<li>Start with each point as its own cluster</li>
+<li>Merge closest clusters iteratively</li>
+<li>
+<p>Continue until one cluster remains</p>
+</li>
+<li>
+<p><strong>Divisive</strong> (Top-down):</p>
+</li>
+<li>Start with all points in one cluster</li>
+<li>Split clusters iteratively</li>
+<li>Continue until each point is its own cluster</li>
+</ol>
+<h3 id="agglomerative-clustering-algorithm">Agglomerative Clustering Algorithm</h3>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>
+<p><strong>Initialize</strong>: Each data point is its own cluster</p>
+</li>
+<li>
+<p><strong>Compute Distance Matrix</strong>: Calculate distances between all clusters</p>
+</li>
+<li>
+<p><strong>Merge Closest Clusters</strong>: Combine two clusters with minimum distance</p>
+</li>
+<li>
+<p><strong>Update Distance Matrix</strong>: Recalculate distances to new cluster</p>
+</li>
+<li>
+<p><strong>Repeat</strong>: Steps 3-4 until one cluster remains</p>
+</li>
+</ol>
+<h3 id="linkage-criteria">Linkage Criteria</h3>
+<p>How to measure distance between clusters:</p>
+<ol>
+<li><strong>Single Linkage</strong> (Minimum):</li>
+<li>Distance = minimum distance between any two points in clusters</li>
+<li>Formula: $d(C_i, C_j) = \min_{x \in C_i, y \in C_j} d(x, y)$</li>
+<li>
+<p>Tends to create long, chain-like clusters</p>
+</li>
+<li>
+<p><strong>Complete Linkage</strong> (Maximum):</p>
+</li>
+<li>Distance = maximum distance between any two points</li>
+<li>Formula: $d(C_i, C_j) = \max_{x \in C_i, y \in C_j} d(x, y)$</li>
+<li>
+<p>Tends to create compact, spherical clusters</p>
+</li>
+<li>
+<p><strong>Average Linkage</strong>:</p>
+</li>
+<li>Distance = average distance between all pairs</li>
+<li>Formula: $d(C_i, C_j) = \frac{1}{|C_i||C_j|} \sum_{x \in C_i} \sum_{y \in C_j} d(x, y)$</li>
+<li>
+<p>Balanced approach</p>
+</li>
+<li>
+<p><strong>Centroid Linkage</strong>:</p>
+</li>
+<li>Distance = distance between cluster centroids</li>
+<li>Formula: $d(C_i, C_j) = d(\mu_i, \mu_j)$</li>
+</ol>
+<h3 id="dendrogram">Dendrogram</h3>
+<p><strong>Definition</strong>: Tree diagram showing cluster hierarchy</p>
+<p><strong>How to Read</strong>:
+- <strong>Leaves</strong>: Individual data points
+- <strong>Branches</strong>: Clusters at different levels
+- <strong>Height</strong>: Distance at which clusters merge
+- <strong>Cut</strong>: Horizontal line determines number of clusters</p>
+<p><strong>To Get K Clusters</strong>: Cut dendrogram at height that gives K clusters</p>
+<h3 id="advantages-and-disadvantages_1">Advantages and Disadvantages</h3>
+<p><strong>Advantages</strong>:
+- ✅ No need to specify K
+- ✅ Produces interpretable dendrogram
+- ✅ Works with any distance metric</p>
+<p><strong>Disadvantages</strong>:
+- ❌ Computationally expensive: O(n³) time complexity
+- ❌ Sensitive to noise and outliers
+- ❌ Once merged, clusters can't be split</p>
+<hr />
+<h2 id="dimensionality-reduction">Dimensionality Reduction</h2>
+<h3 id="introduction_2">Introduction</h3>
+<p><strong>Dimensionality Reduction</strong> reduces number of features while preserving important information.</p>
+<p><strong>Goals</strong>:
+- Reduce computational cost
+- Remove noise and redundancy
+- Visualize high-dimensional data
+- Prevent overfitting (curse of dimensionality)</p>
+<p><strong>Methods</strong>:
+- <strong>Feature Selection</strong>: Choose subset of original features
+- <strong>Feature Extraction</strong>: Create new features from original ones</p>
+<hr />
+<h2 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h2>
+<h3 id="introduction_3">Introduction</h3>
+<p><strong>PCA</strong> finds directions (principal components) of maximum variance in data and projects data onto these directions.</p>
+<p><strong>Key Idea</strong>: 
+- First principal component: Direction of maximum variance
+- Second principal component: Direction of maximum variance orthogonal to first
+- And so on...</p>
+<h3 id="mathematical-foundation">Mathematical Foundation</h3>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>
+<p><strong>Standardize Data</strong>: Mean = 0, Std = 1
+   $$z_i = \frac{x_i - \mu}{\sigma}$$</p>
+</li>
+<li>
+<p><strong>Compute Covariance Matrix</strong>:
+   $$\Sigma = \frac{1}{m} X^T X$$</p>
+</li>
+<li>
+<p><strong>Eigenvalue Decomposition</strong>:
+   $$\Sigma = P \Lambda P^T$$</p>
+</li>
+<li>$P$ = matrix of eigenvectors (principal components)</li>
+<li>
+<p>$\Lambda$ = diagonal matrix of eigenvalues</p>
+</li>
+<li>
+<p><strong>Select Top k Components</strong>:</p>
+</li>
+<li>Choose eigenvectors corresponding to largest eigenvalues</li>
+<li>
+<p>These capture most variance</p>
+</li>
+<li>
+<p><strong>Project Data</strong>:
+   $$Y = X P_k$$</p>
+</li>
+<li>$P_k$ = first $k$ principal components</li>
+<li>$Y$ = reduced dimension data</li>
+</ol>
+<h3 id="variance-explained">Variance Explained</h3>
+<p><strong>Proportion of Variance Explained</strong>:
+$$\text{Variance Explained} = \frac{\lambda_i}{\sum_{j=1}^{n} \lambda_j}$$</p>
+<p><strong>Cumulative Variance</strong>:
+$$\text{Cumulative} = \frac{\sum_{i=1}^{k} \lambda_i}{\sum_{j=1}^{n} \lambda_j}$$</p>
+<p><strong>Rule of Thumb</strong>: Choose $k$ such that cumulative variance ≥ 0.95 (95% variance retained)</p>
+<h3 id="choosing-number-of-components">Choosing Number of Components</h3>
+<p><strong>Methods</strong>:</p>
+<ol>
+<li><strong>Scree Plot</strong>:</li>
+<li>Plot eigenvalues vs component number</li>
+<li>
+<p>Look for "elbow" where eigenvalues drop sharply</p>
+</li>
+<li>
+<p><strong>Variance Threshold</strong>:</p>
+</li>
+<li>
+<p>Keep components explaining ≥ threshold (e.g., 95%) variance</p>
+</li>
+<li>
+<p><strong>Kaiser Criterion</strong>:</p>
+</li>
+<li>Keep components with eigenvalue &gt; 1</li>
+</ol>
+<h3 id="properties-of-pca">Properties of PCA</h3>
+<p><strong>Properties</strong>:
+- Principal components are orthogonal (uncorrelated)
+- First component captures maximum variance
+- Components are linear combinations of original features
+- Preserves global structure</p>
+<p><strong>Limitations</strong>:
+- ❌ Assumes linear relationships
+- ❌ Sensitive to feature scaling
+- ❌ May not preserve local structure
+- ❌ Interpretability can be lost</p>
+<h3 id="applications">Applications</h3>
+<ul>
+<li><strong>Data Visualization</strong>: Reduce to 2D/3D for plotting</li>
+<li><strong>Noise Reduction</strong>: Remove components with low variance</li>
+<li><strong>Feature Extraction</strong>: Create new features for ML models</li>
+<li><strong>Compression</strong>: Reduce storage and computation</li>
+</ul>
+<h3 id="pca-algorithm-summary">PCA Algorithm Summary</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. Standardize the data (mean=0, std=1)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2. Compute covariance matrix
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>3. Find eigenvalues and eigenvectors
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>4. Sort by eigenvalues (descending)
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>5. Select top k eigenvectors
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>6. Project data onto selected components
+</code></pre></div>
+<hr />
+<h2 id="association-rule-learning">Association Rule Learning</h2>
+<h3 id="introduction_4">Introduction</h3>
+<p><strong>Association Rules</strong> discover interesting relationships between variables in large datasets.</p>
+<p><strong>Example</strong>: Market Basket Analysis
+- "If customer buys bread and butter, they also buy milk"
+- Rule: {Bread, Butter} → {Milk}</p>
+<h3 id="key-concepts">Key Concepts</h3>
+<p><strong>Itemset</strong>: Set of items (e.g., {Bread, Butter})</p>
+<p><strong>Support</strong>: Frequency of itemset in dataset
+$$\text{Support}(A) = \frac{\text{Count}(A)}{N}$$</p>
+<p><strong>Confidence</strong>: Probability that B occurs given A
+$$\text{Confidence}(A \to B) = \frac{\text{Support}(A \cup B)}{\text{Support}(A)} = P(B|A)$$</p>
+<p><strong>Lift</strong>: How much more likely B is when A occurs
+$$\text{Lift}(A \to B) = \frac{\text{Confidence}(A \to B)}{\text{Support}(B)} = \frac{P(B|A)}{P(B)}$$</p>
+<p><strong>Interpretation</strong>:
+- Lift = 1: A and B independent
+- Lift &gt; 1: Positive correlation
+- Lift &lt; 1: Negative correlation</p>
+<h3 id="apriori-algorithm">Apriori Algorithm</h3>
+<p><strong>Principle</strong>: If itemset is frequent, all its subsets are frequent</p>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>
+<p><strong>Find Frequent 1-itemsets</strong>: Items with support ≥ minimum support</p>
+</li>
+<li>
+<p><strong>Generate Candidate k-itemsets</strong>: From frequent (k-1)-itemsets</p>
+</li>
+<li>
+<p><strong>Prune</strong>: Remove candidates with infrequent subsets</p>
+</li>
+<li>
+<p><strong>Count Support</strong>: For remaining candidates</p>
+</li>
+<li>
+<p><strong>Filter</strong>: Keep only frequent itemsets</p>
+</li>
+<li>
+<p><strong>Repeat</strong>: Until no more frequent itemsets</p>
+</li>
+<li>
+<p><strong>Generate Rules</strong>: From frequent itemsets with confidence ≥ minimum confidence</p>
+</li>
+</ol>
+<p><strong>Example</strong>:
+- Minimum Support = 2
+- Minimum Confidence = 50%</p>
+<p><strong>Transactions</strong>:
+1. {Bread, Milk}
+2. {Bread, Butter, Milk}
+3. {Bread, Eggs}
+4. {Milk, Eggs}</p>
+<p><strong>Frequent 1-itemsets</strong>: {Bread: 3}, {Milk: 3}, {Butter: 1}, {Eggs: 2}</p>
+<p><strong>Frequent 2-itemsets</strong>: {Bread, Milk: 2}, {Bread, Eggs: 1}, {Milk, Eggs: 1}</p>
+<p><strong>Rules</strong>:
+- {Bread} → {Milk}: Confidence = 2/3 = 67% ✓
+- {Milk} → {Bread}: Confidence = 2/3 = 67% ✓</p>
+<hr />
+<h2 id="key-formulas-summary">Key Formulas Summary</h2>
+<h3 id="k-means">K-Means</h3>
+<ul>
+<li><strong>Cost Function</strong>: $J = \sum_{i=1}^{m} \sum_{k=1}^{K} w_{ik} ||x^{(i)} - \mu_k||^2$</li>
+<li><strong>Centroid Update</strong>: $\mu_k = \frac{1}{|C_k|} \sum_{x \in C_k} x$</li>
+</ul>
+<h3 id="pca">PCA</h3>
+<ul>
+<li><strong>Covariance Matrix</strong>: $\Sigma = \frac{1}{m} X^T X$</li>
+<li><strong>Variance Explained</strong>: $\frac{\lambda_i}{\sum \lambda_j}$</li>
+</ul>
+<h3 id="association-rules">Association Rules</h3>
+<ul>
+<li><strong>Support</strong>: $\frac{\text{Count}(A)}{N}$</li>
+<li><strong>Confidence</strong>: $\frac{\text{Support}(A \cup B)}{\text{Support}(A)}$</li>
+<li><strong>Lift</strong>: $\frac{\text{Confidence}(A \to B)}{\text{Support}(B)}$</li>
+</ul>
+<hr />
+<h2 id="important-points-to-remember">Important Points to Remember</h2>
+<p>✅ <strong>K-Means</strong>: Partition into K clusters, minimize within-cluster variance</p>
+<p>✅ <strong>Hierarchical Clustering</strong>: Creates dendrogram, no need to specify K</p>
+<p>✅ <strong>PCA</strong>: Finds directions of maximum variance, reduces dimensions</p>
+<p>✅ <strong>Association Rules</strong>: Discover relationships using support, confidence, lift</p>
+<p>✅ <strong>Choose K</strong>: Elbow method, domain knowledge, cross-validation</p>
+<p>✅ <strong>Feature Scaling</strong>: Important for K-Means and PCA</p>
+<hr />
+<p><strong>Previous</strong>: <a href="../module3-classification-evaluation/">Module 3 - Classification &amp; Evaluation</a> | <strong>Next</strong>: <a href="../module5-decision-trees/">Module 5 - Decision Trees</a></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 15, 2025 19:52:44 UTC">December 15, 2025</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 15, 2025 19:52:44 UTC">December 15, 2025</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
