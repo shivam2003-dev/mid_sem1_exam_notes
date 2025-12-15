@@ -166,7 +166,10 @@ Where:
 **Information Gain** measures reduction in entropy after splitting on a feature.
 
 **Formula**:
-$$\text{IG}(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v)$$
+
+\[
+\text{IG}(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v)
+\]
 
 Where:
 - $S$ = set of examples
@@ -186,10 +189,16 @@ Where:
 **Solution**: Normalize by **Split Information**
 
 **Split Information**:
-$$\text{SplitInfo}(S, A) = -\sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \log_2\left(\frac{|S_v|}{|S|}\right)$$
+
+\[
+\text{SplitInfo}(S, A) = -\sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \log_2\left(\frac{|S_v|}{|S|}\right)
+\]
 
 **Information Gain Ratio**:
-$$\text{IGR}(S, A) = \frac{\text{IG}(S, A)}{\text{SplitInfo}(S, A)}$$
+
+\[
+\text{IGR}(S, A) = \frac{\text{IG}(S, A)}{\text{SplitInfo}(S, A)}
+\]
 
 **Use**: C4.5 algorithm uses Information Gain Ratio
 
