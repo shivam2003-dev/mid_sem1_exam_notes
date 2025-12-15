@@ -1,28 +1,14 @@
 window.MathJax = {
   tex: {
-    inlineMath: [["\\(", "\\)"], ["$", "$"]],
-    displayMath: [["\\[", "\\]"], ["$$", "$$"]],
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
     processEscapes: true,
-    processEnvironments: true,
-    autoload: {
-      color: [],
-      colorv2: ['color']
-    },
-    packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
+    processEnvironments: true
   },
   options: {
+    skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"],
     ignoreHtmlClass: ".*|",
     processHtmlClass: "arithmatex"
-  },
-  startup: {
-    ready: () => {
-      MathJax.startup.defaultReady();
-      MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
-        if (math.display === false) {
-          math.math = '\\(' + math.math + '\\)';
-        }
-      });
-    }
   }
 };
 
