@@ -5,32 +5,36 @@ Welcome to the Machine Learning revision guide. This section covers all modules 
 ## 📖 Modules Overview
 
 1. **[Module 1: Introduction to Machine Learning](module1-introduction.md)**
-   - What is Machine Learning
-   - Types of Learning
-   - Applications and Examples
+    - What is Machine Learning
+    - Types of Learning (Supervised, Unsupervised, Reinforcement)
+    - Applications and Examples
+    - Overfitting vs Underfitting
+    - Bias-Variance Tradeoff
 
 2. **[Module 2: Supervised Learning](module2-supervised-learning.md)**
-   - Linear Regression
-   - Logistic Regression
-   - Gradient Descent
-   - Cost Functions
+    - Linear Regression (Simple & Multiple)
+    - Logistic Regression
+    - Gradient Descent Algorithm
+    - Cost Functions (MSE, Cross-Entropy)
+    - Regularization
 
 3. **[Module 3: Classification & Evaluation](module3-classification-evaluation.md)**
-   - Classification Algorithms
-   - Confusion Matrix
-   - Evaluation Metrics (Accuracy, Precision, Recall, F1-Score)
-   - ROC Curve and AUC
+    - Classification Algorithms (KNN, SVM)
+    - Confusion Matrix
+    - Evaluation Metrics (Accuracy, Precision, Recall, F1-Score)
+    - ROC Curve and AUC
+    - Precision-Recall Curve
 
 4. **[Module 4: Unsupervised Learning](module4-unsupervised-learning.md)**
-   - Clustering (K-Means, Hierarchical)
-   - Dimensionality Reduction (PCA)
-   - Association Rules
+    - Clustering (K-Means, Hierarchical)
+    - Dimensionality Reduction (PCA)
+    - Association Rules (Apriori Algorithm)
 
 5. **[Module 5: Decision Trees](module5-decision-trees.md)**
-   - Decision Tree Algorithm
-   - Entropy and Information Gain
-   - Gini Impurity
-   - Pruning
+    - Decision Tree Algorithm
+    - Entropy and Information Gain
+    - Gini Impurity
+    - Pruning Techniques
 
 ## 📚 Solved Previous Year Papers
 

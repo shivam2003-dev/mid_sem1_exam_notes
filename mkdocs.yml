@@ -44,11 +44,23 @@ markdown_extensions:
   - tables
   - attr_list
   - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 nav:
   - Home: index.md
   - Machine Learning:
     - ML Overview: ml/index.md
+    - Cheat Sheet: ml/cheatsheet.md
     - Module 1 - Introduction: ml/module1-introduction.md
     - Module 2 - Supervised Learning: ml/module2-supervised-learning.md
     - Module 3 - Classification & Evaluation: ml/module3-classification-evaluation.md

@@ -47,6 +47,12 @@ Where:
 
 **Why $\frac{1}{2}$?**: Makes derivative cleaner (the 2 cancels out)
 
+!!! note "Important"
+    The factor of $\frac{1}{2}$ doesn't change the optimal solution, but simplifies the gradient calculation.
+
+!!! tip "Exam Tip"
+    Always show the cost function formula clearly. The $\frac{1}{2m}$ factor is standard in many textbooks.
+
 ### Gradient Descent Algorithm
 
 Gradient descent minimizes the cost function by iteratively updating parameters.
@@ -91,6 +97,12 @@ $$\theta := \theta - \alpha \frac{1}{m} X^T (X\theta - y)$$
 - Cost may increase
 - May overshoot minimum
 - May diverge (fail to converge)
+
+!!! warning "Critical"
+    If your cost function is increasing during gradient descent, your learning rate is too large! Reduce $\alpha$ immediately.
+
+!!! recommendation "Best Practice"
+    Start with a small learning rate (e.g., 0.01) and gradually increase if convergence is too slow. Use learning rate scheduling for better results.
 
 **Rule of Thumb**: Try values like 0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1.0
 

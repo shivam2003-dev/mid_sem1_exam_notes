@@ -88,7 +88,10 @@ A **Decision Tree** is a flowchart-like structure where:
 **Entropy** measures uncertainty/randomness in data.
 
 **Formula**:
-$$H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)$$
+
+\[
+H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)
+\]
 
 Where:
 - $S$ = set of examples
@@ -101,18 +104,29 @@ Where:
 - **Maximum Entropy**: $\log_2(c)$ for $c$ classes
 
 **Example** (Binary Classification):
-- Pure node: [10 Yes, 0 No] → $H = -1 \log_2(1) - 0 \log_2(0) = 0$
-- Impure node: [5 Yes, 5 No] → $H = -0.5 \log_2(0.5) - 0.5 \log_2(0.5) = 1$
-- Mixed: [7 Yes, 3 No] → $H = -0.7 \log_2(0.7) - 0.3 \log_2(0.3) \approx 0.88$
+- **Pure node**: [10 Yes, 0 No] → $H = -1 \cdot \log_2(1) - 0 \cdot \log_2(0) = -1 \cdot 0 - 0 = 0$
+- **Impure node**: [5 Yes, 5 No] → $H = -0.5 \cdot \log_2(0.5) - 0.5 \cdot \log_2(0.5) = -0.5 \cdot (-1) - 0.5 \cdot (-1) = 1$
+- **Mixed node**: [7 Yes, 3 No] → $H = -0.7 \cdot \log_2(0.7) - 0.3 \cdot \log_2(0.3) \approx 0.88$
+
+!!! tip "Remember"
+    When $p_i = 0$, we define $p_i \log_2(p_i) = 0$ (by convention) to avoid $\log(0)$ which is undefined.
+
+!!! recommendation "Exam Tip"
+    For binary classification, memorize: Maximum entropy = 1 when classes are perfectly balanced (50-50 split).
 
 ### Gini Impurity (Gini Index)
 
-**Gini Impurity** measures probability of misclassifying a randomly chosen element.
+**Gini Impurity** measures the probability of misclassifying a randomly chosen element.
 
 **Formula**:
-$$\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2$$
+
+\[
+\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2
+\]
 
 Where:
+- $S$ = set of examples
+- $c$ = number of classes
 - $p_i$ = proportion of class $i$ in $S$
 
 **Properties**:
@@ -121,9 +135,15 @@ Where:
 - **Maximum Gini**: $1 - \frac{1}{c}$ for $c$ classes
 
 **Example** (Binary Classification):
-- Pure: [10 Yes, 0 No] → Gini = $1 - (1^2 + 0^2) = 0$
-- Impure: [5 Yes, 5 No] → Gini = $1 - (0.5^2 + 0.5^2) = 0.5$
-- Mixed: [7 Yes, 3 No] → Gini = $1 - (0.7^2 + 0.3^2) = 0.42$
+- **Pure node**: [10 Yes, 0 No] → $\text{Gini} = 1 - (1^2 + 0^2) = 1 - 1 = 0$
+- **Impure node**: [5 Yes, 5 No] → $\text{Gini} = 1 - (0.5^2 + 0.5^2) = 1 - 0.5 = 0.5$
+- **Mixed node**: [7 Yes, 3 No] → $\text{Gini} = 1 - (0.7^2 + 0.3^2) = 1 - (0.49 + 0.09) = 0.42$
+
+!!! note "Key Point"
+    Gini Impurity is computationally faster than Entropy because it doesn't require logarithms. Use Gini when performance is critical.
+
+!!! warning "Common Mistake"
+    Don't confuse Gini Impurity with Gini Coefficient (used in economics). They are different concepts!
 
 ### Comparison: Entropy vs Gini
 
