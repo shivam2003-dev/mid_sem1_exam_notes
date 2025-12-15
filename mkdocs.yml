@@ -1,0 +1,69 @@
+site_name: Mid Semester 1 Exam Notes
+site_description: Comprehensive revision notes and solved papers for Mid Semester 1 exams
+site_author: Shivam Kumar
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+    - content.code.copy
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Machine Learning:
+    - ML Overview: ml/index.md
+    - Module 1 - Introduction: ml/module1-introduction.md
+    - Module 2 - Supervised Learning: ml/module2-supervised-learning.md
+    - Module 3 - Classification & Evaluation: ml/module3-classification-evaluation.md
+    - Module 4 - Unsupervised Learning: ml/module4-unsupervised-learning.md
+    - Module 5 - Decision Trees: ml/module5-decision-trees.md
+    - Previous Year Papers:
+      - 2024 Regular Paper - Solved: ml/papers/2024-regular-solved.md
+      - 2024 Makeup Paper - Solved: ml/papers/2024-makeup-solved.md
+      - 2025 Practice Set - Solved: ml/papers/2025-practice-solved.md
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+
+repo_url: https://github.com/shivam2003-dev/mid_sem1_exam_notes
+repo_name: mid_sem1_exam_notes
+
