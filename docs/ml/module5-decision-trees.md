@@ -89,9 +89,9 @@ A **Decision Tree** is a flowchart-like structure where:
 
 **Formula**:
 
-\[
+$$
 H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)
-\]
+$$
 
 Where:
 - $S$ = set of examples
@@ -120,9 +120,9 @@ Where:
 
 **Formula**:
 
-\[
+$$
 \text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2
-\]
+$$
 
 Where:
 - $S$ = set of examples
@@ -167,9 +167,9 @@ Where:
 
 **Formula**:
 
-\[
+$$
 \text{IG}(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v)
-\]
+$$
 
 Where:
 - $S$ = set of examples
@@ -190,15 +190,15 @@ Where:
 
 **Split Information**:
 
-\[
+$$
 \text{SplitInfo}(S, A) = -\sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \log_2\left(\frac{|S_v|}{|S|}\right)
-\]
+$$
 
 **Information Gain Ratio**:
 
-\[
+$$
 \text{IGR}(S, A) = \frac{\text{IG}(S, A)}{\text{SplitInfo}(S, A)}
-\]
+$$
 
 **Use**: C4.5 algorithm uses Information Gain Ratio
 
@@ -266,7 +266,9 @@ Total: 14 examples
 - Yes: 9
 - No: 5
 
-$$H(S) = -\frac{9}{14}\log_2\left(\frac{9}{14}\right) - \frac{5}{14}\log_2\left(\frac{5}{14}\right) \approx 0.940$$
+$$
+H(S) = -\frac{9}{14}\log_2\left(\frac{9}{14}\right) - \frac{5}{14}\log_2\left(\frac{5}{14}\right) \approx 0.940
+$$
 
 ### Step 2: Calculate Information Gain for Each Feature
 
@@ -275,26 +277,34 @@ $$H(S) = -\frac{9}{14}\log_2\left(\frac{9}{14}\right) - \frac{5}{14}\log_2\left(
 - Overcast: [4 Yes, 0 No] → $H = 0$
 - Rainy: [3 Yes, 2 No] → $H = 0.971$
 
-$$\text{IG}(S, \text{Outlook}) = 0.940 - \left(\frac{5}{14} \times 0.971 + \frac{4}{14} \times 0 + \frac{5}{14} \times 0.971\right) = 0.246$$
+$$
+\text{IG}(S, \text{Outlook}) = 0.940 - \left(\frac{5}{14} \times 0.971 + \frac{4}{14} \times 0 + \frac{5}{14} \times 0.971\right) = 0.246
+$$
 
 **For Humidity**:
 - High: [3 Yes, 4 No] → $H = 0.985$
 - Normal: [6 Yes, 1 No] → $H = 0.592$
 
-$$\text{IG}(S, \text{Humidity}) = 0.940 - \left(\frac{7}{14} \times 0.985 + \frac{7}{14} \times 0.592\right) = 0.152$$
+$$
+\text{IG}(S, \text{Humidity}) = 0.940 - \left(\frac{7}{14} \times 0.985 + \frac{7}{14} \times 0.592\right) = 0.152
+$$
 
 **For Wind**:
 - Weak: [6 Yes, 2 No] → $H = 0.811$
 - Strong: [3 Yes, 3 No] → $H = 1.0$
 
-$$\text{IG}(S, \text{Wind}) = 0.940 - \left(\frac{8}{14} \times 0.811 + \frac{6}{14} \times 1.0\right) = 0.048$$
+$$
+\text{IG}(S, \text{Wind}) = 0.940 - \left(\frac{8}{14} \times 0.811 + \frac{6}{14} \times 1.0\right) = 0.048
+$$
 
 **For Temperature**:
 - Hot: [2 Yes, 2 No] → $H = 1.0$
 - Mild: [4 Yes, 2 No] → $H = 0.918$
 - Cool: [3 Yes, 1 No] → $H = 0.811$
 
-$$\text{IG}(S, \text{Temperature}) = 0.940 - \left(\frac{4}{14} \times 1.0 + \frac{6}{14} \times 0.918 + \frac{4}{14} \times 0.811\right) = 0.029$$
+$$
+\text{IG}(S, \text{Temperature}) = 0.940 - \left(\frac{4}{14} \times 1.0 + \frac{6}{14} \times 0.918 + \frac{4}{14} \times 0.811\right) = 0.029
+$$
 
 **Result**: Outlook has highest Information Gain (0.246) → **Split on Outlook**
 
@@ -360,7 +370,9 @@ Build full tree, then remove branches:
 ### Cost Complexity Pruning
 
 **Objective**: Minimize
-$$\text{Cost} = \text{Error} + \alpha \times \text{Complexity}$$
+$$
+\text{Cost} = \text{Error} + \alpha \times \text{Complexity}
+$$
 
 Where:
 - $\alpha$ = complexity parameter
@@ -390,10 +402,14 @@ Where:
 ### Splitting Criterion for Regression
 
 **MSE (Mean Squared Error)**:
-$$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2$$
+$$
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2
+$$
 
 **Information Gain (Regression)**:
-$$\text{IG} = \text{MSE}_{\text{parent}} - \left(\frac{n_{\text{left}}}{n} \text{MSE}_{\text{left}} + \frac{n_{\text{right}}}{n} \text{MSE}_{\text{right}}\right)$$
+$$
+\text{IG} = \text{MSE}_{\text{parent}} - \left(\frac{n_{\text{left}}}{n} \text{MSE}_{\text{left}} + \frac{n_{\text{right}}}{n} \text{MSE}_{\text{right}}\right)
+$$
 
 Choose split that maximizes information gain (minimizes weighted MSE).
 
@@ -402,19 +418,29 @@ Choose split that maximizes information gain (minimizes weighted MSE).
 ## Key Formulas Summary
 
 ### Entropy
-$$H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)$$
+$$
+H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)
+$$
 
 ### Gini Impurity
-$$\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2$$
+$$
+\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2
+$$
 
 ### Information Gain
-$$\text{IG}(S, A) = H(S) - \sum_{v} \frac{|S_v|}{|S|} H(S_v)$$
+$$
+\text{IG}(S, A) = H(S) - \sum_{v} \frac{|S_v|}{|S|} H(S_v)
+$$
 
 ### Information Gain Ratio
-$$\text{IGR}(S, A) = \frac{\text{IG}(S, A)}{\text{SplitInfo}(S, A)}$$
+$$
+\text{IGR}(S, A) = \frac{\text{IG}(S, A)}{\text{SplitInfo}(S, A)}
+$$
 
 ### Regression MSE
-$$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2$$
+$$
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2
+$$
 
 ---
 

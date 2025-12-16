@@ -38,7 +38,9 @@ The cost function measures how far off our predictions are from actual values.
 
 **For m training examples**:
 
-$$J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2$$
+$$
+J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2
+$$
 
 Where:
 - $h_\theta(x^{(i)}) = \theta^T x^{(i)}$ (prediction for example i)
@@ -62,17 +64,25 @@ Gradient descent minimizes the cost function by iteratively updating parameters.
 2. Repeat until convergence:
    - Update all parameters simultaneously:
    
-   $$\theta_j := \theta_j - \alpha \frac{\partial J(\theta)}{\partial \theta_j}$$
+   $$
+\theta_j := \theta_j - \alpha \frac{\partial J(\theta)}{\partial \theta_j}
+$$
 
 **Update Rule**:
 
-$$\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)}$$
+$$
+\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)}
+$$
 
 **For $\theta_0$ (bias term)**:
-$$\theta_0 := \theta_0 - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})$$
+$$
+\theta_0 := \theta_0 - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})
+$$
 
 **For $\theta_j$ (j > 0)**:
-$$\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)}$$
+$$
+\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)}
+$$
 
 **Parameters**:
 - $\alpha$ (alpha) = learning rate (step size)
@@ -81,7 +91,10 @@ $$\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - 
 - Number of iterations
 
 **Vectorized Update**:
-$$\theta := \theta - \alpha \frac{1}{m} X^T (X\theta - y)$$
+
+$$
+\theta := \theta - \alpha \frac{1}{m} X^T (X\theta - y)
+$$
 
 ### Learning Rate Selection
 
@@ -110,7 +123,9 @@ $$\theta := \theta - \alpha \frac{1}{m} X^T (X\theta - y)$$
 
 Closed-form solution (no iteration needed):
 
-$$\theta = (X^T X)^{-1} X^T y$$
+$$
+\theta = (X^T X)^{-1} X^T y
+$$
 
 **When to use**:
 - ✅ Small number of features (< 1000)
@@ -134,7 +149,9 @@ $$\theta = (X^T X)^{-1} X^T y$$
 
 **Sigmoid Function** (also called Logistic Function):
 
-$$h_\theta(x) = g(\theta^T x) = \frac{1}{1 + e^{-\theta^T x}}$$
+$$
+h_\theta(x) = g(\theta^T x) = \frac{1}{1 + e^{-\theta^T x}}
+$$
 
 Where $g(z) = \frac{1}{1 + e^{-z}}$ is the sigmoid function.
 
@@ -171,7 +188,9 @@ Since $g(z) \geq 0.5$ when $z \geq 0$:
 
 **Logistic Regression Cost Function**:
 
-$$J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)}))]$$
+$$
+J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)}))]
+$$
 
 **For single training example**:
 $$Cost(h_\theta(x), y) = \begin{cases}
@@ -187,10 +206,14 @@ $$Cost(h_\theta(x), y) = \begin{cases}
 
 **Update Rule** (same form as linear regression!):
 
-$$\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)}$$
+$$
+\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)}
+$$
 
 **Vectorized**:
-$$\theta := \theta - \alpha \frac{1}{m} X^T (g(X\theta) - y)$$
+$$
+\theta := \theta - \alpha \frac{1}{m} X^T (g(X\theta) - y)
+$$
 
 Where $g$ is the sigmoid function applied element-wise.
 
@@ -224,24 +247,34 @@ Where $g$ is the sigmoid function applied element-wise.
 
 **Linear Regression with Regularization**:
 
-$$J(\theta) = \frac{1}{2m} \left[ \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^{n} \theta_j^2 \right]$$
+$$
+J(\theta) = \frac{1}{2m} \left[ \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^{n} \theta_j^2 \right]
+$$
 
 **Logistic Regression with Regularization**:
 
-$$J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m} \sum_{j=1}^{n} \theta_j^2$$
+$$
+J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m} \sum_{j=1}^{n} \theta_j^2
+$$
 
 **Note**: Don't regularize $\theta_0$ (bias term)
 
 ### Regularized Gradient Descent
 
 **For $j = 0$** (bias term, no regularization):
-$$\theta_0 := \theta_0 - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})$$
+$$
+\theta_0 := \theta_0 - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})
+$$
 
 **For $j \geq 1$** (with regularization):
-$$\theta_j := \theta_j - \alpha \left[ \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)} + \frac{\lambda}{m} \theta_j \right]$$
+$$
+\theta_j := \theta_j - \alpha \left[ \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)} + \frac{\lambda}{m} \theta_j \right]
+$$
 
 Can be rewritten as:
-$$\theta_j := \theta_j \left(1 - \alpha \frac{\lambda}{m}\right) - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)}$$
+$$
+\theta_j := \theta_j \left(1 - \alpha \frac{\lambda}{m}\right) - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)}
+$$
 
 **Regularization Parameter $\lambda$**:
 - Large $\lambda$: Strong regularization, simpler model (may underfit)

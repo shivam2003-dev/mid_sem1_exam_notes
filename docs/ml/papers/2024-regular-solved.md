@@ -36,8 +36,12 @@ Given the following training data:
 **Hypothesis**: $h_\theta(x) = \theta_0 + \theta_1 x$
 
 **Gradient Descent Update Rules**:
-$$\theta_0 := \theta_0 - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})$$
-$$\theta_1 := \theta_1 - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x^{(i)}$$
+$$
+\theta_0 := \theta_0 - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})
+$$
+$$
+\theta_1 := \theta_1 - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x^{(i)}
+$$
 
 ---
 
@@ -62,17 +66,35 @@ $\theta_0 = 0$, $\theta_1 = 0$
 #### Iteration 1
 
 **Update $\theta_0$**:
-$$\theta_0 := 0 - 0.1 \times \frac{1}{4} \times [(-2) + (-4) + (-5) + (-4)]$$
-$$\theta_0 := 0 - 0.1 \times \frac{1}{4} \times (-15)$$
-$$\theta_0 := 0 - 0.1 \times (-3.75)$$
-$$\theta_0 := 0 + 0.375 = 0.375$$
+$$
+\theta_0 := 0 - 0.1 \times \frac{1}{4} \times [(-2) + (-4) + (-5) + (-4)]
+$$
+$$
+\theta_0 := 0 - 0.1 \times \frac{1}{4} \times (-15)
+$$
+$$
+\theta_0 := 0 - 0.1 \times (-3.75)
+$$
+$$
+\theta_0 := 0 + 0.375 = 0.375
+$$
 
 **Update $\theta_1$**:
-$$\theta_1 := 0 - 0.1 \times \frac{1}{4} \times [(-2) \times 1 + (-4) \times 2 + (-5) \times 3 + (-4) \times 4]$$
-$$\theta_1 := 0 - 0.1 \times \frac{1}{4} \times [-2 - 8 - 15 - 16]$$
-$$\theta_1 := 0 - 0.1 \times \frac{1}{4} \times (-41)$$
-$$\theta_1 := 0 - 0.1 \times (-10.25)$$
-$$\theta_1 := 0 + 1.025 = 1.025$$
+$$
+\theta_1 := 0 - 0.1 \times \frac{1}{4} \times [(-2) \times 1 + (-4) \times 2 + (-5) \times 3 + (-4) \times 4]
+$$
+$$
+\theta_1 := 0 - 0.1 \times \frac{1}{4} \times [-2 - 8 - 15 - 16]
+$$
+$$
+\theta_1 := 0 - 0.1 \times \frac{1}{4} \times (-41)
+$$
+$$
+\theta_1 := 0 - 0.1 \times (-10.25)
+$$
+$$
+\theta_1 := 0 + 1.025 = 1.025
+$$
 
 **After Iteration 1**: $\theta_0 = 0.375$, $\theta_1 = 1.025$
 
@@ -93,17 +115,35 @@ $$\theta_1 := 0 + 1.025 = 1.025$$
 #### Iteration 2
 
 **Update $\theta_0$**:
-$$\theta_0 := 0.375 - 0.1 \times \frac{1}{4} \times [(-0.6) + (-1.575) + (-1.55) + (0.475)]$$
-$$\theta_0 := 0.375 - 0.1 \times \frac{1}{4} \times (-3.25)$$
-$$\theta_0 := 0.375 - 0.1 \times (-0.8125)$$
-$$\theta_0 := 0.375 + 0.08125 = 0.45625$$
+$$
+\theta_0 := 0.375 - 0.1 \times \frac{1}{4} \times [(-0.6) + (-1.575) + (-1.55) + (0.475)]
+$$
+$$
+\theta_0 := 0.375 - 0.1 \times \frac{1}{4} \times (-3.25)
+$$
+$$
+\theta_0 := 0.375 - 0.1 \times (-0.8125)
+$$
+$$
+\theta_0 := 0.375 + 0.08125 = 0.45625
+$$
 
 **Update $\theta_1$**:
-$$\theta_1 := 1.025 - 0.1 \times \frac{1}{4} \times [(-0.6) \times 1 + (-1.575) \times 2 + (-1.55) \times 3 + (0.475) \times 4]$$
-$$\theta_1 := 1.025 - 0.1 \times \frac{1}{4} \times [-0.6 - 3.15 - 4.65 + 1.9]$$
-$$\theta_1 := 1.025 - 0.1 \times \frac{1}{4} \times (-6.5)$$
-$$\theta_1 := 1.025 - 0.1 \times (-1.625)$$
-$$\theta_1 := 1.025 + 0.1625 = 1.1875$$
+$$
+\theta_1 := 1.025 - 0.1 \times \frac{1}{4} \times [(-0.6) \times 1 + (-1.575) \times 2 + (-1.55) \times 3 + (0.475) \times 4]
+$$
+$$
+\theta_1 := 1.025 - 0.1 \times \frac{1}{4} \times [-0.6 - 3.15 - 4.65 + 1.9]
+$$
+$$
+\theta_1 := 1.025 - 0.1 \times \frac{1}{4} \times (-6.5)
+$$
+$$
+\theta_1 := 1.025 - 0.1 \times (-1.625)
+$$
+$$
+\theta_1 := 1.025 + 0.1625 = 1.1875
+$$
 
 **After Iteration 2**: $\theta_0 = 0.45625$, $\theta_1 = 1.1875$
 
@@ -114,7 +154,9 @@ $$\theta_1 := 1.025 + 0.1625 = 1.1875$$
 #### Part (b): Cost Function
 
 **Cost Function**:
-$$J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2$$
+$$
+J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2
+$$
 
 **With $\theta_0 = 0.45625$, $\theta_1 = 1.1875$**:
 
@@ -131,8 +173,12 @@ $$J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2$$
 - $(5.20625 - 4)^2 = (1.20625)^2 = 1.4550$
 
 **Cost**:
-$$J(\theta) = \frac{1}{2 \times 4} \times (0.1269 + 1.3660 + 0.9629 + 1.4550)$$
-$$J(\theta) = \frac{1}{8} \times 3.9108 = 0.48885$$
+$$
+J(\theta) = \frac{1}{2 \times 4} \times (0.1269 + 1.3660 + 0.9629 + 1.4550)
+$$
+$$
+J(\theta) = \frac{1}{8} \times 3.9108 = 0.48885
+$$
 
 **Answer**: $J(\theta) = 0.48885$
 
@@ -168,10 +214,14 @@ Given training data for binary classification:
 - Parameters: $\theta = [0, 1, 1]^T$
 
 **Linear Combination**:
-$$z = \theta^T x = 0 \times 1 + 1 \times 1 + 1 \times 0 = 0 + 1 + 0 = 1$$
+$$
+z = \theta^T x = 0 \times 1 + 1 \times 1 + 1 \times 0 = 0 + 1 + 0 = 1
+$$
 
 **Sigmoid Function**:
-$$h_\theta(x) = g(z) = \frac{1}{1 + e^{-z}} = \frac{1}{1 + e^{-1}} = \frac{1}{1 + 0.3679} = \frac{1}{1.3679} = 0.731$$
+$$
+h_\theta(x) = g(z) = \frac{1}{1 + e^{-z}} = \frac{1}{1 + e^{-1}} = \frac{1}{1 + 0.3679} = \frac{1}{1.3679} = 0.731
+$$
 
 **Answer**: $h_\theta(x) = 0.731$
 
@@ -200,7 +250,9 @@ $$Cost(h_\theta(x), y) = \begin{cases}
 \end{cases}$$
 
 Since $y = 0$:
-$$Cost = -\log(1 - h_\theta(x)) = -\log(1 - 0.731) = -\log(0.269) = -(-1.313) = 1.313$$
+$$
+Cost = -\log(1 - h_\theta(x)) = -\log(1 - 0.731) = -\log(0.269) = -(-1.313) = 1.313
+$$
 
 **Answer**: Cost = **1.313**
 
@@ -241,10 +293,14 @@ Calculate:
 #### Part (a): Accuracy
 
 **Formula**:
-$$\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}$$
+$$
+\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+$$
 
 **Calculation**:
-$$\text{Accuracy} = \frac{85 + 80}{200} = \frac{165}{200} = 0.825 = 82.5\%$$
+$$
+\text{Accuracy} = \frac{85 + 80}{200} = \frac{165}{200} = 0.825 = 82.5\%
+$$
 
 **Answer**: Accuracy = **0.825** or **82.5%**
 
@@ -253,10 +309,14 @@ $$\text{Accuracy} = \frac{85 + 80}{200} = \frac{165}{200} = 0.825 = 82.5\%$$
 #### Part (b): Precision
 
 **Formula**:
-$$\text{Precision} = \frac{TP}{TP + FP}$$
+$$
+\text{Precision} = \frac{TP}{TP + FP}
+$$
 
 **Calculation**:
-$$\text{Precision} = \frac{85}{85 + 20} = \frac{85}{105} = 0.8095 = 80.95\%$$
+$$
+\text{Precision} = \frac{85}{85 + 20} = \frac{85}{105} = 0.8095 = 80.95\%
+$$
 
 **Answer**: Precision = **0.8095** or **80.95%**
 
@@ -265,10 +325,14 @@ $$\text{Precision} = \frac{85}{85 + 20} = \frac{85}{105} = 0.8095 = 80.95\%$$
 #### Part (c): Recall
 
 **Formula**:
-$$\text{Recall} = \frac{TP}{TP + FN}$$
+$$
+\text{Recall} = \frac{TP}{TP + FN}
+$$
 
 **Calculation**:
-$$\text{Recall} = \frac{85}{85 + 15} = \frac{85}{100} = 0.85 = 85\%$$
+$$
+\text{Recall} = \frac{85}{85 + 15} = \frac{85}{100} = 0.85 = 85\%
+$$
 
 **Answer**: Recall = **0.85** or **85%**
 
@@ -277,12 +341,20 @@ $$\text{Recall} = \frac{85}{85 + 15} = \frac{85}{100} = 0.85 = 85\%$$
 #### Part (d): F1-Score
 
 **Formula**:
-$$\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
+$$
+\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
+$$
 
 **Using calculated values**:
-$$\text{F1-Score} = 2 \times \frac{0.8095 \times 0.85}{0.8095 + 0.85}$$
-$$\text{F1-Score} = 2 \times \frac{0.6881}{1.6595}$$
-$$\text{F1-Score} = 2 \times 0.4148 = 0.8296$$
+$$
+\text{F1-Score} = 2 \times \frac{0.8095 \times 0.85}{0.8095 + 0.85}
+$$
+$$
+\text{F1-Score} = 2 \times \frac{0.6881}{1.6595}
+$$
+$$
+\text{F1-Score} = 2 \times 0.4148 = 0.8296
+$$
 
 **Answer**: F1-Score = **0.8296**
 
@@ -324,13 +396,23 @@ Given the following dataset:
 - No: 4 examples
 
 **Entropy Formula**:
-$$H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)$$
+$$
+H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)
+$$
 
 **Calculation**:
-$$H(S) = -\left[\frac{4}{8} \log_2\left(\frac{4}{8}\right) + \frac{4}{8} \log_2\left(\frac{4}{8}\right)\right]$$
-$$H(S) = -\left[0.5 \times \log_2(0.5) + 0.5 \times \log_2(0.5)\right]$$
-$$H(S) = -\left[0.5 \times (-1) + 0.5 \times (-1)\right]$$
-$$H(S) = -[-0.5 - 0.5] = -[-1] = 1$$
+$$
+H(S) = -\left[\frac{4}{8} \log_2\left(\frac{4}{8}\right) + \frac{4}{8} \log_2\left(\frac{4}{8}\right)\right]
+$$
+$$
+H(S) = -\left[0.5 \times \log_2(0.5) + 0.5 \times \log_2(0.5)\right]
+$$
+$$
+H(S) = -\left[0.5 \times (-1) + 0.5 \times (-1)\right]
+$$
+$$
+H(S) = -[-0.5 - 0.5] = -[-1] = 1
+$$
 
 **Answer**: $H(S) = 1$ (maximum entropy - completely impure)
 
@@ -339,7 +421,9 @@ $$H(S) = -[-0.5 - 0.5] = -[-1] = 1$$
 #### Part (b): Information Gain for Outlook
 
 **Information Gain Formula**:
-$$\text{IG}(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v)$$
+$$
+\text{IG}(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v)
+$$
 
 **Outlook has 3 values**: Sunny, Overcast, Rainy
 
@@ -363,11 +447,17 @@ $$\text{IG}(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v
    - $H(S_{\text{Rainy}}) = -[-0.390 - 0.528] = 0.918$
 
 **Weighted Average Entropy**:
-$$H(S|\text{Outlook}) = \frac{3}{8} \times 0 + \frac{2}{8} \times 0 + \frac{3}{8} \times 0.918$$
-$$H(S|\text{Outlook}) = 0 + 0 + 0.344 = 0.344$$
+$$
+H(S|\text{Outlook}) = \frac{3}{8} \times 0 + \frac{2}{8} \times 0 + \frac{3}{8} \times 0.918
+$$
+$$
+H(S|\text{Outlook}) = 0 + 0 + 0.344 = 0.344
+$$
 
 **Information Gain**:
-$$\text{IG}(S, \text{Outlook}) = H(S) - H(S|\text{Outlook}) = 1 - 0.344 = 0.656$$
+$$
+\text{IG}(S, \text{Outlook}) = H(S) - H(S|\text{Outlook}) = 1 - 0.344 = 0.656
+$$
 
 **Answer**: Information Gain = **0.656**
 
@@ -392,10 +482,14 @@ $$\text{IG}(S, \text{Outlook}) = H(S) - H(S|\text{Outlook}) = 1 - 0.344 = 0.656$
    - $H(S_{\text{Cool}}) = 0.918$ (same as Hot)
 
 **Weighted Average**:
-$$H(S|\text{Temperature}) = \frac{3}{8} \times 0.918 + \frac{2}{8} \times 1 + \frac{3}{8} \times 0.918 = 0.938$$
+$$
+H(S|\text{Temperature}) = \frac{3}{8} \times 0.918 + \frac{2}{8} \times 1 + \frac{3}{8} \times 0.918 = 0.938
+$$
 
 **Information Gain**:
-$$\text{IG}(S, \text{Temperature}) = 1 - 0.938 = 0.062$$
+$$
+\text{IG}(S, \text{Temperature}) = 1 - 0.938 = 0.062
+$$
 
 **Comparison**:
 - IG(Outlook) = 0.656
@@ -454,10 +548,14 @@ Perform K-Means clustering with $K = 2$:
 **Step 2: Update Centroids**
 
 **New $C_1$** (mean of A, B, C):
-$$C_1 = \left(\frac{1+1+0}{3}, \frac{1+0+2}{3}\right) = \left(\frac{2}{3}, 1\right) = (0.667, 1)$$
+$$
+C_1 = \left(\frac{1+1+0}{3}, \frac{1+0+2}{3}\right) = \left(\frac{2}{3}, 1\right) = (0.667, 1)
+$$
 
 **New $C_2$** (mean of D):
-$$C_2 = (2, 1)$$ (unchanged)
+$$
+C_2 = (2, 1)
+$$ (unchanged)
 
 **After Iteration 1**: $C_1 = (0.667, 1)$, $C_2 = (2, 1)$
 

@@ -9,189 +9,189 @@ Quick reference guide for all important formulas, concepts, and algorithms.
 ### Linear Regression
 
 **Hypothesis Function**:
-\[
+$$
 h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_n x_n = \theta^T x
-\]
+$$
 
 **Cost Function (MSE)**:
-\[
+$$
 J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2
-\]
+$$
 
 **Gradient Descent Update**:
-\[
+$$
 \theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)}
-\]
+$$
 
 **Normal Equation**:
-\[
+$$
 \theta = (X^T X)^{-1} X^T y
-\]
+$$
 
 ---
 
 ### Logistic Regression
 
 **Sigmoid Function**:
-\[
+$$
 g(z) = \frac{1}{1 + e^{-z}}
-\]
+$$
 
 **Hypothesis**:
-\[
+$$
 h_\theta(x) = g(\theta^T x) = \frac{1}{1 + e^{-\theta^T x}}
-\]
+$$
 
 **Cost Function (Cross-Entropy)**:
-\[
+$$
 J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)}))]
-\]
+$$
 
-**Decision Boundary**: \(\theta^T x = 0\)
+**Decision Boundary**: $\theta^T x = 0$
 
 ---
 
 ### Regularization
 
 **Regularized Cost (Linear Regression)**:
-\[
+$$
 J(\theta) = \frac{1}{2m} \left[ \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^{n} \theta_j^2 \right]
-\]
+$$
 
 **Regularized Cost (Logistic Regression)**:
-\[
+$$
 J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m} \sum_{j=1}^{n} \theta_j^2
-\]
+$$
 
 **Regularized Gradient Update**:
-\[
+$$
 \theta_j := \theta_j \left(1 - \alpha \frac{\lambda}{m}\right) - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)}
-\]
+$$
 
 ---
 
 ### Evaluation Metrics
 
 **Accuracy**:
-\[
+$$
 \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
-\]
+$$
 
 **Precision**:
-\[
+$$
 \text{Precision} = \frac{TP}{TP + FP}
-\]
+$$
 
 **Recall (Sensitivity)**:
-\[
+$$
 \text{Recall} = \frac{TP}{TP + FN} = \text{TPR}
-\]
+$$
 
 **Specificity**:
-\[
+$$
 \text{Specificity} = \frac{TN}{TN + FP} = \text{TNR}
-\]
+$$
 
 **F1-Score**:
-\[
+$$
 \text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2TP}{2TP + FP + FN}
-\]
+$$
 
 **False Positive Rate**:
-\[
+$$
 \text{FPR} = \frac{FP}{FP + TN}
-\]
+$$
 
 **False Negative Rate**:
-\[
+$$
 \text{FNR} = \frac{FN}{FN + TP}
-\]
+$$
 
 ---
 
 ### Decision Trees
 
 **Entropy**:
-\[
+$$
 H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)
-\]
+$$
 
 **Gini Impurity**:
-\[
+$$
 \text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2
-\]
+$$
 
 **Information Gain**:
-\[
+$$
 \text{IG}(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v)
-\]
+$$
 
 **Information Gain Ratio**:
-\[
+$$
 \text{IGR}(S, A) = \frac{\text{IG}(S, A)}{\text{SplitInfo}(S, A)}
-\]
+$$
 
 **Split Information**:
-\[
+$$
 \text{SplitInfo}(S, A) = -\sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \log_2\left(\frac{|S_v|}{|S|}\right)
-\]
+$$
 
 ---
 
 ### K-Means Clustering
 
 **Cost Function (Within-cluster sum of squares)**:
-\[
+$$
 J = \sum_{i=1}^{m} \sum_{k=1}^{K} w_{ik} ||x^{(i)} - \mu_k||^2
-\]
+$$
 
 **Centroid Update**:
-\[
+$$
 \mu_k = \frac{1}{|C_k|} \sum_{x \in C_k} x
-\]
+$$
 
 **Euclidean Distance**:
-\[
+$$
 d(x, y) = \sqrt{\sum_{i=1}^{n} (x_i - y_i)^2}
-\]
+$$
 
 ---
 
 ### Principal Component Analysis (PCA)
 
 **Covariance Matrix**:
-\[
+$$
 \Sigma = \frac{1}{m} X^T X
-\]
+$$
 
 **Variance Explained**:
-\[
+$$
 \text{Variance Explained} = \frac{\lambda_i}{\sum_{j=1}^{n} \lambda_j}
-\]
+$$
 
 **Cumulative Variance**:
-\[
+$$
 \text{Cumulative} = \frac{\sum_{i=1}^{k} \lambda_i}{\sum_{j=1}^{n} \lambda_j}
-\]
+$$
 
 ---
 
 ### Association Rules
 
 **Support**:
-\[
+$$
 \text{Support}(A) = \frac{\text{Count}(A)}{N}
-\]
+$$
 
 **Confidence**:
-\[
+$$
 \text{Confidence}(A \to B) = \frac{\text{Support}(A \cup B)}{\text{Support}(A)} = P(B|A)
-\]
+$$
 
 **Lift**:
-\[
+$$
 \text{Lift}(A \to B) = \frac{\text{Confidence}(A \to B)}{\text{Support}(B)} = \frac{P(B|A)}{P(B)}
-\]
+$$
 
 ---
 

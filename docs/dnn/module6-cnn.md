@@ -34,15 +34,15 @@ This module covers Convolutional Neural Networks (CNNs), specialized neural netw
 
 **Convolution Operation**:
 
-\[
+$$
 (f * g)(i, j) = \sum_{m} \sum_{n} f(m, n) \cdot g(i-m, j-n)
-\]
+$$
 
 **In CNN context**:
 
-\[
+$$
 \text{Output}(i, j) = \sum_{m=0}^{k-1} \sum_{n=0}^{k-1} \text{Input}(i+m, j+n) \cdot \text{Filter}(m, n) + b
-\]
+$$
 
 Where:
 - $k$ = filter size (e.g., 3×3, 5×5)
@@ -61,9 +61,9 @@ Input Image          Filter          Output
 
 **Output Size**:
 
-\[
+$$
 \text{Output Size} = \frac{\text{Input Size} - \text{Filter Size} + 2 \times \text{Padding}}{\text{Stride}} + 1
-\]
+$$
 
 **Parameters**:
 - **Filter Size**: Typically 3×3 or 5×5
@@ -78,14 +78,14 @@ Input Image          Filter          Output
 **Types**:
 
 **Max Pooling**:
-\[
+$$
 \text{Output}(i, j) = \max_{m,n \in \text{window}} \text{Input}(i+m, j+n)
-\]
+$$
 
 **Average Pooling**:
-\[
+$$
 \text{Output}(i, j) = \frac{1}{k^2} \sum_{m=0}^{k-1} \sum_{n=0}^{k-1} \text{Input}(i+m, j+n)
-\]
+$$
 
 **Common Sizes**: 2×2 with stride 2 (reduces size by half)
 
@@ -164,13 +164,13 @@ Output Layer (e.g., 10 classes) → Softmax
 
 **Output Size with Stride**:
 
-\[
+$$
 \text{Output Height} = \left\lfloor \frac{H - F + 2P}{S} \right\rfloor + 1
-\]
+$$
 
-\[
+$$
 \text{Output Width} = \left\lfloor \frac{W - F + 2P}{S} \right\rfloor + 1
-\]
+$$
 
 Where:
 - $H, W$ = input height, width
@@ -199,21 +199,21 @@ Where:
 ### Convolutional Layer Backpropagation
 
 **Forward**:
-\[
+$$
 y_{i,j} = \sum_{m} \sum_{n} x_{i+m, j+n} \cdot w_{m,n} + b
-\]
+$$
 
 **Backward** (gradient w.r.t. filter):
 
-\[
+$$
 \frac{\partial J}{\partial w_{m,n}} = \sum_{i} \sum_{j} \frac{\partial J}{\partial y_{i,j}} \cdot x_{i+m, j+n}
-\]
+$$
 
 **Gradient w.r.t. input**:
 
-\[
+$$
 \frac{\partial J}{\partial x_{i,j}} = \sum_{m} \sum_{n} \frac{\partial J}{\partial y_{i-m, j-n}} \cdot w_{m,n}
-\]
+$$
 
 **Key Insight**: Backpropagation in convolution uses **correlation** (flipped convolution).
 
@@ -285,27 +285,27 @@ y_{i,j} = \sum_{m} \sum_{n} x_{i+m, j+n} \cdot w_{m,n} + b
 
 ### Convolution
 
-\[
+$$
 \text{Output}(i, j) = \sum_{m=0}^{k-1} \sum_{n=0}^{k-1} \text{Input}(i+m, j+n) \cdot \text{Filter}(m, n) + b
-\]
+$$
 
 ### Output Size
 
-\[
+$$
 \text{Output} = \left\lfloor \frac{\text{Input} - \text{Filter} + 2 \times \text{Padding}}{\text{Stride}} \right\rfloor + 1
-\]
+$$
 
 ### Max Pooling
 
-\[
+$$
 \text{Output}(i, j) = \max_{m,n \in \text{window}} \text{Input}(i+m, j+n)
-\]
+$$
 
 ### Average Pooling
 
-\[
+$$
 \text{Output}(i, j) = \frac{1}{k^2} \sum_{m=0}^{k-1} \sum_{n=0}^{k-1} \text{Input}(i+m, j+n)
-\]
+$$
 
 ---
 

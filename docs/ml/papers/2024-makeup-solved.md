@@ -26,7 +26,9 @@ Given training data:
 #### Part (a): Hypothesis Function
 
 **Multiple Linear Regression Hypothesis**:
-$$h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2$$
+$$
+h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2
+$$
 
 Where:
 - $\theta_0$ = bias term
@@ -96,10 +98,18 @@ $$X^T X = \begin{bmatrix}
 **Step 3: Calculate $(X^T X)^{-1}$**
 
 **Determinant**:
-$$\det(X^T X) = 4(30 \times 18 - 19 \times 19) - 10(10 \times 18 - 19 \times 8) + 8(10 \times 19 - 30 \times 8)$$
-$$= 4(540 - 361) - 10(180 - 152) + 8(190 - 240)$$
-$$= 4(179) - 10(28) + 8(-50)$$
-$$= 716 - 280 - 400 = 36$$
+$$
+\det(X^T X) = 4(30 \times 18 - 19 \times 19) - 10(10 \times 18 - 19 \times 8) + 8(10 \times 19 - 30 \times 8)
+$$
+$$
+= 4(540 - 361) - 10(180 - 152) + 8(190 - 240)
+$$
+$$
+= 4(179) - 10(28) + 8(-50)
+$$
+$$
+= 716 - 280 - 400 = 36
+$$
 
 **Adjugate Matrix** (using cofactors):
 $$(X^T X)^{-1} = \frac{1}{36} \begin{bmatrix}
@@ -147,7 +157,9 @@ $$\theta = (X^T X)^{-1} X^T y = \frac{1}{36} \begin{bmatrix}
 **Note**: Let's verify with simpler calculation. Actually, recalculating more carefully:
 
 **Simplified calculation** (using matrix operations):
-$$\theta \approx [3, 1, 1]^T$$
+$$
+\theta \approx [3, 1, 1]^T
+$$
 
 **Verification**:
 - $h(1,2) = 3 + 1(1) + 1(2) = 6$ (close to 5)
@@ -164,7 +176,9 @@ $$\theta \approx [3, 1, 1]^T$$
 **Given**: $x_1 = 5$, $x_2 = 3$
 
 **Using $\theta = [3, 1, 1]^T$**:
-$$h_\theta(x) = 3 + 1(5) + 1(3) = 3 + 5 + 3 = 11$$
+$$
+h_\theta(x) = 3 + 1(5) + 1(3) = 3 + 5 + 3 = 11
+$$
 
 **Answer**: Predicted $y = 11$
 
@@ -190,7 +204,9 @@ Given a logistic regression model with regularization parameter $\lambda = 0.5$:
 
 **Logistic Regression Cost Function with Regularization**:
 
-$$J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m} \sum_{j=1}^{n} \theta_j^2$$
+$$
+J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m} \sum_{j=1}^{n} \theta_j^2
+$$
 
 Where:
 - First term: Cross-entropy loss (data fitting term)
@@ -207,13 +223,21 @@ Where:
 - $\lambda = 0.5$
 
 **Regularization Term**:
-$$\text{Reg} = \frac{\lambda}{2m} \sum_{j=1}^{n} \theta_j^2$$
+$$
+\text{Reg} = \frac{\lambda}{2m} \sum_{j=1}^{n} \theta_j^2
+$$
 
 **Note**: Only regularize $\theta_1$ and $\theta_2$ (not $\theta_0$)
 
-$$\text{Reg} = \frac{0.5}{2 \times 100} [(1.2)^2 + (-0.8)^2]$$
-$$\text{Reg} = \frac{0.5}{200} [1.44 + 0.64]$$
-$$\text{Reg} = \frac{0.5}{200} \times 2.08 = \frac{1.04}{200} = 0.0052$$
+$$
+\text{Reg} = \frac{0.5}{2 \times 100} [(1.2)^2 + (-0.8)^2]
+$$
+$$
+\text{Reg} = \frac{0.5}{200} [1.44 + 0.64]
+$$
+$$
+\text{Reg} = \frac{0.5}{200} \times 2.08 = \frac{1.04}{200} = 0.0052
+$$
 
 **Answer**: Regularization term = **0.0052**
 
@@ -298,10 +322,14 @@ A binary classifier produces the following predictions with probabilities:
 - FN = 1
 
 **TPR (Recall)**:
-$$\text{TPR} = \frac{TP}{TP + FN} = \frac{3}{3 + 1} = \frac{3}{4} = 0.75$$
+$$
+\text{TPR} = \frac{TP}{TP + FN} = \frac{3}{3 + 1} = \frac{3}{4} = 0.75
+$$
 
 **FPR**:
-$$\text{FPR} = \frac{FP}{FP + TN} = \frac{2}{2 + 2} = \frac{2}{4} = 0.5$$
+$$
+\text{FPR} = \frac{FP}{FP + TN} = \frac{2}{2 + 2} = \frac{2}{4} = 0.5
+$$
 
 **Answer**: TPR = **0.75**, FPR = **0.5**
 
@@ -330,10 +358,14 @@ $$\text{FPR} = \frac{FP}{FP + TN} = \frac{2}{2 + 2} = \frac{2}{4} = 0.5$$
 - FN = 2
 
 **TPR**:
-$$\text{TPR} = \frac{TP}{TP + FN} = \frac{2}{2 + 2} = \frac{2}{4} = 0.5$$
+$$
+\text{TPR} = \frac{TP}{TP + FN} = \frac{2}{2 + 2} = \frac{2}{4} = 0.5
+$$
 
 **FPR**:
-$$\text{FPR} = \frac{FP}{FP + TN} = \frac{1}{1 + 3} = \frac{1}{4} = 0.25$$
+$$
+\text{FPR} = \frac{FP}{FP + TN} = \frac{1}{1 + 3} = \frac{1}{4} = 0.25
+$$
 
 **Answer**: TPR = **0.5**, FPR = **0.25**
 
@@ -400,11 +432,17 @@ Given dataset:
 - No: 3 examples
 
 **Gini Formula**:
-$$\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2$$
+$$
+\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2
+$$
 
 **Calculation**:
-$$\text{Gini}(S) = 1 - \left[\left(\frac{3}{6}\right)^2 + \left(\frac{3}{6}\right)^2\right]$$
-$$\text{Gini}(S) = 1 - [0.25 + 0.25] = 1 - 0.5 = 0.5$$
+$$
+\text{Gini}(S) = 1 - \left[\left(\frac{3}{6}\right)^2 + \left(\frac{3}{6}\right)^2\right]
+$$
+$$
+\text{Gini}(S) = 1 - [0.25 + 0.25] = 1 - 0.5 = 0.5
+$$
 
 **Answer**: Root Gini = **0.5** (maximum impurity for binary classification)
 
@@ -432,13 +470,19 @@ $$\text{Gini}(S) = 1 - [0.25 + 0.25] = 1 - 0.5 = 0.5$$
    - $\text{Gini}(S_Z) = 1 - [0.5^2 + 0.5^2] = 1 - 0.5 = 0.5$
 
 **Weighted Average Gini**:
-$$\text{Gini}(S|A) = \frac{2}{6} \times 0 + \frac{2}{6} \times 0 + \frac{2}{6} \times 0.5$$
-$$\text{Gini}(S|A) = 0 + 0 + 0.167 = 0.167$$
+$$
+\text{Gini}(S|A) = \frac{2}{6} \times 0 + \frac{2}{6} \times 0 + \frac{2}{6} \times 0.5
+$$
+$$
+\text{Gini}(S|A) = 0 + 0 + 0.167 = 0.167
+$$
 
 **Answer**: Weighted Gini = **0.167**
 
 **Gini Gain**:
-$$\text{Gini Gain} = 0.5 - 0.167 = 0.333$$
+$$
+\text{Gini Gain} = 0.5 - 0.167 = 0.333
+$$
 
 ---
 
@@ -459,12 +503,16 @@ $$\text{Gini Gain} = 0.5 - 0.167 = 0.333$$
    - $\text{Gini}(S_{B=2}) = 1 - \left[\left(\frac{1}{3}\right)^2 + \left(\frac{2}{3}\right)^2\right] = 1 - [0.111 + 0.444] = 0.445$
 
 **Weighted Average Gini**:
-$$\text{Gini}(S|B) = \frac{3}{6} \times 0.445 + \frac{3}{6} \times 0.445 = 0.445$$
+$$
+\text{Gini}(S|B) = \frac{3}{6} \times 0.445 + \frac{3}{6} \times 0.445 = 0.445
+$$
 
 **Answer**: Weighted Gini = **0.445**
 
 **Gini Gain**:
-$$\text{Gini Gain} = 0.5 - 0.445 = 0.055$$
+$$
+\text{Gini Gain} = 0.5 - 0.445 = 0.055
+$$
 
 ---
 
@@ -538,7 +586,9 @@ $$Z = \begin{bmatrix}
 #### Part (b): Covariance Matrix
 
 **Covariance Matrix Formula**:
-$$\Sigma = \frac{1}{m} Z^T Z$$
+$$
+\Sigma = \frac{1}{m} Z^T Z
+$$
 
 **Where $m = 4$ (number of examples)**
 
@@ -587,22 +637,38 @@ $$\Sigma = \frac{1}{4} \begin{bmatrix}
 
 **Characteristic Equation**: $\det(\Sigma - \lambda I) = 0$
 
-$$\det\begin{bmatrix} 1-\lambda & 1 \\ 1 & 1-\lambda \end{bmatrix} = (1-\lambda)^2 - 1 = 0$$
+$$
+\det\begin{bmatrix} 1-\lambda & 1 \\ 1 & 1-\lambda \end{bmatrix} = (1-\lambda)^2 - 1 = 0
+$$
 
-$$(1-\lambda)^2 = 1$$
-$$1-\lambda = \pm 1$$
-$$\lambda = 0 \text{ or } \lambda = 2$$
+$$
+(1-\lambda)^2 = 1
+$$
+$$
+1-\lambda = \pm 1
+$$
+$$
+\lambda = 0 \text{ or } \lambda = 2
+$$
 
 **Largest eigenvalue**: $\lambda_1 = 2$
 
 **Eigenvector for $\lambda = 2$**:
-$$\begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = 2 \begin{bmatrix} v_1 \\ v_2 \end{bmatrix}$$
+$$
+\begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = 2 \begin{bmatrix} v_1 \\ v_2 \end{bmatrix}
+$$
 
-$$v_1 + v_2 = 2v_1 \Rightarrow v_2 = v_1$$
-$$v_1 + v_2 = 2v_2 \Rightarrow v_1 = v_2$$
+$$
+v_1 + v_2 = 2v_1 \Rightarrow v_2 = v_1
+$$
+$$
+v_1 + v_2 = 2v_2 \Rightarrow v_1 = v_2
+$$
 
 **Normalized eigenvector** (unit length):
-$$v = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix} = \begin{bmatrix} 0.707 \\ 0.707 \end{bmatrix}$$
+$$
+v = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix} = \begin{bmatrix} 0.707 \\ 0.707 \end{bmatrix}
+$$
 
 **Answer**: First Principal Component = $\begin{bmatrix} 0.707 \\ 0.707 \end{bmatrix}$ (or $\frac{1}{\sqrt{2}}[1, 1]^T$)
 

@@ -42,13 +42,13 @@ Input Layer → Hidden Layer 1 → Hidden Layer 2 → ... → Hidden Layer L →
 
 **For layer $l$**:
 
-\[
+$$
 \mathbf{z}^{[l]} = \mathbf{W}^{[l]} \mathbf{a}^{[l-1]} + \mathbf{b}^{[l]}
-\]
+$$
 
-\[
+$$
 \mathbf{a}^{[l]} = g^{[l]}(\mathbf{z}^{[l]})
-\]
+$$
 
 Where:
 - $\mathbf{W}^{[l]}$ = weight matrix for layer $l$ (size: $n^{[l]} \times n^{[l-1]}$)
@@ -70,12 +70,12 @@ Where:
 1. **Input**: $\mathbf{a}^{[0]} = \mathbf{x}$
 
 2. **For each layer $l = 1, 2, \ldots, L$**:
-   \[
+   $$
    \mathbf{z}^{[l]} = \mathbf{W}^{[l]} \mathbf{a}^{[l-1]} + \mathbf{b}^{[l]}
-   \]
-   \[
+$$
+   $$
    \mathbf{a}^{[l]} = g^{[l]}(\mathbf{z}^{[l]})
-   \]
+$$
 
 3. **Output**: $\hat{\mathbf{y}} = \mathbf{a}^{[L]}$
 
@@ -84,20 +84,20 @@ Where:
 **Architecture**: Input (2) → Hidden (3) → Output (1)
 
 **Layer 1 (Hidden)**:
-\[
+$$
 \mathbf{z}^{[1]} = \mathbf{W}^{[1]} \mathbf{x} + \mathbf{b}^{[1]}
-\]
-\[
+$$
+$$
 \mathbf{a}^{[1]} = \text{ReLU}(\mathbf{z}^{[1]})
-\]
+$$
 
 **Layer 2 (Output)**:
-\[
+$$
 \mathbf{z}^{[2]} = \mathbf{W}^{[2]} \mathbf{a}^{[1]} + \mathbf{b}^{[2]}
-\]
-\[
+$$
+$$
 \hat{y} = \sigma(\mathbf{z}^{[2]}) \quad \text{(for binary classification)}
-\]
+$$
 
 ---
 
@@ -117,57 +117,57 @@ Compute gradients for all layers to update weights using gradient descent.
 
 **Step 1**: Compute output layer gradient
 
-\[
+$$
 \frac{\partial J}{\partial \mathbf{a}^{[L]}} = \frac{\partial J}{\partial \hat{\mathbf{y}}}
-\]
+$$
 
 **Step 2**: For each layer $l = L, L-1, \ldots, 1$ (backward):
 
 a. **Gradient w.r.t. pre-activation**:
-\[
+$$
 \frac{\partial J}{\partial \mathbf{z}^{[l]}} = \frac{\partial J}{\partial \mathbf{a}^{[l]}} \odot g'^{[l]}(\mathbf{z}^{[l]})
-\]
+$$
 
 Where $\odot$ is element-wise multiplication.
 
 b. **Gradient w.r.t. weights**:
-\[
+$$
 \frac{\partial J}{\partial \mathbf{W}^{[l]}} = \frac{\partial J}{\partial \mathbf{z}^{[l]}} (\mathbf{a}^{[l-1]})^T
-\]
+$$
 
 c. **Gradient w.r.t. bias**:
-\[
+$$
 \frac{\partial J}{\partial \mathbf{b}^{[l]}} = \frac{\partial J}{\partial \mathbf{z}^{[l]}}
-\]
+$$
 
 d. **Gradient w.r.t. previous layer activations**:
-\[
+$$
 \frac{\partial J}{\partial \mathbf{a}^{[l-1]}} = (\mathbf{W}^{[l]})^T \frac{\partial J}{\partial \mathbf{z}^{[l]}}
-\]
+$$
 
 ### Detailed Formulas
 
 **For output layer $L$** (binary classification with sigmoid):
 
-\[
+$$
 \frac{\partial J}{\partial \mathbf{z}^{[L]}} = \mathbf{a}^{[L]} - \mathbf{y} = \hat{\mathbf{y}} - \mathbf{y}
-\]
+$$
 
 **For hidden layer $l$**:
 
-\[
+$$
 \frac{\partial J}{\partial \mathbf{z}^{[l]}} = (\mathbf{W}^{[l+1]})^T \frac{\partial J}{\partial \mathbf{z}^{[l+1]}} \odot g'^{[l]}(\mathbf{z}^{[l]})
-\]
+$$
 
 **Weight updates**:
 
-\[
+$$
 \mathbf{W}^{[l]} := \mathbf{W}^{[l]} - \alpha \frac{\partial J}{\partial \mathbf{W}^{[l]}}
-\]
+$$
 
-\[
+$$
 \mathbf{b}^{[l]} := \mathbf{b}^{[l]} - \alpha \frac{\partial J}{\partial \mathbf{b}^{[l]}}
-\]
+$$
 
 !!! note "Key Point"
     Backpropagation uses the chain rule to compute gradients layer by layer, starting from the output and working backward to the input.
@@ -188,15 +188,15 @@ In deep networks, gradients can become **extremely small** as they propagate bac
 
 **5-layer network with sigmoid**:
 
-\[
+$$
 \frac{\partial J}{\partial \mathbf{W}^{[1]}} = \frac{\partial J}{\partial \mathbf{z}^{[5]}} \cdot \sigma'(\mathbf{z}^{[5]}) \cdot \sigma'(\mathbf{z}^{[4]}) \cdot \sigma'(\mathbf{z}^{[3]}) \cdot \sigma'(\mathbf{z}^{[2]}) \cdot \sigma'(\mathbf{z}^{[1]})
-\]
+$$
 
 If each $\sigma'(z) \approx 0.25$, then:
 
-\[
+$$
 \frac{\partial J}{\partial \mathbf{W}^{[1]}} \approx \text{(small)} \times 0.25^4 = \text{(very small)}
-\]
+$$
 
 ### Solutions
 
@@ -221,9 +221,9 @@ Gradients can become **extremely large**, causing unstable training.
 ### Solutions
 
 1. **Gradient Clipping**: Limit gradient magnitude
-   \[
+   $$
    \text{if } ||\mathbf{g}|| > \text{threshold}: \mathbf{g} = \mathbf{g} \cdot \frac{\text{threshold}}{||\mathbf{g}||}
-   \]
+$$
 
 2. **Weight Initialization**: Start with small weights
 3. **Batch Normalization**: Stabilize activations
@@ -237,17 +237,17 @@ Gradients can become **extremely large**, causing unstable training.
 
 **Modified Loss Function**:
 
-\[
+$$
 J_{\text{reg}} = J + \frac{\lambda}{2m} \sum_{l=1}^{L} ||\mathbf{W}^{[l]}||_F^2
-\]
+$$
 
 Where $||\mathbf{W}^{[l]}||_F^2$ is Frobenius norm (sum of squares of all elements).
 
 **Weight Update**:
 
-\[
+$$
 \mathbf{W}^{[l]} := \mathbf{W}^{[l]} - \alpha \left(\frac{\partial J}{\partial \mathbf{W}^{[l]}} + \frac{\lambda}{m} \mathbf{W}^{[l]}\right)
-\]
+$$
 
 **Effect**: Penalizes large weights, prevents overfitting.
 
@@ -273,13 +273,13 @@ Where $||\mathbf{W}^{[l]}||_F^2$ is Frobenius norm (sum of squares of all elemen
 
 **Normalize activations**:
 
-\[
+$$
 \hat{z}^{[l]} = \frac{z^{[l]} - \mu}{\sqrt{\sigma^2 + \epsilon}}
-\]
+$$
 
-\[
+$$
 \tilde{z}^{[l]} = \gamma \hat{z}^{[l]} + \beta
-\]
+$$
 
 **Benefits**:
 - Faster training
@@ -298,21 +298,21 @@ Where $||\mathbf{W}^{[l]}||_F^2$ is Frobenius norm (sum of squares of all elemen
 
 **1. Xavier/Glorot Initialization** (for tanh/sigmoid):
 
-\[
+$$
 W_{ij} \sim \mathcal{N}\left(0, \frac{1}{n^{[l-1]}}\right)
-\]
+$$
 
 or
 
-\[
+$$
 W_{ij} \sim \mathcal{U}\left(-\frac{\sqrt{6}}{\sqrt{n^{[l-1]} + n^{[l]}}}, \frac{\sqrt{6}}{\sqrt{n^{[l-1]} + n^{[l]}}}\right)
-\]
+$$
 
 **2. He Initialization** (for ReLU):
 
-\[
+$$
 W_{ij} \sim \mathcal{N}\left(0, \frac{2}{n^{[l-1]}}\right)
-\]
+$$
 
 !!! recommendation "Best Practice"
     Use He initialization for ReLU networks and Xavier initialization for tanh/sigmoid networks.
@@ -323,42 +323,42 @@ W_{ij} \sim \mathcal{N}\left(0, \frac{2}{n^{[l-1]}}\right)
 
 ### Forward Propagation
 
-\[
+$$
 \mathbf{z}^{[l]} = \mathbf{W}^{[l]} \mathbf{a}^{[l-1]} + \mathbf{b}^{[l]}
-\]
+$$
 
-\[
+$$
 \mathbf{a}^{[l]} = g^{[l]}(\mathbf{z}^{[l]})
-\]
+$$
 
 ### Backpropagation
 
 **Output Layer**:
-\[
+$$
 \frac{\partial J}{\partial \mathbf{z}^{[L]}} = \hat{\mathbf{y}} - \mathbf{y}
-\]
+$$
 
 **Hidden Layers**:
-\[
+$$
 \frac{\partial J}{\partial \mathbf{z}^{[l]}} = (\mathbf{W}^{[l+1]})^T \frac{\partial J}{\partial \mathbf{z}^{[l+1]}} \odot g'^{[l]}(\mathbf{z}^{[l]})
-\]
+$$
 
 **Weights**:
-\[
+$$
 \frac{\partial J}{\partial \mathbf{W}^{[l]}} = \frac{\partial J}{\partial \mathbf{z}^{[l]}} (\mathbf{a}^{[l-1]})^T
-\]
+$$
 
 **Bias**:
-\[
+$$
 \frac{\partial J}{\partial \mathbf{b}^{[l]}} = \frac{\partial J}{\partial \mathbf{z}^{[l]}}
-\]
+$$
 
 ### Regularization
 
 **L2 Regularization**:
-\[
+$$
 J_{\text{reg}} = J + \frac{\lambda}{2m} \sum_{l=1}^{L} ||\mathbf{W}^{[l]}||_F^2
-\]
+$$
 
 ---
 

@@ -54,7 +54,9 @@ Unsupervised learning finds hidden patterns in data without labeled outputs. Thi
 
 **Objective Function** (Within-cluster sum of squares):
 
-$$J = \sum_{i=1}^{m} \sum_{k=1}^{K} w_{ik} ||x^{(i)} - \mu_k||^2$$
+$$
+J = \sum_{i=1}^{m} \sum_{k=1}^{K} w_{ik} ||x^{(i)} - \mu_k||^2
+$$
 
 Where:
 - $m$ = number of data points
@@ -68,13 +70,19 @@ Where:
 ### Distance Metrics
 
 **Euclidean Distance** (most common):
-$$d(x, y) = \sqrt{\sum_{i=1}^{n} (x_i - y_i)^2}$$
+$$
+d(x, y) = \sqrt{\sum_{i=1}^{n} (x_i - y_i)^2}
+$$
 
 **Manhattan Distance**:
-$$d(x, y) = \sum_{i=1}^{n} |x_i - y_i|$$
+$$
+d(x, y) = \sum_{i=1}^{n} |x_i - y_i|
+$$
 
 **Cosine Similarity** (for high-dimensional data):
-$$\text{similarity} = \frac{x \cdot y}{||x|| \cdot ||y||}$$
+$$
+\text{similarity} = \frac{x \cdot y}{||x|| \cdot ||y||}
+$$
 
 ### Choosing K
 
@@ -248,13 +256,19 @@ How to measure distance between clusters:
 **Steps**:
 
 1. **Standardize Data**: Mean = 0, Std = 1
-   $$z_i = \frac{x_i - \mu}{\sigma}$$
+   $$
+z_i = \frac{x_i - \mu}{\sigma}
+$$
 
 2. **Compute Covariance Matrix**:
-   $$\Sigma = \frac{1}{m} X^T X$$
+   $$
+\Sigma = \frac{1}{m} X^T X
+$$
 
 3. **Eigenvalue Decomposition**:
-   $$\Sigma = P \Lambda P^T$$
+   $$
+\Sigma = P \Lambda P^T
+$$
    - $P$ = matrix of eigenvectors (principal components)
    - $\Lambda$ = diagonal matrix of eigenvalues
 
@@ -263,17 +277,23 @@ How to measure distance between clusters:
    - These capture most variance
 
 5. **Project Data**:
-   $$Y = X P_k$$
+   $$
+Y = X P_k
+$$
    - $P_k$ = first $k$ principal components
    - $Y$ = reduced dimension data
 
 ### Variance Explained
 
 **Proportion of Variance Explained**:
-$$\text{Variance Explained} = \frac{\lambda_i}{\sum_{j=1}^{n} \lambda_j}$$
+$$
+\text{Variance Explained} = \frac{\lambda_i}{\sum_{j=1}^{n} \lambda_j}
+$$
 
 **Cumulative Variance**:
-$$\text{Cumulative} = \frac{\sum_{i=1}^{k} \lambda_i}{\sum_{j=1}^{n} \lambda_j}$$
+$$
+\text{Cumulative} = \frac{\sum_{i=1}^{k} \lambda_i}{\sum_{j=1}^{n} \lambda_j}
+$$
 
 **Rule of Thumb**: Choose $k$ such that cumulative variance ≥ 0.95 (95% variance retained)
 
@@ -340,13 +360,19 @@ $$\text{Cumulative} = \frac{\sum_{i=1}^{k} \lambda_i}{\sum_{j=1}^{n} \lambda_j}$
 **Itemset**: Set of items (e.g., {Bread, Butter})
 
 **Support**: Frequency of itemset in dataset
-$$\text{Support}(A) = \frac{\text{Count}(A)}{N}$$
+$$
+\text{Support}(A) = \frac{\text{Count}(A)}{N}
+$$
 
 **Confidence**: Probability that B occurs given A
-$$\text{Confidence}(A \to B) = \frac{\text{Support}(A \cup B)}{\text{Support}(A)} = P(B|A)$$
+$$
+\text{Confidence}(A \to B) = \frac{\text{Support}(A \cup B)}{\text{Support}(A)} = P(B|A)
+$$
 
 **Lift**: How much more likely B is when A occurs
-$$\text{Lift}(A \to B) = \frac{\text{Confidence}(A \to B)}{\text{Support}(B)} = \frac{P(B|A)}{P(B)}$$
+$$
+\text{Lift}(A \to B) = \frac{\text{Confidence}(A \to B)}{\text{Support}(B)} = \frac{P(B|A)}{P(B)}
+$$
 
 **Interpretation**:
 - Lift = 1: A and B independent

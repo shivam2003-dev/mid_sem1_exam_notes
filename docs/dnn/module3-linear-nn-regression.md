@@ -17,9 +17,9 @@ This module covers linear neural networks used for regression tasks, including f
 
 **Mathematical Model**:
 
-\[
+$$
 \hat{y} = \mathbf{w}^T \mathbf{x} + b = \sum_{i=1}^{n} w_i x_i + b
-\]
+$$
 
 Where:
 - $\mathbf{x} = [x_1, x_2, \ldots, x_n]^T$ (input vector)
@@ -40,25 +40,25 @@ Where:
 
 **Step 1**: Compute weighted sum
 
-\[
+$$
 z = \mathbf{w}^T \mathbf{x} + b = \sum_{i=1}^{n} w_i x_i + b
-\]
+$$
 
 **Step 2**: Apply activation function (for regression, often identity)
 
-\[
+$$
 \hat{y} = f(z) = z \quad \text{(Linear/Identity activation)}
-\]
+$$
 
 **Vectorized Form** (for batch of $m$ examples):
 
-\[
+$$
 \mathbf{Z} = \mathbf{X} \mathbf{w} + \mathbf{b}
-\]
+$$
 
-\[
+$$
 \hat{\mathbf{Y}} = \mathbf{Z}
-\]
+$$
 
 Where:
 - $\mathbf{X}$ = $m \times n$ input matrix
@@ -74,19 +74,19 @@ Where:
 
 **For single example**:
 
-\[
+$$
 L(\hat{y}, y) = \frac{1}{2}(\hat{y} - y)^2
-\]
+$$
 
 **For $m$ training examples**:
 
-\[
+$$
 J(\mathbf{w}, b) = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})^2
-\]
+$$
 
-\[
+$$
 J(\mathbf{w}, b) = \frac{1}{2m} \sum_{i=1}^{m} (\mathbf{w}^T \mathbf{x}^{(i)} + b - y^{(i)})^2
-\]
+$$
 
 **Why $\frac{1}{2}$?**: Makes derivative cleaner (the 2 cancels out)
 
@@ -105,23 +105,23 @@ Minimize the loss function by computing gradients and updating weights.
 
 **For weight $w_j$**:
 
-\[
+$$
 \frac{\partial J}{\partial w_j} = \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)}) \cdot x_j^{(i)}
-\]
+$$
 
 **For bias $b$**:
 
-\[
+$$
 \frac{\partial J}{\partial b} = \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})
-\]
+$$
 
 ### Derivation
 
 **Chain Rule Application**:
 
-\[
+$$
 \frac{\partial J}{\partial w_j} = \frac{\partial J}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial z} \cdot \frac{\partial z}{\partial w_j}
-\]
+$$
 
 **Step 1**: $\frac{\partial J}{\partial \hat{y}} = \hat{y} - y$
 
@@ -131,15 +131,15 @@ Minimize the loss function by computing gradients and updating weights.
 
 **Combined**:
 
-\[
+$$
 \frac{\partial J}{\partial w_j} = (\hat{y} - y) \cdot 1 \cdot x_j = (\hat{y} - y) \cdot x_j
-\]
+$$
 
 **For $m$ examples**:
 
-\[
+$$
 \frac{\partial J}{\partial w_j} = \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)}) \cdot x_j^{(i)}
-\]
+$$
 
 ---
 
@@ -149,33 +149,33 @@ Minimize the loss function by computing gradients and updating weights.
 
 **Weight Update**:
 
-\[
+$$
 w_j := w_j - \alpha \frac{\partial J}{\partial w_j}
-\]
+$$
 
-\[
+$$
 w_j := w_j - \alpha \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)}) \cdot x_j^{(i)}
-\]
+$$
 
 **Bias Update**:
 
-\[
+$$
 b := b - \alpha \frac{\partial J}{\partial b}
-\]
+$$
 
-\[
+$$
 b := b - \alpha \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})
-\]
+$$
 
 **Vectorized Update**:
 
-\[
+$$
 \mathbf{w} := \mathbf{w} - \alpha \frac{1}{m} \mathbf{X}^T (\hat{\mathbf{Y}} - \mathbf{Y})
-\]
+$$
 
-\[
+$$
 b := b - \alpha \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})
-\]
+$$
 
 Where:
 - $\alpha$ = learning rate
@@ -222,9 +222,9 @@ Where:
 
 **Forward Pass** (Example 1: $x_1=1, x_2=2, y=5$):
 
-\[
+$$
 \hat{y} = 0.5 \cdot 1 + 0.3 \cdot 2 + 0.1 = 0.5 + 0.6 + 0.1 = 1.2
-\]
+$$
 
 **Error**: $1.2 - 5 = -3.8$
 
@@ -246,35 +246,35 @@ Where:
 
 ### Forward Propagation
 
-\[
+$$
 \hat{y} = \mathbf{w}^T \mathbf{x} + b
-\]
+$$
 
 ### Loss Function
 
-\[
+$$
 J = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})^2
-\]
+$$
 
 ### Gradients
 
-\[
+$$
 \frac{\partial J}{\partial w_j} = \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)}) \cdot x_j^{(i)}
-\]
+$$
 
-\[
+$$
 \frac{\partial J}{\partial b} = \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})
-\]
+$$
 
 ### Updates
 
-\[
+$$
 w_j := w_j - \alpha \frac{\partial J}{\partial w_j}
-\]
+$$
 
-\[
+$$
 b := b - \alpha \frac{\partial J}{\partial b}
-\]
+$$
 
 ---
 

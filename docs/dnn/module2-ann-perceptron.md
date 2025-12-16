@@ -39,9 +39,9 @@ Input Layer    Hidden Layer    Output Layer
 
 **Mathematical Model**:
 
-\[
+$$
 y = f\left(\sum_{i=1}^{n} w_i x_i + b\right) = f(\mathbf{w}^T \mathbf{x} + b)
-\]
+$$
 
 Where:
 - $x_i$ = input $i$
@@ -54,36 +54,36 @@ Where:
 
 **Step Function (Binary)**:
 
-\[
+$$
 f(z) = \begin{cases}
 1 & \text{if } z \geq 0 \\
 0 & \text{if } z < 0
 \end{cases}
-\]
+$$
 
 **Sign Function (Bipolar)**:
 
-\[
+$$
 f(z) = \begin{cases}
 +1 & \text{if } z \geq 0 \\
 -1 & \text{if } z < 0
 \end{cases}
-\]
+$$
 
 ### Decision Boundary
 
 For a perceptron with step function:
 
-\[
+$$
 \mathbf{w}^T \mathbf{x} + b = 0
-\]
+$$
 
 This defines a **hyperplane** that separates classes.
 
 **For 2D case**:
-\[
+$$
 w_1 x_1 + w_2 x_2 + b = 0
-\]
+$$
 
 This is a **line** separating the two classes.
 
@@ -106,23 +106,23 @@ This is a **line** separating the two classes.
 2. **For each training example** $(\mathbf{x}^{(i)}, y^{(i)})$:
    
    a. **Compute output**:
-   \[
+   $$
    z^{(i)} = \mathbf{w}^T \mathbf{x}^{(i)} + b
-   \]
-   \[
+$$
+   $$
    \hat{y}^{(i)} = f(z^{(i)})
-   \]
+$$
    
    b. **Update weights if error**:
-   \[
+   $$
    \text{If } \hat{y}^{(i)} \neq y^{(i)} \text{ then:}
-   \]
-   \[
+$$
+   $$
    w_j := w_j + \alpha \cdot (y^{(i)} - \hat{y}^{(i)}) \cdot x_j^{(i)}
-   \]
-   \[
+$$
+   $$
    b := b + \alpha \cdot (y^{(i)} - \hat{y}^{(i)})
-   \]
+$$
 
 3. **Repeat**: Until all examples are classified correctly (or max iterations)
 
@@ -130,23 +130,23 @@ This is a **line** separating the two classes.
 
 **For binary classification** ($y \in \{0, 1\}$):
 
-\[
+$$
 \mathbf{w} := \mathbf{w} + \alpha \cdot (y^{(i)} - \hat{y}^{(i)}) \cdot \mathbf{x}^{(i)}
-\]
+$$
 
-\[
+$$
 b := b + \alpha \cdot (y^{(i)} - \hat{y}^{(i)})
-\]
+$$
 
 **For bipolar classification** ($y \in \{-1, +1\}$):
 
-\[
+$$
 \mathbf{w} := \mathbf{w} + \alpha \cdot y^{(i)} \cdot \mathbf{x}^{(i)} \quad \text{(if misclassified)}
-\]
+$$
 
-\[
+$$
 b := b + \alpha \cdot y^{(i)}
-\]
+$$
 
 !!! note "Key Point"
     The perceptron only updates weights when there's a misclassification. If the prediction is correct, no update occurs.
@@ -237,17 +237,17 @@ x₂
 
 **XOR Solution with MLP**:
 
-\[
+$$
 h_1 = f(w_{11}x_1 + w_{12}x_2 + b_1)
-\]
+$$
 
-\[
+$$
 h_2 = f(w_{21}x_1 + w_{22}x_2 + b_2)
-\]
+$$
 
-\[
+$$
 y = f(w_1 h_1 + w_2 h_2 + b)
-\]
+$$
 
 With appropriate weights, this can solve XOR!
 
@@ -298,31 +298,31 @@ Classify points as class 1 or class 0:
 
 ### Perceptron Output
 
-\[
+$$
 y = f(\mathbf{w}^T \mathbf{x} + b)
-\]
+$$
 
 ### Weight Update (Binary)
 
-\[
+$$
 w_j := w_j + \alpha \cdot (y^{(i)} - \hat{y}^{(i)}) \cdot x_j^{(i)}
-\]
+$$
 
-\[
+$$
 b := b + \alpha \cdot (y^{(i)} - \hat{y}^{(i)})
-\]
+$$
 
 ### Weight Update (Bipolar)
 
-\[
+$$
 \mathbf{w} := \mathbf{w} + \alpha \cdot y^{(i)} \cdot \mathbf{x}^{(i)} \quad \text{(if misclassified)}
-\]
+$$
 
 ### Decision Boundary
 
-\[
+$$
 \mathbf{w}^T \mathbf{x} + b = 0
-\]
+$$
 
 ---
 

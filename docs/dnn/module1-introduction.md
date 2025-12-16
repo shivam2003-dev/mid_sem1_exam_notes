@@ -43,9 +43,9 @@ This module introduces the fundamental concepts of neural networks, their biolog
 
 **Mathematical Model**:
 
-\[
+$$
 y = f\left(\sum_{i=1}^{n} w_i x_i + b\right) = f(\mathbf{w}^T \mathbf{x} + b)
-\]
+$$
 
 Where:
 - $\mathbf{w} = [w_1, w_2, \ldots, w_n]^T$ (weight vector)

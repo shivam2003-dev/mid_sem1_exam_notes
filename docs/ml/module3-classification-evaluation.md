@@ -78,7 +78,9 @@ For $n$ classes, it's an $n \times n$ matrix where:
 **Definition**: Proportion of correct predictions
 
 **Formula**:
-$$\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} = \frac{\text{Correct Predictions}}{\text{Total Predictions}}$$
+$$
+\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} = \frac{\text{Correct Predictions}}{\text{Total Predictions}}
+$$
 
 **Range**: [0, 1] or [0%, 100%]
 
@@ -95,7 +97,9 @@ $$\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} = \frac{\text{Correct Pred
 **Definition**: Of all positive predictions, how many were actually positive?
 
 **Formula**:
-$$\text{Precision} = \frac{TP}{TP + FP} = \frac{\text{True Positives}}{\text{All Predicted Positives}}$$
+$$
+\text{Precision} = \frac{TP}{TP + FP} = \frac{\text{True Positives}}{\text{All Predicted Positives}}
+$$
 
 **Interpretation**: 
 - High precision = Low false positive rate
@@ -110,7 +114,9 @@ $$\text{Precision} = \frac{TP}{TP + FP} = \frac{\text{True Positives}}{\text{All
 **Definition**: Of all actual positives, how many did we correctly identify?
 
 **Formula**:
-$$\text{Recall} = \frac{TP}{TP + FN} = \frac{\text{True Positives}}{\text{All Actual Positives}}$$
+$$
+\text{Recall} = \frac{TP}{TP + FN} = \frac{\text{True Positives}}{\text{All Actual Positives}}
+$$
 
 **Also called**:
 - Sensitivity
@@ -129,7 +135,9 @@ $$\text{Recall} = \frac{TP}{TP + FN} = \frac{\text{True Positives}}{\text{All Ac
 **Definition**: Of all actual negatives, how many did we correctly identify?
 
 **Formula**:
-$$\text{Specificity} = \frac{TN}{TN + FP} = \frac{\text{True Negatives}}{\text{All Actual Negatives}}$$
+$$
+\text{Specificity} = \frac{TN}{TN + FP} = \frac{\text{True Negatives}}{\text{All Actual Negatives}}
+$$
 
 **Also called**: True Negative Rate (TNR)
 
@@ -140,7 +148,9 @@ $$\text{Specificity} = \frac{TN}{TN + FP} = \frac{\text{True Negatives}}{\text{A
 **Definition**: Harmonic mean of Precision and Recall
 
 **Formula**:
-$$\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2TP}{2TP + FP + FN}$$
+$$
+\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2TP}{2TP + FP + FN}
+$$
 
 **Range**: [0, 1]
 
@@ -157,7 +167,9 @@ $$\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{
 
 **Generalized F-Score**:
 
-$$\text{F}_\beta = (1 + \beta^2) \times \frac{\text{Precision} \times \text{Recall}}{(\beta^2 \times \text{Precision}) + \text{Recall}}$$
+$$
+\text{F}_\beta = (1 + \beta^2) \times \frac{\text{Precision} \times \text{Recall}}{(\beta^2 \times \text{Precision}) + \text{Recall}}
+$$
 
 **Common Values**:
 - $\beta = 1$: F1-Score (equal weight)
@@ -167,7 +179,9 @@ $$\text{F}_\beta = (1 + \beta^2) \times \frac{\text{Precision} \times \text{Reca
 ### 7. Error Rate
 
 **Formula**:
-$$\text{Error Rate} = \frac{FP + FN}{TP + TN + FP + FN} = 1 - \text{Accuracy}$$
+$$
+\text{Error Rate} = \frac{FP + FN}{TP + TN + FP + FN} = 1 - \text{Accuracy}
+$$
 
 ---
 
@@ -246,9 +260,13 @@ $$\text{Error Rate} = \frac{FP + FN}{TP + TN + FP + FN} = 1 - \text{Accuracy}$$
 
 Calculate metric for each class, then average:
 
-$$\text{Macro-Precision} = \frac{1}{C} \sum_{i=1}^{C} \text{Precision}_i$$
+$$
+\text{Macro-Precision} = \frac{1}{C} \sum_{i=1}^{C} \text{Precision}_i
+$$
 
-$$\text{Macro-Recall} = \frac{1}{C} \sum_{i=1}^{C} \text{Recall}_i$$
+$$
+\text{Macro-Recall} = \frac{1}{C} \sum_{i=1}^{C} \text{Recall}_i
+$$
 
 **Treats all classes equally**
 
@@ -256,7 +274,9 @@ $$\text{Macro-Recall} = \frac{1}{C} \sum_{i=1}^{C} \text{Recall}_i$$
 
 Aggregate all TP, FP, FN across classes, then calculate:
 
-$$\text{Micro-Precision} = \frac{\sum_{i=1}^{C} TP_i}{\sum_{i=1}^{C} (TP_i + FP_i)}$$
+$$
+\text{Micro-Precision} = \frac{\sum_{i=1}^{C} TP_i}{\sum_{i=1}^{C} (TP_i + FP_i)}
+$$
 
 **Gives equal weight to each sample (not each class)**
 
@@ -264,7 +284,9 @@ $$\text{Micro-Precision} = \frac{\sum_{i=1}^{C} TP_i}{\sum_{i=1}^{C} (TP_i + FP_
 
 Weight by number of samples in each class:
 
-$$\text{Weighted-Precision} = \sum_{i=1}^{C} w_i \times \text{Precision}_i$$
+$$
+\text{Weighted-Precision} = \sum_{i=1}^{C} w_i \times \text{Precision}_i
+$$
 
 where $w_i = \frac{n_i}{N}$ (proportion of class $i$)
 

@@ -37,12 +37,12 @@ Given training data for binary classification:
 **Example 1**: $(x_1=1, x_2=1, y=1)$
 
 **Forward Pass**:
-\[
+$$
 z = w_1 \cdot x_1 + w_2 \cdot x_2 + b = 0 \cdot 1 + 0 \cdot 1 + 0 = 0
-\]
-\[
+$$
+$$
 \hat{y} = f(0) = 1
-\]
+$$
 
 **Check**: $\hat{y} = 1$, $y = 1$ → **Correct** (no update)
 
@@ -51,12 +51,12 @@ z = w_1 \cdot x_1 + w_2 \cdot x_2 + b = 0 \cdot 1 + 0 \cdot 1 + 0 = 0
 **Example 2**: $(x_1=2, x_2=2, y=1)$
 
 **Forward Pass**:
-\[
+$$
 z = 0 \cdot 2 + 0 \cdot 2 + 0 = 0
-\]
-\[
+$$
+$$
 \hat{y} = f(0) = 1
-\]
+$$
 
 **Check**: $\hat{y} = 1$, $y = 1$ → **Correct** (no update)
 
@@ -65,25 +65,25 @@ z = 0 \cdot 2 + 0 \cdot 2 + 0 = 0
 **Example 3**: $(x_1=0, x_2=0, y=0)$
 
 **Forward Pass**:
-\[
+$$
 z = 0 \cdot 0 + 0 \cdot 0 + 0 = 0
-\]
-\[
+$$
+$$
 \hat{y} = f(0) = 1
-\]
+$$
 
 **Check**: $\hat{y} = 1$, $y = 0$ → **Wrong!** (update needed)
 
 **Update Weights**:
-\[
+$$
 w_1 := w_1 + \alpha \cdot (y - \hat{y}) \cdot x_1 = 0 + 1 \cdot (0 - 1) \cdot 0 = 0
-\]
-\[
+$$
+$$
 w_2 := w_2 + \alpha \cdot (y - \hat{y}) \cdot x_2 = 0 + 1 \cdot (0 - 1) \cdot 0 = 0
-\]
-\[
+$$
+$$
 b := b + \alpha \cdot (y - \hat{y}) = 0 + 1 \cdot (0 - 1) = -1
-\]
+$$
 
 **After Example 3**: $w_1 = 0$, $w_2 = 0$, $b = -1$
 
@@ -92,12 +92,12 @@ b := b + \alpha \cdot (y - \hat{y}) = 0 + 1 \cdot (0 - 1) = -1
 **Example 4**: $(x_1=1, x_2=0, y=0)$
 
 **Forward Pass**:
-\[
+$$
 z = 0 \cdot 1 + 0 \cdot 0 + (-1) = -1
-\]
-\[
+$$
+$$
 \hat{y} = f(-1) = 0
-\]
+$$
 
 **Check**: $\hat{y} = 0$, $y = 0$ → **Correct** (no update)
 
@@ -110,25 +110,25 @@ z = 0 \cdot 1 + 0 \cdot 0 + (-1) = -1
 **Example 1**: $(x_1=1, x_2=1, y=1)$
 
 **Forward Pass**:
-\[
+$$
 z = 0 \cdot 1 + 0 \cdot 1 + (-1) = -1
-\]
-\[
+$$
+$$
 \hat{y} = f(-1) = 0
-\]
+$$
 
 **Check**: $\hat{y} = 0$, $y = 1$ → **Wrong!** (update needed)
 
 **Update**:
-\[
+$$
 w_1 := 0 + 1 \cdot (1 - 0) \cdot 1 = 1
-\]
-\[
+$$
+$$
 w_2 := 0 + 1 \cdot (1 - 0) \cdot 1 = 1
-\]
-\[
+$$
+$$
 b := -1 + 1 \cdot (1 - 0) = 0
-\]
+$$
 
 **After Example 1**: $w_1 = 1$, $w_2 = 1$, $b = 0$
 
@@ -137,12 +137,12 @@ b := -1 + 1 \cdot (1 - 0) = 0
 **Example 2**: $(x_1=2, x_2=2, y=1)$
 
 **Forward Pass**:
-\[
+$$
 z = 1 \cdot 2 + 1 \cdot 2 + 0 = 4
-\]
-\[
+$$
+$$
 \hat{y} = f(4) = 1
-\]
+$$
 
 **Check**: **Correct** (no update)
 
@@ -151,25 +151,25 @@ z = 1 \cdot 2 + 1 \cdot 2 + 0 = 4
 **Example 3**: $(x_1=0, x_2=0, y=0)$
 
 **Forward Pass**:
-\[
+$$
 z = 1 \cdot 0 + 1 \cdot 0 + 0 = 0
-\]
-\[
+$$
+$$
 \hat{y} = f(0) = 1
-\]
+$$
 
 **Check**: $\hat{y} = 1$, $y = 0$ → **Wrong!**
 
 **Update**:
-\[
+$$
 w_1 := 1 + 1 \cdot (0 - 1) \cdot 0 = 1
-\]
-\[
+$$
+$$
 w_2 := 1 + 1 \cdot (0 - 1) \cdot 0 = 1
-\]
-\[
+$$
+$$
 b := 0 + 1 \cdot (0 - 1) = -1
-\]
+$$
 
 **After Example 3**: $w_1 = 1$, $w_2 = 1$, $b = -1$
 
@@ -178,25 +178,25 @@ b := 0 + 1 \cdot (0 - 1) = -1
 **Example 4**: $(x_1=1, x_2=0, y=0)$
 
 **Forward Pass**:
-\[
+$$
 z = 1 \cdot 1 + 1 \cdot 0 + (-1) = 0
-\]
-\[
+$$
+$$
 \hat{y} = f(0) = 1
-\]
+$$
 
 **Check**: $\hat{y} = 1$, $y = 0$ → **Wrong!**
 
 **Update**:
-\[
+$$
 w_1 := 1 + 1 \cdot (0 - 1) \cdot 1 = 0
-\]
-\[
+$$
+$$
 w_2 := 1 + 1 \cdot (0 - 1) \cdot 0 = 1
-\]
-\[
+$$
+$$
 b := -1 + 1 \cdot (0 - 1) = -2
-\]
+$$
 
 **After Iteration 2**: $w_1 = 0$, $w_2 = 1$, $b = -2$
 
@@ -208,17 +208,17 @@ b := -1 + 1 \cdot (0 - 1) = -2
 
 **Decision Boundary Equation**:
 
-\[
+$$
 w_1 x_1 + w_2 x_2 + b = 0
-\]
+$$
 
-\[
+$$
 0 \cdot x_1 + 1 \cdot x_2 - 2 = 0
-\]
+$$
 
-\[
+$$
 x_2 = 2
-\]
+$$
 
 **Answer**: Decision boundary is the horizontal line $x_2 = 2$
 
@@ -238,13 +238,13 @@ Given a 2-layer neural network:
 - **Layer 2**: 3 inputs (from layer 1), 1 output, linear activation
 
 **Weights**:
-\[
+$$
 \mathbf{W}^{[1]} = \begin{bmatrix} 1 & 2 \\ -1 & 1 \\ 0 & 1 \end{bmatrix}, \quad \mathbf{b}^{[1]} = \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}
-\]
+$$
 
-\[
+$$
 \mathbf{W}^{[2]} = \begin{bmatrix} 1 & -1 & 2 \end{bmatrix}, \quad b^{[2]} = 0
-\]
+$$
 
 **Input**: $\mathbf{x} = [1, 2]^T$, **Target**: $y = 5$
 
@@ -262,33 +262,33 @@ Given a 2-layer neural network:
 
 **Layer 1**:
 
-\[
+$$
 \mathbf{z}^{[1]} = \mathbf{W}^{[1]} \mathbf{x} + \mathbf{b}^{[1]} = \begin{bmatrix} 1 & 2 \\ -1 & 1 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ 2 \end{bmatrix} + \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}
-\]
+$$
 
-\[
+$$
 \mathbf{z}^{[1]} = \begin{bmatrix} 1 \cdot 1 + 2 \cdot 2 \\ -1 \cdot 1 + 1 \cdot 2 \\ 0 \cdot 1 + 1 \cdot 2 \end{bmatrix} + \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix} = \begin{bmatrix} 5 \\ 1 \\ 2 \end{bmatrix} + \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix} = \begin{bmatrix} 6 \\ 1 \\ 1 \end{bmatrix}
-\]
+$$
 
 **ReLU Activation**:
-\[
+$$
 \mathbf{a}^{[1]} = \text{ReLU}(\mathbf{z}^{[1]}) = \begin{bmatrix} \max(0, 6) \\ \max(0, 1) \\ \max(0, 1) \end{bmatrix} = \begin{bmatrix} 6 \\ 1 \\ 1 \end{bmatrix}
-\]
+$$
 
 **Layer 2**:
 
-\[
+$$
 z^{[2]} = \mathbf{W}^{[2]} \mathbf{a}^{[1]} + b^{[2]} = \begin{bmatrix} 1 & -1 & 2 \end{bmatrix} \begin{bmatrix} 6 \\ 1 \\ 1 \end{bmatrix} + 0
-\]
+$$
 
-\[
+$$
 z^{[2]} = 1 \cdot 6 + (-1) \cdot 1 + 2 \cdot 1 = 6 - 1 + 2 = 7
-\]
+$$
 
 **Linear Activation**:
-\[
+$$
 \hat{y} = z^{[2]} = 7
-\]
+$$
 
 **Answer**: $\hat{y} = 7$
 
@@ -298,9 +298,9 @@ z^{[2]} = 1 \cdot 6 + (-1) \cdot 1 + 2 \cdot 1 = 6 - 1 + 2 = 7
 
 **Mean Squared Error**:
 
-\[
+$$
 J = \frac{1}{2}(\hat{y} - y)^2 = \frac{1}{2}(7 - 5)^2 = \frac{1}{2} \cdot 4 = 2
-\]
+$$
 
 **Answer**: Loss $J = 2$
 
@@ -310,21 +310,21 @@ J = \frac{1}{2}(\hat{y} - y)^2 = \frac{1}{2}(7 - 5)^2 = \frac{1}{2} \cdot 4 = 2
 
 **Gradient w.r.t. $z^{[2]}$**:
 
-\[
+$$
 \frac{\partial J}{\partial z^{[2]}} = \hat{y} - y = 7 - 5 = 2
-\]
+$$
 
 **Gradient w.r.t. $\mathbf{W}^{[2]}$**:
 
-\[
+$$
 \frac{\partial J}{\partial \mathbf{W}^{[2]}} = \frac{\partial J}{\partial z^{[2]}} \cdot (\mathbf{a}^{[1]})^T = 2 \cdot \begin{bmatrix} 6 \\ 1 \\ 1 \end{bmatrix}^T = \begin{bmatrix} 12 & 2 & 2 \end{bmatrix}
-\]
+$$
 
 **Gradient w.r.t. $b^{[2]}$**:
 
-\[
+$$
 \frac{\partial J}{\partial b^{[2]}} = \frac{\partial J}{\partial z^{[2]}} = 2
-\]
+$$
 
 **Answer**:
 - $\frac{\partial J}{\partial \mathbf{W}^{[2]}} = [12, 2, 2]$
@@ -352,15 +352,15 @@ J = \frac{1}{2}(\hat{y} - y)^2 = \frac{1}{2}(7 - 5)^2 = \frac{1}{2} \cdot 4 = 2
 
 **Sigmoid Function**:
 
-\[
+$$
 \sigma(z) = \frac{1}{1 + e^{-z}}
-\]
+$$
 
 **For $z = 2$**:
 
-\[
+$$
 \sigma(2) = \frac{1}{1 + e^{-2}} = \frac{1}{1 + 0.1353} = \frac{1}{1.1353} = 0.881
-\]
+$$
 
 **Answer**: $\sigma(2) = 0.881$
 
@@ -370,15 +370,15 @@ J = \frac{1}{2}(\hat{y} - y)^2 = \frac{1}{2}(7 - 5)^2 = \frac{1}{2} \cdot 4 = 2
 
 **Derivative Formula**:
 
-\[
+$$
 \frac{d\sigma}{dz} = \sigma(z)(1 - \sigma(z))
-\]
+$$
 
 **At $z = 2$**:
 
-\[
+$$
 \frac{d\sigma}{dz}\bigg|_{z=2} = \sigma(2)(1 - \sigma(2)) = 0.881 \times (1 - 0.881) = 0.881 \times 0.119 = 0.105
-\]
+$$
 
 **Answer**: Derivative = $0.105$
 
@@ -441,15 +441,15 @@ Given a 3-layer network with:
 
 **Formula**:
 
-\[
+$$
 \frac{\partial J}{\partial \mathbf{W}^{[3]}} = \frac{\partial J}{\partial z^{[3]}} \cdot (\mathbf{a}^{[2]})^T
-\]
+$$
 
 **Calculation**:
 
-\[
+$$
 \frac{\partial J}{\partial \mathbf{W}^{[3]}} = 0.5 \cdot \begin{bmatrix} 2 \\ 1 \end{bmatrix}^T = 0.5 \cdot \begin{bmatrix} 2 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 0.5 \end{bmatrix}
-\]
+$$
 
 **Answer**: $\frac{\partial J}{\partial \mathbf{W}^{[3]}} = [1, 0.5]$
 
@@ -459,33 +459,33 @@ Given a 3-layer network with:
 
 **Formula**:
 
-\[
+$$
 \frac{\partial J}{\partial \mathbf{z}^{[2]}} = (\mathbf{W}^{[3]})^T \frac{\partial J}{\partial z^{[3]}} \odot g'^{[2]}(\mathbf{z}^{[2]})
-\]
+$$
 
 **Step 1**: Compute $(\mathbf{W}^{[3]})^T \frac{\partial J}{\partial z^{[3]}}$:
 
-\[
+$$
 (\mathbf{W}^{[3]})^T \frac{\partial J}{\partial z^{[3]}} = \begin{bmatrix} 1 \\ -1 \end{bmatrix}^T \cdot 0.5 = \begin{bmatrix} 1 & -1 \end{bmatrix} \cdot 0.5 = \begin{bmatrix} 0.5 & -0.5 \end{bmatrix}
-\]
+$$
 
 Wait, this should be a column vector. Let me recalculate:
 
-\[
+$$
 (\mathbf{W}^{[3]})^T \frac{\partial J}{\partial z^{[3]}} = \begin{bmatrix} 1 \\ -1 \end{bmatrix} \cdot 0.5 = \begin{bmatrix} 0.5 \\ -0.5 \end{bmatrix}
-\]
+$$
 
 **Step 2**: Compute ReLU derivative $g'^{[2]}(\mathbf{z}^{[2]})$:
 
-\[
+$$
 g'^{[2]}(\mathbf{z}^{[2]}) = \begin{bmatrix} \text{ReLU}'(3) \\ \text{ReLU}'(-1) \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}
-\]
+$$
 
 **Step 3**: Element-wise multiplication:
 
-\[
+$$
 \frac{\partial J}{\partial \mathbf{z}^{[2]}} = \begin{bmatrix} 0.5 \\ -0.5 \end{bmatrix} \odot \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0.5 \\ 0 \end{bmatrix}
-\]
+$$
 
 **Answer**: $\frac{\partial J}{\partial \mathbf{z}^{[2]}} = [0.5, 0]^T$
 
@@ -509,7 +509,7 @@ Given:
 **b)** Perform convolution operation for the top-left position.
 
 **Input**:
-\[
+$$
 \mathbf{X} = \begin{bmatrix}
 1 & 2 & 3 & 4 & 5 \\
 6 & 7 & 8 & 9 & 0 \\
@@ -517,16 +517,16 @@ Given:
 6 & 7 & 8 & 9 & 0 \\
 1 & 2 & 3 & 4 & 5
 \end{bmatrix}
-\]
+$$
 
 **Filter**:
-\[
+$$
 \mathbf{F} = \begin{bmatrix}
 1 & 0 & -1 \\
 1 & 0 & -1 \\
 1 & 0 & -1
 \end{bmatrix}
-\]
+$$
 
 ---
 
@@ -536,15 +536,15 @@ Given:
 
 **Formula**:
 
-\[
+$$
 \text{Output Size} = \frac{\text{Input Size} - \text{Filter Size} + 2 \times \text{Padding}}{\text{Stride}} + 1
-\]
+$$
 
 **Calculation**:
 
-\[
+$$
 \text{Output Size} = \frac{5 - 3 + 2 \times 0}{1} + 1 = \frac{2}{1} + 1 = 3
-\]
+$$
 
 **Answer**: Output size = **3×3**
 
@@ -554,37 +554,37 @@ Given:
 
 **Top-left 3×3 region of input**:
 
-\[
+$$
 \begin{bmatrix}
 1 & 2 & 3 \\
 6 & 7 & 8 \\
 1 & 2 & 3
 \end{bmatrix}
-\]
+$$
 
 **Convolution Operation**:
 
-\[
+$$
 \text{Output}(0, 0) = \sum_{i=0}^{2} \sum_{j=0}^{2} X(i, j) \cdot F(i, j)
-\]
+$$
 
 **Element-wise multiplication and sum**:
 
-\[
+$$
 = 1 \cdot 1 + 2 \cdot 0 + 3 \cdot (-1) + 6 \cdot 1 + 7 \cdot 0 + 8 \cdot (-1) + 1 \cdot 1 + 2 \cdot 0 + 3 \cdot (-1)
-\]
+$$
 
-\[
+$$
 = 1 + 0 - 3 + 6 + 0 - 8 + 1 + 0 - 3
-\]
+$$
 
-\[
+$$
 = (1 + 6 + 1) + (0 + 0 + 0) + (-3 - 8 - 3)
-\]
+$$
 
-\[
+$$
 = 8 + 0 - 14 = -6
-\]
+$$
 
 **Answer**: Output at position (0, 0) = **-6**
 
