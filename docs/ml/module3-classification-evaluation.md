@@ -340,6 +340,77 @@ where $w_i = \frac{n_i}{N}$ (proportion of class $i$)
 
 ---
 
+## Worked Examples (Exam-Style)
+
+### Worked Example 1: Metrics from Confusion Matrix
+
+Given:
+- $TP=50,\ FP=10,\ FN=5,\ TN=35$
+
+1) **Accuracy**:
+
+$$
+\text{Accuracy}=\frac{TP+TN}{TP+TN+FP+FN}=\frac{50+35}{50+35+10+5}=\frac{85}{100}=0.85
+$$
+
+2) **Precision**:
+
+$$
+\text{Precision}=\frac{TP}{TP+FP}=\frac{50}{50+10}=\frac{50}{60}=0.833
+$$
+
+3) **Recall**:
+
+$$
+\text{Recall}=\frac{TP}{TP+FN}=\frac{50}{50+5}=\frac{50}{55}=0.909
+$$
+
+4) **F1**:
+
+$$
+F1=2\cdot\frac{PR}{P+R}
+=2\cdot\frac{0.833\cdot0.909}{0.833+0.909}
+\approx 0.869
+$$
+
+!!! note "How to score full marks"
+    Write the **formula** first, then substitute numbers, then final value (with 3 decimals).
+
+### Worked Example 2: ROC Point at a Threshold
+
+If a classifier at threshold $t$ gives $TP=40,\ FN=10,\ FP=20,\ TN=30$:
+
+$$
+TPR=\frac{TP}{TP+FN}=\frac{40}{50}=0.8
+$$
+
+$$
+FPR=\frac{FP}{FP+TN}=\frac{20}{50}=0.4
+$$
+
+So ROC has a point **(0.4, 0.8)**.
+
+---
+
+## Common Pitfalls
+
+- **Using Accuracy on imbalanced data**: can look “high” even for a useless model.
+- **Mixing up Precision and Recall**:
+  - Precision cares about **FP**
+  - Recall cares about **FN**
+- **Forgetting class meaning**: always state which class is “positive”.
+
+---
+
+## Quick Revision Checklist (2 minutes)
+
+- Can you draw confusion matrix and label **TP/FP/FN/TN**?
+- Do you remember all metric formulas?
+- Can you explain when to use **F1 vs ROC-AUC vs PR-AUC**?
+- Can you compute one ROC point from counts?
+
+---
+
 ## Important Points to Remember
 
 ✅ **Confusion Matrix**: Foundation for all classification metrics

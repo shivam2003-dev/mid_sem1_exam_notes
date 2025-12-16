@@ -317,5 +317,85 @@ $$
 
 ---
 
+## Worked Examples (Exam-Style)
+
+### Worked Example 1: One step of Gradient Descent (Linear Regression)
+
+**Given**: two points $(x,y) = (1,2), (2,4)$, hypothesis $h_\theta(x)=\theta_0+\theta_1x$, start $\theta_0=0,\ \theta_1=0$, learning rate $\alpha=0.1$, $m=2$.
+
+1) **Predictions**:
+- $h(1)=0$
+- $h(2)=0$
+
+2) **Errors**:
+- $e^{(1)}=h(1)-2=-2$
+- $e^{(2)}=h(2)-4=-4$
+
+3) **Update $\theta_0$**:
+
+$$
+\theta_0 := \theta_0 - \alpha\frac{1}{m}\sum_{i=1}^{m} e^{(i)}
+        = 0 - 0.1\cdot\frac{1}{2}(-2-4)
+        = 0.3
+$$
+
+4) **Update $\theta_1$**:
+
+$$
+\theta_1 := \theta_1 - \alpha\frac{1}{m}\sum_{i=1}^{m} e^{(i)}x^{(i)}
+        = 0 - 0.1\cdot\frac{1}{2}\left[(-2)\cdot1 + (-4)\cdot2\right]
+        = 0.5
+$$
+
+✅ **After 1 step**: $\theta_0=0.3,\ \theta_1=0.5$
+
+!!! tip "Exam Tip"
+    In exams, always show **prediction → error → substitute into update rule**. That’s usually full marks.
+
+### Worked Example 2: Logistic Regression Prediction + Class
+
+**Given**: $\theta=[-2, 1, 1]^T$, input $x=[1,2,1]^T$ (bias included).
+
+1) Compute:
+
+$$
+z=\theta^Tx=-2 + 1\cdot2 + 1\cdot1 = 1
+$$
+
+2) Probability:
+
+$$
+h_\theta(x)=\sigma(z)=\frac{1}{1+e^{-1}}\approx 0.731
+$$
+
+3) Class (threshold 0.5): since $0.731\ge 0.5$ ⇒ **predict 1**.
+
+---
+
+## Common Exam Questions (What to Write)
+
+- **“Derive gradient descent update”**:
+  - Write $J(\theta)$
+  - Take partial derivative $\frac{\partial J}{\partial \theta_j}$
+  - Plug into $\theta_j := \theta_j - \alpha \frac{\partial J}{\partial \theta_j}$
+- **“Why MSE not used for logistic regression?”**:
+  - MSE makes cost non-convex with sigmoid ⇒ local minima
+  - Cross-entropy is convex ⇒ gradient descent works reliably
+- **“Explain regularization”**:
+  - Add $\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_j^2$ (exclude $\theta_0$)
+  - Large $\lambda$ ⇒ underfit; small $\lambda$ ⇒ risk overfit
+
+---
+
+## Quick Revision Checklist (2 minutes)
+
+- Can you write **MSE** and **cross-entropy** correctly?
+- Can you write **gradient descent update** (scalar + vectorized)?
+- Can you explain **decision boundary** ($\theta^Tx=0$)?
+- Do you remember **don’t regularize $\theta_0$**?
+- Do you know what happens when $\alpha$ is too large/small?
+
+---
+
 **Previous**: [Module 1 - Introduction](module1-introduction.md) | **Next**: [Module 3 - Classification & Evaluation](module3-classification-evaluation.md)
 
