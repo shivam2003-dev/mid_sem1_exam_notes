@@ -2052,7 +2052,9 @@
 <h3 id="1-accuracy">1. Accuracy</h3>
 <p><strong>Definition</strong>: Proportion of correct predictions</p>
 <p><strong>Formula</strong>:
-$<span class="arithmatex">\(\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} = \frac{\text{Correct Predictions}}{\text{Total Predictions}}\)</span>$</p>
+$$
+\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} = \frac{\text{Correct Predictions}}{\text{Total Predictions}}
+$$</p>
 <p><strong>Range</strong>: [0, 1] or [0%, 100%]</p>
 <p><strong>When to Use</strong>:
 - ✅ Balanced classes
@@ -2063,7 +2065,9 @@ $<span class="arithmatex">\(\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} 
 <h3 id="2-precision">2. Precision</h3>
 <p><strong>Definition</strong>: Of all positive predictions, how many were actually positive?</p>
 <p><strong>Formula</strong>:
-$<span class="arithmatex">\(\text{Precision} = \frac{TP}{TP + FP} = \frac{\text{True Positives}}{\text{All Predicted Positives}}\)</span>$</p>
+$$
+\text{Precision} = \frac{TP}{TP + FP} = \frac{\text{True Positives}}{\text{All Predicted Positives}}
+$$</p>
 <p><strong>Interpretation</strong>: 
 - High precision = Low false positive rate
 - "When we predict positive, how often are we right?"</p>
@@ -2073,7 +2077,9 @@ $<span class="arithmatex">\(\text{Precision} = \frac{TP}{TP + FP} = \frac{\text{
 <h3 id="3-recall-sensitivity">3. Recall (Sensitivity)</h3>
 <p><strong>Definition</strong>: Of all actual positives, how many did we correctly identify?</p>
 <p><strong>Formula</strong>:
-$<span class="arithmatex">\(\text{Recall} = \frac{TP}{TP + FN} = \frac{\text{True Positives}}{\text{All Actual Positives}}\)</span>$</p>
+$$
+\text{Recall} = \frac{TP}{TP + FN} = \frac{\text{True Positives}}{\text{All Actual Positives}}
+$$</p>
 <p><strong>Also called</strong>:
 - Sensitivity
 - True Positive Rate (TPR)</p>
@@ -2086,13 +2092,17 @@ $<span class="arithmatex">\(\text{Recall} = \frac{TP}{TP + FN} = \frac{\text{Tru
 <h3 id="4-specificity">4. Specificity</h3>
 <p><strong>Definition</strong>: Of all actual negatives, how many did we correctly identify?</p>
 <p><strong>Formula</strong>:
-$<span class="arithmatex">\(\text{Specificity} = \frac{TN}{TN + FP} = \frac{\text{True Negatives}}{\text{All Actual Negatives}}\)</span>$</p>
+$$
+\text{Specificity} = \frac{TN}{TN + FP} = \frac{\text{True Negatives}}{\text{All Actual Negatives}}
+$$</p>
 <p><strong>Also called</strong>: True Negative Rate (TNR)</p>
 <p><strong>Interpretation</strong>: Ability to correctly identify negative cases</p>
 <h3 id="5-f1-score">5. F1-Score</h3>
 <p><strong>Definition</strong>: Harmonic mean of Precision and Recall</p>
 <p><strong>Formula</strong>:
-$<span class="arithmatex">\(\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2TP}{2TP + FP + FN}\)</span>$</p>
+$$
+\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2TP}{2TP + FP + FN}
+$$</p>
 <p><strong>Range</strong>: [0, 1]</p>
 <p><strong>Why Harmonic Mean?</strong>
 - Penalizes extreme values
@@ -2103,14 +2113,18 @@ $<span class="arithmatex">\(\text{F1-Score} = 2 \times \frac{\text{Precision} \t
 - ✅ Single metric to optimize</p>
 <h3 id="6-f-score">6. Fβ-Score</h3>
 <p><strong>Generalized F-Score</strong>:</p>
-<div class="arithmatex">\[\text{F}_\beta = (1 + \beta^2) \times \frac{\text{Precision} \times \text{Recall}}{(\beta^2 \times \text{Precision}) + \text{Recall}}\]</div>
+<div class="arithmatex">\[
+\text{F}_\beta = (1 + \beta^2) \times \frac{\text{Precision} \times \text{Recall}}{(\beta^2 \times \text{Precision}) + \text{Recall}}
+\]</div>
 <p><strong>Common Values</strong>:
 - <span class="arithmatex">\(\beta = 1\)</span>: F1-Score (equal weight)
 - <span class="arithmatex">\(\beta = 2\)</span>: F2-Score (more weight to recall)
 - <span class="arithmatex">\(\beta = 0.5\)</span>: F0.5-Score (more weight to precision)</p>
 <h3 id="7-error-rate">7. Error Rate</h3>
 <p><strong>Formula</strong>:
-$<span class="arithmatex">\(\text{Error Rate} = \frac{FP + FN}{TP + TN + FP + FN} = 1 - \text{Accuracy}\)</span>$</p>
+$$
+\text{Error Rate} = \frac{FP + FN}{TP + TN + FP + FN} = 1 - \text{Accuracy}
+$$</p>
 <hr />
 <h2 id="roc-curve-and-auc">ROC Curve and AUC</h2>
 <h3 id="roc-curve-receiver-operating-characteristic">ROC Curve (Receiver Operating Characteristic)</h3>
@@ -2164,16 +2178,24 @@ $<span class="arithmatex">\(\text{Error Rate} = \frac{FP + FN}{TP + TN + FP + FN
 <h2 id="multi-class-classification-metrics">Multi-class Classification Metrics</h2>
 <h3 id="macro-averaging">Macro-Averaging</h3>
 <p>Calculate metric for each class, then average:</p>
-<div class="arithmatex">\[\text{Macro-Precision} = \frac{1}{C} \sum_{i=1}^{C} \text{Precision}_i\]</div>
-<div class="arithmatex">\[\text{Macro-Recall} = \frac{1}{C} \sum_{i=1}^{C} \text{Recall}_i\]</div>
+<div class="arithmatex">\[
+\text{Macro-Precision} = \frac{1}{C} \sum_{i=1}^{C} \text{Precision}_i
+\]</div>
+<div class="arithmatex">\[
+\text{Macro-Recall} = \frac{1}{C} \sum_{i=1}^{C} \text{Recall}_i
+\]</div>
 <p><strong>Treats all classes equally</strong></p>
 <h3 id="micro-averaging">Micro-Averaging</h3>
 <p>Aggregate all TP, FP, FN across classes, then calculate:</p>
-<div class="arithmatex">\[\text{Micro-Precision} = \frac{\sum_{i=1}^{C} TP_i}{\sum_{i=1}^{C} (TP_i + FP_i)}\]</div>
+<div class="arithmatex">\[
+\text{Micro-Precision} = \frac{\sum_{i=1}^{C} TP_i}{\sum_{i=1}^{C} (TP_i + FP_i)}
+\]</div>
 <p><strong>Gives equal weight to each sample (not each class)</strong></p>
 <h3 id="weighted-averaging">Weighted-Averaging</h3>
 <p>Weight by number of samples in each class:</p>
-<div class="arithmatex">\[\text{Weighted-Precision} = \sum_{i=1}^{C} w_i \times \text{Precision}_i\]</div>
+<div class="arithmatex">\[
+\text{Weighted-Precision} = \sum_{i=1}^{C} w_i \times \text{Precision}_i
+\]</div>
 <p>where <span class="arithmatex">\(w_i = \frac{n_i}{N}\)</span> (proportion of class <span class="arithmatex">\(i\)</span>)</p>
 <hr />
 <h2 id="choosing-the-right-metric">Choosing the Right Metric</h2>
@@ -2289,7 +2311,7 @@ $<span class="arithmatex">\(\text{Error Rate} = \frac{FP + FN}{TP + TN + FP + FN
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 15, 2025 19:52:44 UTC">December 15, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 17:00:48 UTC">December 16, 2025</span>
   </span>
 
     

@@ -2105,12 +2105,12 @@
 </li>
 <li>
 <p><strong>For each layer <span class="arithmatex">\(l = 1, 2, \ldots, L\)</span></strong>:
-   [
+   $$
    \mathbf{z}^{[l]} = \mathbf{W}^{[l]} \mathbf{a}^{[l-1]} + \mathbf{b}^{[l]}
-   ]
-   [
+$$
+   $$
    \mathbf{a}^{[l]} = g<sup _l_="[l]">{[l]}(\mathbf{z}</sup>)
-   ]</p>
+$$</p>
 </li>
 <li>
 <p><strong>Output</strong>: <span class="arithmatex">\(\hat{\mathbf{y}} = \mathbf{a}^{[L]}\)</span></p>
@@ -2119,19 +2119,19 @@
 <h3 id="example-3-layer-network">Example: 3-Layer Network</h3>
 <p><strong>Architecture</strong>: Input (2) → Hidden (3) → Output (1)</p>
 <p><strong>Layer 1 (Hidden)</strong>:
-[
+$$
 \mathbf{z}^{[1]} = \mathbf{W}^{[1]} \mathbf{x} + \mathbf{b}^{[1]}
-]
-[
+$$
+$$
 \mathbf{a}^{[1]} = \text{ReLU}(\mathbf{z}^{[1]})
-]</p>
+$$</p>
 <p><strong>Layer 2 (Output)</strong>:
-[
+$$
 \mathbf{z}^{[2]} = \mathbf{W}^{[2]} \mathbf{a}^{[1]} + \mathbf{b}^{[2]}
-]
-[
+$$
+$$
 \hat{y} = \sigma(\mathbf{z}^{[2]}) \quad \text{(for binary classification)}
-]</p>
+$$</p>
 <hr />
 <h2 id="backpropagation-algorithm">Backpropagation Algorithm</h2>
 <h3 id="goal">Goal</h3>
@@ -2146,22 +2146,22 @@
 \]</div>
 <p><strong>Step 2</strong>: For each layer <span class="arithmatex">\(l = L, L-1, \ldots, 1\)</span> (backward):</p>
 <p>a. <strong>Gradient w.r.t. pre-activation</strong>:
-[
+$$
 \frac{\partial J}{\partial \mathbf{z}^{[l]}} = \frac{\partial J}{\partial \mathbf{a}^{[l]}} \odot g'<sup _l_="[l]">{[l]}(\mathbf{z}</sup>)
-]</p>
+$$</p>
 <p>Where <span class="arithmatex">\(\odot\)</span> is element-wise multiplication.</p>
 <p>b. <strong>Gradient w.r.t. weights</strong>:
-[
+$$
 \frac{\partial J}{\partial \mathbf{W}^{[l]}} = \frac{\partial J}{\partial \mathbf{z}^{[l]}} (\mathbf{a}<sup>{[l-1]})</sup>T
-]</p>
+$$</p>
 <p>c. <strong>Gradient w.r.t. bias</strong>:
-[
+$$
 \frac{\partial J}{\partial \mathbf{b}^{[l]}} = \frac{\partial J}{\partial \mathbf{z}^{[l]}}
-]</p>
+$$</p>
 <p>d. <strong>Gradient w.r.t. previous layer activations</strong>:
-[
+$$
 \frac{\partial J}{\partial \mathbf{a}^{[l-1]}} = (\mathbf{W}<sup>{[l]})</sup>T \frac{\partial J}{\partial \mathbf{z}^{[l]}}
-]</p>
+$$</p>
 <h3 id="detailed-formulas">Detailed Formulas</h3>
 <p><strong>For output layer <span class="arithmatex">\(L\)</span></strong> (binary classification with sigmoid):</p>
 <div class="arithmatex">\[
@@ -2215,9 +2215,9 @@
 <ol>
 <li>
 <p><strong>Gradient Clipping</strong>: Limit gradient magnitude
-   [
+   $$
    \text{if } ||\mathbf{g}|| &gt; \text{threshold}: \mathbf{g} = \mathbf{g} \cdot \frac{\text{threshold}}{||\mathbf{g}||}
-   ]</p>
+$$</p>
 </li>
 <li>
 <p><strong>Weight Initialization</strong>: Start with small weights</p>
@@ -2296,26 +2296,26 @@ W_{ij} \sim \mathcal{N}\left(0, \frac{2}{n^{[l-1]}}\right)
 \]</div>
 <h3 id="backpropagation">Backpropagation</h3>
 <p><strong>Output Layer</strong>:
-[
+$$
 \frac{\partial J}{\partial \mathbf{z}^{[L]}} = \hat{\mathbf{y}} - \mathbf{y}
-]</p>
+$$</p>
 <p><strong>Hidden Layers</strong>:
-[
+$$
 \frac{\partial J}{\partial \mathbf{z}^{[l]}} = (\mathbf{W}<sup>{[l+1]})</sup>T \frac{\partial J}{\partial \mathbf{z}^{[l+1]}} \odot g'<sup _l_="[l]">{[l]}(\mathbf{z}</sup>)
-]</p>
+$$</p>
 <p><strong>Weights</strong>:
-[
+$$
 \frac{\partial J}{\partial \mathbf{W}^{[l]}} = \frac{\partial J}{\partial \mathbf{z}^{[l]}} (\mathbf{a}<sup>{[l-1]})</sup>T
-]</p>
+$$</p>
 <p><strong>Bias</strong>:
-[
+$$
 \frac{\partial J}{\partial \mathbf{b}^{[l]}} = \frac{\partial J}{\partial \mathbf{z}^{[l]}}
-]</p>
+$$</p>
 <h3 id="regularization">Regularization</h3>
 <p><strong>L2 Regularization</strong>:
-[
+$$
 J_{\text{reg}} = J + \frac{\lambda}{2m} \sum_{l=1}^{L} ||\mathbf{W}<sup>{[l]}||_F</sup>2
-]</p>
+$$</p>
 <hr />
 <h2 id="important-points-to-remember">Important Points to Remember</h2>
 <p>✅ <strong>DFNN</strong>: Multi-layer network with forward and backward propagation</p>
@@ -2349,7 +2349,7 @@ J_{\text{reg}} = J + \frac{\lambda}{2m} \sum_{l=1}^{L} ||\mathbf{W}<sup>{[l]}||_
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 16:50:34 UTC">December 16, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 17:00:48 UTC">December 16, 2025</span>
   </span>
 
     

@@ -1569,134 +1569,134 @@
 <h2 id="key-formulas">📐 Key Formulas</h2>
 <h3 id="perceptron">Perceptron</h3>
 <p><strong>Output</strong>:
-[
+$$
 y = f(\mathbf{w}^T \mathbf{x} + b)
-]</p>
+$$</p>
 <p><strong>Weight Update (Binary)</strong>:
-[
+$$
 w_j := w_j + \alpha \cdot (y^{(i)} - \hat{y}^{(i)}) \cdot x_j^{(i)}
-]</p>
+$$</p>
 <p><strong>Weight Update (Bipolar)</strong>:
-[
+$$
 \mathbf{w} := \mathbf{w} + \alpha \cdot y^{(i)} \cdot \mathbf{x}^{(i)} \quad \text{(if misclassified)}
-]</p>
+$$</p>
 <p><strong>Decision Boundary</strong>:
-[
+$$
 \mathbf{w}^T \mathbf{x} + b = 0
-]</p>
+$$</p>
 <hr />
 <h3 id="linear-nn-regression">Linear NN Regression</h3>
 <p><strong>Forward Propagation</strong>:
-[
+$$
 \hat{y} = \mathbf{w}^T \mathbf{x} + b
-]</p>
+$$</p>
 <p><strong>Loss Function (MSE)</strong>:
-[
+$$
 J = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y<sup>{(i)})</sup>2
-]</p>
+$$</p>
 <p><strong>Gradients</strong>:
-[
+$$
 \frac{\partial J}{\partial w_j} = \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)}) \cdot x_j^{(i)}
-]</p>
+$$</p>
 <div class="arithmatex">\[
 \frac{\partial J}{\partial b} = \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})
 \]</div>
 <hr />
 <h3 id="linear-nn-classification">Linear NN Classification</h3>
 <p><strong>Binary Classification (Sigmoid)</strong>:
-[
+$$
 \hat{y} = \sigma(\mathbf{w}^T \mathbf{x} + b) = \frac{1}{1 + e<sup>{-(\mathbf{w}</sup>T \mathbf{x} + b)}}
-]</p>
+$$</p>
 <p><strong>Loss (Binary Cross-Entropy)</strong>:
-[
+$$
 J = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(\hat{y}^{(i)}) + (1 - y^{(i)}) \log(1 - \hat{y}^{(i)})]
-]</p>
+$$</p>
 <p><strong>Multi-Class (Softmax)</strong>:
-[
+$$
 \hat{y}_k = \frac{e<sup K="K">{z_k}}{\sum_{j=1}</sup>
-]} e^{z_j}</p>
+$$} e^{z_j}</p>
 <p><strong>Loss (Categorical Cross-Entropy)</strong>:
-[
+$$
 J = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K} y_k^{(i)} \log(\hat{y}_k^{(i)})
-]</p>
+$$</p>
 <hr />
 <h3 id="activation-functions">Activation Functions</h3>
 <p><strong>Sigmoid</strong>:
-[
+$$
 \sigma(z) = \frac{1}{1 + e^{-z}}
-]</p>
+$$</p>
 <p><strong>Sigmoid Derivative</strong>:
-[
+$$
 \frac{d\sigma}{dz} = \sigma(z)(1 - \sigma(z))
-]</p>
+$$</p>
 <p><strong>Tanh</strong>:
-[
+$$
 \tanh(z) = \frac{e^z - e<sup>{-z}}{e</sup>z + e^{-z}}
-]</p>
+$$</p>
 <p><strong>Tanh Derivative</strong>:
-[
+$$
 \frac{d\tanh}{dz} = 1 - \tanh^2(z)
-]</p>
+$$</p>
 <p><strong>ReLU</strong>:
-[
+$$
 \text{ReLU}(z) = \max(0, z)
-]</p>
+$$</p>
 <p><strong>ReLU Derivative</strong>:
-[
+$$
 \frac{d\text{ReLU}}{dz} = \begin{cases} 1 &amp; \text{if } z &gt; 0 \ 0 &amp; \text{if } z \leq 0 \end{cases}
-]</p>
+$$</p>
 <p><strong>Softmax</strong>:
-[
+$$
 \text{softmax}(z_i) = \frac{e<sup K="K">{z_i}}{\sum_{j=1}</sup>
-]} e^{z_j}</p>
+$$} e^{z_j}</p>
 <hr />
 <h3 id="deep-feedforward-networks">Deep Feedforward Networks</h3>
 <p><strong>Forward Propagation (Layer <span class="arithmatex">\(l\)</span>)</strong>:
-[
+$$
 \mathbf{z}^{[l]} = \mathbf{W}^{[l]} \mathbf{a}^{[l-1]} + \mathbf{b}^{[l]}
-]</p>
+$$</p>
 <div class="arithmatex">\[
 \mathbf{a}^{[l]} = g^{[l]}(\mathbf{z}^{[l]})
 \]</div>
 <p><strong>Backpropagation</strong>:</p>
 <p><strong>Output Layer</strong>:
-[
+$$
 \frac{\partial J}{\partial \mathbf{z}^{[L]}} = \hat{\mathbf{y}} - \mathbf{y}
-]</p>
+$$</p>
 <p><strong>Hidden Layers</strong>:
-[
+$$
 \frac{\partial J}{\partial \mathbf{z}^{[l]}} = (\mathbf{W}<sup>{[l+1]})</sup>T \frac{\partial J}{\partial \mathbf{z}^{[l+1]}} \odot g'<sup _l_="[l]">{[l]}(\mathbf{z}</sup>)
-]</p>
+$$</p>
 <p><strong>Weights</strong>:
-[
+$$
 \frac{\partial J}{\partial \mathbf{W}^{[l]}} = \frac{\partial J}{\partial \mathbf{z}^{[l]}} (\mathbf{a}<sup>{[l-1]})</sup>T
-]</p>
+$$</p>
 <p><strong>Bias</strong>:
-[
+$$
 \frac{\partial J}{\partial \mathbf{b}^{[l]}} = \frac{\partial J}{\partial \mathbf{z}^{[l]}}
-]</p>
+$$</p>
 <p><strong>L2 Regularization</strong>:
-[
+$$
 J_{\text{reg}} = J + \frac{\lambda}{2m} \sum_{l=1}^{L} ||\mathbf{W}<sup>{[l]}||_F</sup>2
-]</p>
+$$</p>
 <hr />
 <h3 id="convolutional-neural-networks">Convolutional Neural Networks</h3>
 <p><strong>Convolution Operation</strong>:
-[
+$$
 \text{Output}(i, j) = \sum_{m=0}^{k-1} \sum_{n=0}^{k-1} \text{Input}(i+m, j+n) \cdot \text{Filter}(m, n) + b
-]</p>
+$$</p>
 <p><strong>Output Size</strong>:
-[
+$$
 \text{Output} = \left\lfloor \frac{\text{Input} - \text{Filter} + 2 \times \text{Padding}}{\text{Stride}} \right\rfloor + 1
-]</p>
+$$</p>
 <p><strong>Max Pooling</strong>:
-[
+$$
 \text{Output}(i, j) = \max_{m,n \in \text{window}} \text{Input}(i+m, j+n)
-]</p>
+$$</p>
 <p><strong>Average Pooling</strong>:
-[
+$$
 \text{Output}(i, j) = \frac{1}{k^2} \sum_{m=0}^{k-1} \sum_{n=0}^{k-1} \text{Input}(i+m, j+n)
-]</p>
+$$</p>
 <hr />
 <h2 id="quick-reference">🎯 Quick Reference</h2>
 <h3 id="perceptron-convergence">Perceptron Convergence</h3>
@@ -1740,13 +1740,13 @@ J_{\text{reg}} = J + \frac{\lambda}{2m} \sum_{l=1}^{L} ||\mathbf{W}<sup>{[l]}||_
 - <strong>Solution</strong>: Gradient clipping, proper initialization</p>
 <h3 id="weight-initialization">Weight Initialization</h3>
 <p><strong>He Initialization</strong> (for ReLU):
-[
+$$
 W_{ij} \sim \mathcal{N}\left(0, \frac{2}{n^{[l-1]}}\right)
-]</p>
+$$</p>
 <p><strong>Xavier Initialization</strong> (for tanh/sigmoid):
-[
+$$
 W_{ij} \sim \mathcal{N}\left(0, \frac{1}{n^{[l-1]}}\right)
-]</p>
+$$</p>
 <hr />
 <h2 id="common-mistakes-to-avoid">⚠️ Common Mistakes to Avoid</h2>
 <ol>
@@ -1792,7 +1792,7 @@ W_{ij} \sim \mathcal{N}\left(0, \frac{1}{n^{[l-1]}}\right)
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 16:50:34 UTC">December 16, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 17:00:48 UTC">December 16, 2025</span>
   </span>
 
     

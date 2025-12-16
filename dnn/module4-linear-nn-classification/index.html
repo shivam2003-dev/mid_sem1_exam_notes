@@ -2030,43 +2030,43 @@ J = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K} y_k^{(i)} \log(\hat{y}_k^{(i)})
 <h2 id="key-formulas-summary">Key Formulas Summary</h2>
 <h3 id="binary-classification_2">Binary Classification</h3>
 <p><strong>Output</strong>:
-[
+$$
 \hat{y} = \sigma(\mathbf{w}^T \mathbf{x} + b)
-]</p>
+$$</p>
 <p><strong>Loss</strong>:
-[
+$$
 J = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(\hat{y}^{(i)}) + (1 - y^{(i)}) \log(1 - \hat{y}^{(i)})]
-]</p>
+$$</p>
 <p><strong>Gradient</strong>:
-[
+$$
 \frac{\partial J}{\partial w_j} = \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)}) \cdot x_j^{(i)}
-]</p>
+$$</p>
 <h3 id="multi-class-classification_2">Multi-Class Classification</h3>
 <p><strong>Output</strong>:
-[
+$$
 \hat{y}_k = \frac{e<sup K="K">{z_k}}{\sum_{j=1}</sup>
-]} e^{z_j}</p>
+$$} e^{z_j}</p>
 <p><strong>Loss</strong>:
-[
+$$
 J = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K} y_k^{(i)} \log(\hat{y}_k^{(i)})
-]</p>
+$$</p>
 <p><strong>Gradient</strong>:
-[
+$$
 \frac{\partial J}{\partial w_{jk}} = \frac{1}{m} \sum_{i=1}^{m} (\hat{y}_k^{(i)} - y_k^{(i)}) \cdot x_j^{(i)}
-]</p>
+$$</p>
 <h3 id="activation-function-derivatives">Activation Function Derivatives</h3>
 <p><strong>Sigmoid</strong>:
-[
+$$
 \frac{d\sigma}{dz} = \sigma(z)(1 - \sigma(z))
-]</p>
+$$</p>
 <p><strong>Tanh</strong>:
-[
+$$
 \frac{d\tanh}{dz} = 1 - \tanh^2(z)
-]</p>
+$$</p>
 <p><strong>ReLU</strong>:
-[
+$$
 \frac{d\text{ReLU}}{dz} = \begin{cases} 1 &amp; \text{if } z &gt; 0 \ 0 &amp; \text{if } z \leq 0 \end{cases}
-]</p>
+$$</p>
 <hr />
 <h2 id="important-points-to-remember">Important Points to Remember</h2>
 <p>✅ <strong>Sigmoid</strong>: Binary classification output, range (0, 1)</p>
@@ -2099,7 +2099,7 @@ J = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K} y_k^{(i)} \log(\hat{y}_k^{(i)})
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 16:50:34 UTC">December 16, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 17:00:48 UTC">December 16, 2025</span>
   </span>
 
     

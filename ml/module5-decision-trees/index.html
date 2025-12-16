@@ -2587,26 +2587,36 @@ H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)
 <p>Total: 14 examples
 - Yes: 9
 - No: 5</p>
-<div class="arithmatex">\[H(S) = -\frac{9}{14}\log_2\left(\frac{9}{14}\right) - \frac{5}{14}\log_2\left(\frac{5}{14}\right) \approx 0.940\]</div>
+<div class="arithmatex">\[
+H(S) = -\frac{9}{14}\log_2\left(\frac{9}{14}\right) - \frac{5}{14}\log_2\left(\frac{5}{14}\right) \approx 0.940
+\]</div>
 <h3 id="step-2-calculate-information-gain-for-each-feature">Step 2: Calculate Information Gain for Each Feature</h3>
 <p><strong>For Outlook</strong>:
 - Sunny: [2 Yes, 3 No] → <span class="arithmatex">\(H = 0.971\)</span>
 - Overcast: [4 Yes, 0 No] → <span class="arithmatex">\(H = 0\)</span>
 - Rainy: [3 Yes, 2 No] → <span class="arithmatex">\(H = 0.971\)</span></p>
-<div class="arithmatex">\[\text{IG}(S, \text{Outlook}) = 0.940 - \left(\frac{5}{14} \times 0.971 + \frac{4}{14} \times 0 + \frac{5}{14} \times 0.971\right) = 0.246\]</div>
+<div class="arithmatex">\[
+\text{IG}(S, \text{Outlook}) = 0.940 - \left(\frac{5}{14} \times 0.971 + \frac{4}{14} \times 0 + \frac{5}{14} \times 0.971\right) = 0.246
+\]</div>
 <p><strong>For Humidity</strong>:
 - High: [3 Yes, 4 No] → <span class="arithmatex">\(H = 0.985\)</span>
 - Normal: [6 Yes, 1 No] → <span class="arithmatex">\(H = 0.592\)</span></p>
-<div class="arithmatex">\[\text{IG}(S, \text{Humidity}) = 0.940 - \left(\frac{7}{14} \times 0.985 + \frac{7}{14} \times 0.592\right) = 0.152\]</div>
+<div class="arithmatex">\[
+\text{IG}(S, \text{Humidity}) = 0.940 - \left(\frac{7}{14} \times 0.985 + \frac{7}{14} \times 0.592\right) = 0.152
+\]</div>
 <p><strong>For Wind</strong>:
 - Weak: [6 Yes, 2 No] → <span class="arithmatex">\(H = 0.811\)</span>
 - Strong: [3 Yes, 3 No] → <span class="arithmatex">\(H = 1.0\)</span></p>
-<div class="arithmatex">\[\text{IG}(S, \text{Wind}) = 0.940 - \left(\frac{8}{14} \times 0.811 + \frac{6}{14} \times 1.0\right) = 0.048\]</div>
+<div class="arithmatex">\[
+\text{IG}(S, \text{Wind}) = 0.940 - \left(\frac{8}{14} \times 0.811 + \frac{6}{14} \times 1.0\right) = 0.048
+\]</div>
 <p><strong>For Temperature</strong>:
 - Hot: [2 Yes, 2 No] → <span class="arithmatex">\(H = 1.0\)</span>
 - Mild: [4 Yes, 2 No] → <span class="arithmatex">\(H = 0.918\)</span>
 - Cool: [3 Yes, 1 No] → <span class="arithmatex">\(H = 0.811\)</span></p>
-<div class="arithmatex">\[\text{IG}(S, \text{Temperature}) = 0.940 - \left(\frac{4}{14} \times 1.0 + \frac{6}{14} \times 0.918 + \frac{4}{14} \times 0.811\right) = 0.029\]</div>
+<div class="arithmatex">\[
+\text{IG}(S, \text{Temperature}) = 0.940 - \left(\frac{4}{14} \times 1.0 + \frac{6}{14} \times 0.918 + \frac{4}{14} \times 0.811\right) = 0.029
+\]</div>
 <p><strong>Result</strong>: Outlook has highest Information Gain (0.246) → <strong>Split on Outlook</strong></p>
 <h3 id="step-3-build-tree-recursively">Step 3: Build Tree Recursively</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>                    Outlook
@@ -2651,7 +2661,9 @@ H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)
 <strong>Disadvantages</strong>: More expensive</p>
 <h3 id="cost-complexity-pruning">Cost Complexity Pruning</h3>
 <p><strong>Objective</strong>: Minimize
-$<span class="arithmatex">\(\text{Cost} = \text{Error} + \alpha \times \text{Complexity}\)</span>$</p>
+$$
+\text{Cost} = \text{Error} + \alpha \times \text{Complexity}
+$$</p>
 <p>Where:
 - <span class="arithmatex">\(\alpha\)</span> = complexity parameter
 - Larger <span class="arithmatex">\(\alpha\)</span> → Simpler tree</p>
@@ -2672,22 +2684,36 @@ $<span class="arithmatex">\(\text{Cost} = \text{Error} + \alpha \times \text{Com
 - Leaf = mean (or median) of target values</p>
 <h3 id="splitting-criterion-for-regression">Splitting Criterion for Regression</h3>
 <p><strong>MSE (Mean Squared Error)</strong>:
-$<span class="arithmatex">\(\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2\)</span>$</p>
+$$
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2
+$$</p>
 <p><strong>Information Gain (Regression)</strong>:
-$<span class="arithmatex">\(\text{IG} = \text{MSE}_{\text{parent}} - \left(\frac{n_{\text{left}}}{n} \text{MSE}_{\text{left}} + \frac{n_{\text{right}}}{n} \text{MSE}_{\text{right}}\right)\)</span>$</p>
+$$
+\text{IG} = \text{MSE}<em _text_left="\text{left">{\text{parent}} - \left(\frac{n</em>}}}{n} \text{MSE<em _text_right="\text{right">{\text{left}} + \frac{n</em>\right)
+$$}}}{n} \text{MSE}_{\text{right}</p>
 <p>Choose split that maximizes information gain (minimizes weighted MSE).</p>
 <hr />
 <h2 id="key-formulas-summary">Key Formulas Summary</h2>
 <h3 id="entropy_1">Entropy</h3>
-<div class="arithmatex">\[H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)\]</div>
+<div class="arithmatex">\[
+H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)
+\]</div>
 <h3 id="gini-impurity">Gini Impurity</h3>
-<div class="arithmatex">\[\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2\]</div>
+<div class="arithmatex">\[
+\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2
+\]</div>
 <h3 id="information-gain_1">Information Gain</h3>
-<div class="arithmatex">\[\text{IG}(S, A) = H(S) - \sum_{v} \frac{|S_v|}{|S|} H(S_v)\]</div>
+<div class="arithmatex">\[
+\text{IG}(S, A) = H(S) - \sum_{v} \frac{|S_v|}{|S|} H(S_v)
+\]</div>
 <h3 id="information-gain-ratio_1">Information Gain Ratio</h3>
-<div class="arithmatex">\[\text{IGR}(S, A) = \frac{\text{IG}(S, A)}{\text{SplitInfo}(S, A)}\]</div>
+<div class="arithmatex">\[
+\text{IGR}(S, A) = \frac{\text{IG}(S, A)}{\text{SplitInfo}(S, A)}
+\]</div>
 <h3 id="regression-mse">Regression MSE</h3>
-<div class="arithmatex">\[\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2\]</div>
+<div class="arithmatex">\[
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2
+\]</div>
 <hr />
 <h2 id="important-points-to-remember">Important Points to Remember</h2>
 <p>✅ <strong>Decision Trees</strong>: Tree structure, easy to interpret</p>
@@ -2722,7 +2748,7 @@ $<span class="arithmatex">\(\text{IG} = \text{MSE}_{\text{parent}} - \left(\frac
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 15, 2025 20:16:54 UTC">December 15, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 17:00:48 UTC">December 16, 2025</span>
   </span>
 
     

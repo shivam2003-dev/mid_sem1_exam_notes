@@ -2097,7 +2097,9 @@
 <h3 id="solution">Solution</h3>
 <h4 id="part-a-hypothesis-function">Part (a): Hypothesis Function</h4>
 <p><strong>Multiple Linear Regression Hypothesis</strong>:
-$<span class="arithmatex">\(h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2\)</span>$</p>
+$$
+h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2
+$$</p>
 <p>Where:
 - <span class="arithmatex">\(\theta_0\)</span> = bias term
 - <span class="arithmatex">\(\theta_1\)</span> = weight for feature <span class="arithmatex">\(x_1\)</span>
@@ -2153,10 +2155,18 @@ $<span class="arithmatex">\(y = \begin{bmatrix}
 \end{bmatrix}\]</div>
 <p><strong>Step 3: Calculate <span class="arithmatex">\((X^T X)^{-1}\)</span></strong></p>
 <p><strong>Determinant</strong>:
-$<span class="arithmatex">\(\det(X^T X) = 4(30 \times 18 - 19 \times 19) - 10(10 \times 18 - 19 \times 8) + 8(10 \times 19 - 30 \times 8)\)</span>$
-$<span class="arithmatex">\(= 4(540 - 361) - 10(180 - 152) + 8(190 - 240)\)</span>$
-$<span class="arithmatex">\(= 4(179) - 10(28) + 8(-50)\)</span>$
-$<span class="arithmatex">\(= 716 - 280 - 400 = 36\)</span>$</p>
+$$
+\det(X^T X) = 4(30 \times 18 - 19 \times 19) - 10(10 \times 18 - 19 \times 8) + 8(10 \times 19 - 30 \times 8)
+$$
+$$
+= 4(540 - 361) - 10(180 - 152) + 8(190 - 240)
+$$
+$$
+= 4(179) - 10(28) + 8(-50)
+$$
+$$
+= 716 - 280 - 400 = 36
+$$</p>
 <p><strong>Adjugate Matrix</strong> (using cofactors):
 $<span class="arithmatex">\((X^T X)^{-1} = \frac{1}{36} \begin{bmatrix}
 179 &amp; -28 &amp; -50 \\
@@ -2195,7 +2205,9 @@ $<span class="arithmatex">\((X^T X)^{-1} = \frac{1}{36} \begin{bmatrix}
 <p><strong>Answer</strong>: <span class="arithmatex">\(\theta = [2.944, -2.556, -7.778]^T\)</span></p>
 <p><strong>Note</strong>: Let's verify with simpler calculation. Actually, recalculating more carefully:</p>
 <p><strong>Simplified calculation</strong> (using matrix operations):
-$<span class="arithmatex">\(\theta \approx [3, 1, 1]^T\)</span>$</p>
+$$
+\theta \approx [3, 1, 1]^T
+$$</p>
 <p><strong>Verification</strong>:
 - <span class="arithmatex">\(h(1,2) = 3 + 1(1) + 1(2) = 6\)</span> (close to 5)
 - <span class="arithmatex">\(h(2,3) = 3 + 1(2) + 1(3) = 8\)</span> ✓
@@ -2206,7 +2218,9 @@ $<span class="arithmatex">\(\theta \approx [3, 1, 1]^T\)</span>$</p>
 <h4 id="part-c-prediction">Part (c): Prediction</h4>
 <p><strong>Given</strong>: <span class="arithmatex">\(x_1 = 5\)</span>, <span class="arithmatex">\(x_2 = 3\)</span></p>
 <p><strong>Using <span class="arithmatex">\(\theta = [3, 1, 1]^T\)</span></strong>:
-$<span class="arithmatex">\(h_\theta(x) = 3 + 1(5) + 1(3) = 3 + 5 + 3 = 11\)</span>$</p>
+$$
+h_\theta(x) = 3 + 1(5) + 1(3) = 3 + 5 + 3 = 11
+$$</p>
 <p><strong>Answer</strong>: Predicted <span class="arithmatex">\(y = 11\)</span></p>
 <hr />
 <h2 id="question-2-logistic-regression-with-regularization">Question 2: Logistic Regression with Regularization</h2>
@@ -2219,7 +2233,9 @@ $<span class="arithmatex">\(h_\theta(x) = 3 + 1(5) + 1(3) = 3 + 5 + 3 = 11\)</sp
 <h3 id="solution_1">Solution</h3>
 <h4 id="part-a-regularized-cost-function">Part (a): Regularized Cost Function</h4>
 <p><strong>Logistic Regression Cost Function with Regularization</strong>:</p>
-<div class="arithmatex">\[J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m} \sum_{j=1}^{n} \theta_j^2\]</div>
+<div class="arithmatex">\[
+J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m} \sum_{j=1}^{n} \theta_j^2
+\]</div>
 <p>Where:
 - First term: Cross-entropy loss (data fitting term)
 - Second term: Regularization term (penalty for large parameters)
@@ -2231,11 +2247,19 @@ $<span class="arithmatex">\(h_\theta(x) = 3 + 1(5) + 1(3) = 3 + 5 + 3 = 11\)</sp
 - <span class="arithmatex">\(m = 100\)</span> training examples
 - <span class="arithmatex">\(\lambda = 0.5\)</span></p>
 <p><strong>Regularization Term</strong>:
-$<span class="arithmatex">\(\text{Reg} = \frac{\lambda}{2m} \sum_{j=1}^{n} \theta_j^2\)</span>$</p>
+$$
+\text{Reg} = \frac{\lambda}{2m} \sum_{j=1}^{n} \theta_j^2
+$$</p>
 <p><strong>Note</strong>: Only regularize <span class="arithmatex">\(\theta_1\)</span> and <span class="arithmatex">\(\theta_2\)</span> (not <span class="arithmatex">\(\theta_0\)</span>)</p>
-<div class="arithmatex">\[\text{Reg} = \frac{0.5}{2 \times 100} [(1.2)^2 + (-0.8)^2]$$
-$$\text{Reg} = \frac{0.5}{200} [1.44 + 0.64]$$
-$$\text{Reg} = \frac{0.5}{200} \times 2.08 = \frac{1.04}{200} = 0.0052\]</div>
+<div class="arithmatex">\[
+\text{Reg} = \frac{0.5}{2 \times 100} [(1.2)^2 + (-0.8)^2]
+$$
+$$
+\text{Reg} = \frac{0.5}{200} [1.44 + 0.64]
+$$
+$$
+\text{Reg} = \frac{0.5}{200} \times 2.08 = \frac{1.04}{200} = 0.0052
+\]</div>
 <p><strong>Answer</strong>: Regularization term = <strong>0.0052</strong></p>
 <hr />
 <h4 id="part-c-effect-of-large-lambda">Part (c): Effect of Large <span class="arithmatex">\(\lambda\)</span></h4>
@@ -2329,9 +2353,13 @@ $$\text{Reg} = \frac{0.5}{200} \times 2.08 = \frac{1.04}{200} = 0.0052\]</div>
 - FP = 2
 - FN = 1</p>
 <p><strong>TPR (Recall)</strong>:
-$<span class="arithmatex">\(\text{TPR} = \frac{TP}{TP + FN} = \frac{3}{3 + 1} = \frac{3}{4} = 0.75\)</span>$</p>
+$$
+\text{TPR} = \frac{TP}{TP + FN} = \frac{3}{3 + 1} = \frac{3}{4} = 0.75
+$$</p>
 <p><strong>FPR</strong>:
-$<span class="arithmatex">\(\text{FPR} = \frac{FP}{FP + TN} = \frac{2}{2 + 2} = \frac{2}{4} = 0.5\)</span>$</p>
+$$
+\text{FPR} = \frac{FP}{FP + TN} = \frac{2}{2 + 2} = \frac{2}{4} = 0.5
+$$</p>
 <p><strong>Answer</strong>: TPR = <strong>0.75</strong>, FPR = <strong>0.5</strong></p>
 <p><strong>Point on ROC</strong>: (0.5, 0.75)</p>
 <hr />
@@ -2352,9 +2380,13 @@ $<span class="arithmatex">\(\text{FPR} = \frac{FP}{FP + TN} = \frac{2}{2 + 2} = 
 - FP = 1
 - FN = 2</p>
 <p><strong>TPR</strong>:
-$<span class="arithmatex">\(\text{TPR} = \frac{TP}{TP + FN} = \frac{2}{2 + 2} = \frac{2}{4} = 0.5\)</span>$</p>
+$$
+\text{TPR} = \frac{TP}{TP + FN} = \frac{2}{2 + 2} = \frac{2}{4} = 0.5
+$$</p>
 <p><strong>FPR</strong>:
-$<span class="arithmatex">\(\text{FPR} = \frac{FP}{FP + TN} = \frac{1}{1 + 3} = \frac{1}{4} = 0.25\)</span>$</p>
+$$
+\text{FPR} = \frac{FP}{FP + TN} = \frac{1}{1 + 3} = \frac{1}{4} = 0.25
+$$</p>
 <p><strong>Answer</strong>: TPR = <strong>0.5</strong>, FPR = <strong>0.25</strong></p>
 <p><strong>Point on ROC</strong>: (0.25, 0.5)</p>
 <hr />
@@ -2429,10 +2461,16 @@ $<span class="arithmatex">\(\text{FPR} = \frac{FP}{FP + TN} = \frac{1}{1 + 3} = 
 - Yes: 3 examples
 - No: 3 examples</p>
 <p><strong>Gini Formula</strong>:
-$<span class="arithmatex">\(\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2\)</span>$</p>
+$$
+\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2
+$$</p>
 <p><strong>Calculation</strong>:
-$<span class="arithmatex">\(\text{Gini}(S) = 1 - \left[\left(\frac{3}{6}\right)^2 + \left(\frac{3}{6}\right)^2\right]\)</span>$
-$<span class="arithmatex">\(\text{Gini}(S) = 1 - [0.25 + 0.25] = 1 - 0.5 = 0.5\)</span>$</p>
+$$
+\text{Gini}(S) = 1 - \left[\left(\frac{3}{6}\right)^2 + \left(\frac{3}{6}\right)^2\right]
+$$
+$$
+\text{Gini}(S) = 1 - [0.25 + 0.25] = 1 - 0.5 = 0.5
+$$</p>
 <p><strong>Answer</strong>: Root Gini = <strong>0.5</strong> (maximum impurity for binary classification)</p>
 <hr />
 <h4 id="part-b-gini-after-splitting-on-feature-a">Part (b): Gini After Splitting on Feature A</h4>
@@ -2461,11 +2499,17 @@ $<span class="arithmatex">\(\text{Gini}(S) = 1 - [0.25 + 0.25] = 1 - 0.5 = 0.5\)
 <li><span class="arithmatex">\(\text{Gini}(S_Z) = 1 - [0.5^2 + 0.5^2] = 1 - 0.5 = 0.5\)</span></li>
 </ol>
 <p><strong>Weighted Average Gini</strong>:
-$<span class="arithmatex">\(\text{Gini}(S|A) = \frac{2}{6} \times 0 + \frac{2}{6} \times 0 + \frac{2}{6} \times 0.5\)</span>$
-$<span class="arithmatex">\(\text{Gini}(S|A) = 0 + 0 + 0.167 = 0.167\)</span>$</p>
+$$
+\text{Gini}(S|A) = \frac{2}{6} \times 0 + \frac{2}{6} \times 0 + \frac{2}{6} \times 0.5
+$$
+$$
+\text{Gini}(S|A) = 0 + 0 + 0.167 = 0.167
+$$</p>
 <p><strong>Answer</strong>: Weighted Gini = <strong>0.167</strong></p>
 <p><strong>Gini Gain</strong>:
-$<span class="arithmatex">\(\text{Gini Gain} = 0.5 - 0.167 = 0.333\)</span>$</p>
+$$
+\text{Gini Gain} = 0.5 - 0.167 = 0.333
+$$</p>
 <hr />
 <h4 id="part-c-gini-after-splitting-on-feature-b">Part (c): Gini After Splitting on Feature B</h4>
 <p><strong>Feature B has 2 values</strong>: 1, 2</p>
@@ -2485,10 +2529,14 @@ $<span class="arithmatex">\(\text{Gini Gain} = 0.5 - 0.167 = 0.333\)</span>$</p>
 <li><span class="arithmatex">\(\text{Gini}(S_{B=2}) = 1 - \left[\left(\frac{1}{3}\right)^2 + \left(\frac{2}{3}\right)^2\right] = 1 - [0.111 + 0.444] = 0.445\)</span></li>
 </ol>
 <p><strong>Weighted Average Gini</strong>:
-$<span class="arithmatex">\(\text{Gini}(S|B) = \frac{3}{6} \times 0.445 + \frac{3}{6} \times 0.445 = 0.445\)</span>$</p>
+$$
+\text{Gini}(S|B) = \frac{3}{6} \times 0.445 + \frac{3}{6} \times 0.445 = 0.445
+$$</p>
 <p><strong>Answer</strong>: Weighted Gini = <strong>0.445</strong></p>
 <p><strong>Gini Gain</strong>:
-$<span class="arithmatex">\(\text{Gini Gain} = 0.5 - 0.445 = 0.055\)</span>$</p>
+$$
+\text{Gini Gain} = 0.5 - 0.445 = 0.055
+$$</p>
 <hr />
 <h4 id="part-d-root-split-selection">Part (d): Root Split Selection</h4>
 <p><strong>Comparison</strong>:
@@ -2540,7 +2588,9 @@ $<span class="arithmatex">\(Z = \begin{bmatrix}
 <hr />
 <h4 id="part-b-covariance-matrix">Part (b): Covariance Matrix</h4>
 <p><strong>Covariance Matrix Formula</strong>:
-$<span class="arithmatex">\(\Sigma = \frac{1}{m} Z^T Z\)</span>$</p>
+$$
+\Sigma = \frac{1}{m} Z^T Z
+$$</p>
 <p><strong>Where <span class="arithmatex">\(m = 4\)</span> (number of examples)</strong></p>
 <div class="arithmatex">\[Z^T = \begin{bmatrix}
 -1.342 &amp; -0.447 &amp; 0.447 &amp; 1.342 \\
@@ -2575,17 +2625,33 @@ $<span class="arithmatex">\(\Sigma = \frac{1}{4} \begin{bmatrix}
 <p><strong>Eigenvalue Equation</strong>: <span class="arithmatex">\(\Sigma v = \lambda v\)</span></p>
 <p><strong>For <span class="arithmatex">\(\Sigma = \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 1 \end{bmatrix}\)</span></strong>:</p>
 <p><strong>Characteristic Equation</strong>: <span class="arithmatex">\(\det(\Sigma - \lambda I) = 0\)</span></p>
-<div class="arithmatex">\[\det\begin{bmatrix} 1-\lambda &amp; 1 \\ 1 &amp; 1-\lambda \end{bmatrix} = (1-\lambda)^2 - 1 = 0\]</div>
-<div class="arithmatex">\[(1-\lambda)^2 = 1$$
-$$1-\lambda = \pm 1$$
-$$\lambda = 0 \text{ or } \lambda = 2\]</div>
+<div class="arithmatex">\[
+\det\begin{bmatrix} 1-\lambda &amp; 1 \\ 1 &amp; 1-\lambda \end{bmatrix} = (1-\lambda)^2 - 1 = 0
+\]</div>
+<div class="arithmatex">\[
+(1-\lambda)^2 = 1
+$$
+$$
+1-\lambda = \pm 1
+$$
+$$
+\lambda = 0 \text{ or } \lambda = 2
+\]</div>
 <p><strong>Largest eigenvalue</strong>: <span class="arithmatex">\(\lambda_1 = 2\)</span></p>
 <p><strong>Eigenvector for <span class="arithmatex">\(\lambda = 2\)</span></strong>:
-$<span class="arithmatex">\(\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 1 \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = 2 \begin{bmatrix} v_1 \\ v_2 \end{bmatrix}\)</span>$</p>
-<div class="arithmatex">\[v_1 + v_2 = 2v_1 \Rightarrow v_2 = v_1$$
-$$v_1 + v_2 = 2v_2 \Rightarrow v_1 = v_2\]</div>
+$$
+\begin{bmatrix} 1 &amp; 1 \ 1 &amp; 1 \end{bmatrix} \begin{bmatrix} v_1 \ v_2 \end{bmatrix} = 2 \begin{bmatrix} v_1 \ v_2 \end{bmatrix}
+$$</p>
+<div class="arithmatex">\[
+v_1 + v_2 = 2v_1 \Rightarrow v_2 = v_1
+$$
+$$
+v_1 + v_2 = 2v_2 \Rightarrow v_1 = v_2
+\]</div>
 <p><strong>Normalized eigenvector</strong> (unit length):
-$<span class="arithmatex">\(v = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix} = \begin{bmatrix} 0.707 \\ 0.707 \end{bmatrix}\)</span>$</p>
+$$
+v = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \ 1 \end{bmatrix} = \begin{bmatrix} 0.707 \ 0.707 \end{bmatrix}
+$$</p>
 <p><strong>Answer</strong>: First Principal Component = <span class="arithmatex">\(\begin{bmatrix} 0.707 \\ 0.707 \end{bmatrix}\)</span> (or <span class="arithmatex">\(\frac{1}{\sqrt{2}}[1, 1]^T\)</span>)</p>
 <p><strong>Interpretation</strong>: Projects data onto line <span class="arithmatex">\(y = x\)</span> (45-degree line)</p>
 <hr />
@@ -2626,7 +2692,7 @@ $<span class="arithmatex">\(v = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{b
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 15, 2025 19:52:44 UTC">December 15, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 17:00:48 UTC">December 16, 2025</span>
   </span>
 
     

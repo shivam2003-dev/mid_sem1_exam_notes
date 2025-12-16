@@ -2058,128 +2058,128 @@
 <h4 id="part-b-perceptron-learning-iteration-1">Part (b): Perceptron Learning - Iteration 1</h4>
 <p><strong>Example 1</strong>: <span class="arithmatex">\((x_1=1, x_2=1, y=1)\)</span></p>
 <p><strong>Forward Pass</strong>:
-[
+$$
 z = w_1 \cdot x_1 + w_2 \cdot x_2 + b = 0 \cdot 1 + 0 \cdot 1 + 0 = 0
-]
-[
+$$
+$$
 \hat{y} = f(0) = 1
-]</p>
+$$</p>
 <p><strong>Check</strong>: <span class="arithmatex">\(\hat{y} = 1\)</span>, <span class="arithmatex">\(y = 1\)</span> → <strong>Correct</strong> (no update)</p>
 <hr />
 <p><strong>Example 2</strong>: <span class="arithmatex">\((x_1=2, x_2=2, y=1)\)</span></p>
 <p><strong>Forward Pass</strong>:
-[
+$$
 z = 0 \cdot 2 + 0 \cdot 2 + 0 = 0
-]
-[
+$$
+$$
 \hat{y} = f(0) = 1
-]</p>
+$$</p>
 <p><strong>Check</strong>: <span class="arithmatex">\(\hat{y} = 1\)</span>, <span class="arithmatex">\(y = 1\)</span> → <strong>Correct</strong> (no update)</p>
 <hr />
 <p><strong>Example 3</strong>: <span class="arithmatex">\((x_1=0, x_2=0, y=0)\)</span></p>
 <p><strong>Forward Pass</strong>:
-[
+$$
 z = 0 \cdot 0 + 0 \cdot 0 + 0 = 0
-]
-[
+$$
+$$
 \hat{y} = f(0) = 1
-]</p>
+$$</p>
 <p><strong>Check</strong>: <span class="arithmatex">\(\hat{y} = 1\)</span>, <span class="arithmatex">\(y = 0\)</span> → <strong>Wrong!</strong> (update needed)</p>
 <p><strong>Update Weights</strong>:
-[
+$$
 w_1 := w_1 + \alpha \cdot (y - \hat{y}) \cdot x_1 = 0 + 1 \cdot (0 - 1) \cdot 0 = 0
-]
-[
+$$
+$$
 w_2 := w_2 + \alpha \cdot (y - \hat{y}) \cdot x_2 = 0 + 1 \cdot (0 - 1) \cdot 0 = 0
-]
-[
+$$
+$$
 b := b + \alpha \cdot (y - \hat{y}) = 0 + 1 \cdot (0 - 1) = -1
-]</p>
+$$</p>
 <p><strong>After Example 3</strong>: <span class="arithmatex">\(w_1 = 0\)</span>, <span class="arithmatex">\(w_2 = 0\)</span>, <span class="arithmatex">\(b = -1\)</span></p>
 <hr />
 <p><strong>Example 4</strong>: <span class="arithmatex">\((x_1=1, x_2=0, y=0)\)</span></p>
 <p><strong>Forward Pass</strong>:
-[
+$$
 z = 0 \cdot 1 + 0 \cdot 0 + (-1) = -1
-]
-[
+$$
+$$
 \hat{y} = f(-1) = 0
-]</p>
+$$</p>
 <p><strong>Check</strong>: <span class="arithmatex">\(\hat{y} = 0\)</span>, <span class="arithmatex">\(y = 0\)</span> → <strong>Correct</strong> (no update)</p>
 <p><strong>After Iteration 1</strong>: <span class="arithmatex">\(w_1 = 0\)</span>, <span class="arithmatex">\(w_2 = 0\)</span>, <span class="arithmatex">\(b = -1\)</span></p>
 <hr />
 <h4 id="iteration-2">Iteration 2</h4>
 <p><strong>Example 1</strong>: <span class="arithmatex">\((x_1=1, x_2=1, y=1)\)</span></p>
 <p><strong>Forward Pass</strong>:
-[
+$$
 z = 0 \cdot 1 + 0 \cdot 1 + (-1) = -1
-]
-[
+$$
+$$
 \hat{y} = f(-1) = 0
-]</p>
+$$</p>
 <p><strong>Check</strong>: <span class="arithmatex">\(\hat{y} = 0\)</span>, <span class="arithmatex">\(y = 1\)</span> → <strong>Wrong!</strong> (update needed)</p>
 <p><strong>Update</strong>:
-[
+$$
 w_1 := 0 + 1 \cdot (1 - 0) \cdot 1 = 1
-]
-[
+$$
+$$
 w_2 := 0 + 1 \cdot (1 - 0) \cdot 1 = 1
-]
-[
+$$
+$$
 b := -1 + 1 \cdot (1 - 0) = 0
-]</p>
+$$</p>
 <p><strong>After Example 1</strong>: <span class="arithmatex">\(w_1 = 1\)</span>, <span class="arithmatex">\(w_2 = 1\)</span>, <span class="arithmatex">\(b = 0\)</span></p>
 <hr />
 <p><strong>Example 2</strong>: <span class="arithmatex">\((x_1=2, x_2=2, y=1)\)</span></p>
 <p><strong>Forward Pass</strong>:
-[
+$$
 z = 1 \cdot 2 + 1 \cdot 2 + 0 = 4
-]
-[
+$$
+$$
 \hat{y} = f(4) = 1
-]</p>
+$$</p>
 <p><strong>Check</strong>: <strong>Correct</strong> (no update)</p>
 <hr />
 <p><strong>Example 3</strong>: <span class="arithmatex">\((x_1=0, x_2=0, y=0)\)</span></p>
 <p><strong>Forward Pass</strong>:
-[
+$$
 z = 1 \cdot 0 + 1 \cdot 0 + 0 = 0
-]
-[
+$$
+$$
 \hat{y} = f(0) = 1
-]</p>
+$$</p>
 <p><strong>Check</strong>: <span class="arithmatex">\(\hat{y} = 1\)</span>, <span class="arithmatex">\(y = 0\)</span> → <strong>Wrong!</strong></p>
 <p><strong>Update</strong>:
-[
+$$
 w_1 := 1 + 1 \cdot (0 - 1) \cdot 0 = 1
-]
-[
+$$
+$$
 w_2 := 1 + 1 \cdot (0 - 1) \cdot 0 = 1
-]
-[
+$$
+$$
 b := 0 + 1 \cdot (0 - 1) = -1
-]</p>
+$$</p>
 <p><strong>After Example 3</strong>: <span class="arithmatex">\(w_1 = 1\)</span>, <span class="arithmatex">\(w_2 = 1\)</span>, <span class="arithmatex">\(b = -1\)</span></p>
 <hr />
 <p><strong>Example 4</strong>: <span class="arithmatex">\((x_1=1, x_2=0, y=0)\)</span></p>
 <p><strong>Forward Pass</strong>:
-[
+$$
 z = 1 \cdot 1 + 1 \cdot 0 + (-1) = 0
-]
-[
+$$
+$$
 \hat{y} = f(0) = 1
-]</p>
+$$</p>
 <p><strong>Check</strong>: <span class="arithmatex">\(\hat{y} = 1\)</span>, <span class="arithmatex">\(y = 0\)</span> → <strong>Wrong!</strong></p>
 <p><strong>Update</strong>:
-[
+$$
 w_1 := 1 + 1 \cdot (0 - 1) \cdot 1 = 0
-]
-[
+$$
+$$
 w_2 := 1 + 1 \cdot (0 - 1) \cdot 0 = 1
-]
-[
+$$
+$$
 b := -1 + 1 \cdot (0 - 1) = -2
-]</p>
+$$</p>
 <p><strong>After Iteration 2</strong>: <span class="arithmatex">\(w_1 = 0\)</span>, <span class="arithmatex">\(w_2 = 1\)</span>, <span class="arithmatex">\(b = -2\)</span></p>
 <hr />
 <h4 id="part-c-decision-boundary">Part (c): Decision Boundary</h4>
@@ -2207,9 +2207,9 @@ x_2 = 2
 <li><strong>Layer 2</strong>: 3 inputs (from layer 1), 1 output, linear activation</li>
 </ul>
 <p><strong>Weights</strong>:
-[
+$$
 \mathbf{W}^{[1]} = \begin{bmatrix} 1 &amp; 2 \ -1 &amp; 1 \ 0 &amp; 1 \end{bmatrix}, \quad \mathbf{b}^{[1]} = \begin{bmatrix} 1 \ 0 \ -1 \end{bmatrix}
-]</p>
+$$</p>
 <div class="arithmatex">\[
 \mathbf{W}^{[2]} = \begin{bmatrix} 1 &amp; -1 &amp; 2 \end{bmatrix}, \quad b^{[2]} = 0
 \]</div>
@@ -2228,9 +2228,9 @@ x_2 = 2
 \mathbf{z}^{[1]} = \begin{bmatrix} 1 \cdot 1 + 2 \cdot 2 \\ -1 \cdot 1 + 1 \cdot 2 \\ 0 \cdot 1 + 1 \cdot 2 \end{bmatrix} + \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix} = \begin{bmatrix} 5 \\ 1 \\ 2 \end{bmatrix} + \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix} = \begin{bmatrix} 6 \\ 1 \\ 1 \end{bmatrix}
 \]</div>
 <p><strong>ReLU Activation</strong>:
-[
+$$
 \mathbf{a}^{[1]} = \text{ReLU}(\mathbf{z}^{[1]}) = \begin{bmatrix} \max(0, 6) \ \max(0, 1) \ \max(0, 1) \end{bmatrix} = \begin{bmatrix} 6 \ 1 \ 1 \end{bmatrix}
-]</p>
+$$</p>
 <p><strong>Layer 2</strong>:</p>
 <div class="arithmatex">\[
 z^{[2]} = \mathbf{W}^{[2]} \mathbf{a}^{[1]} + b^{[2]} = \begin{bmatrix} 1 &amp; -1 &amp; 2 \end{bmatrix} \begin{bmatrix} 6 \\ 1 \\ 1 \end{bmatrix} + 0
@@ -2239,9 +2239,9 @@ z^{[2]} = \mathbf{W}^{[2]} \mathbf{a}^{[1]} + b^{[2]} = \begin{bmatrix} 1 &amp; 
 z^{[2]} = 1 \cdot 6 + (-1) \cdot 1 + 2 \cdot 1 = 6 - 1 + 2 = 7
 \]</div>
 <p><strong>Linear Activation</strong>:
-[
+$$
 \hat{y} = z^{[2]} = 7
-]</p>
+$$</p>
 <p><strong>Answer</strong>: <span class="arithmatex">\(\hat{y} = 7\)</span></p>
 <hr />
 <h4 id="part-b-loss-calculation">Part (b): Loss Calculation</h4>
@@ -2398,7 +2398,7 @@ g'^{[2]}(\mathbf{z}^{[2]}) = \begin{bmatrix} \text{ReLU}'(3) \\ \text{ReLU}'(-1)
 <p><strong>a)</strong> Calculate the output size.</p>
 <p><strong>b)</strong> Perform convolution operation for the top-left position.</p>
 <p><strong>Input</strong>:
-[
+$$
 \mathbf{X} = \begin{bmatrix}
 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \
 6 &amp; 7 &amp; 8 &amp; 9 &amp; 0 \
@@ -2406,15 +2406,15 @@ g'^{[2]}(\mathbf{z}^{[2]}) = \begin{bmatrix} \text{ReLU}'(3) \\ \text{ReLU}'(-1)
 6 &amp; 7 &amp; 8 &amp; 9 &amp; 0 \
 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5
 \end{bmatrix}
-]</p>
+$$</p>
 <p><strong>Filter</strong>:
-[
+$$
 \mathbf{F} = \begin{bmatrix}
 1 &amp; 0 &amp; -1 \
 1 &amp; 0 &amp; -1 \
 1 &amp; 0 &amp; -1
 \end{bmatrix}
-]</p>
+$$</p>
 <hr />
 <h3 id="solution_4">Solution</h3>
 <h4 id="part-a-output-size">Part (a): Output Size</h4>
@@ -2494,7 +2494,7 @@ g'^{[2]}(\mathbf{z}^{[2]}) = \begin{bmatrix} \text{ReLU}'(3) \\ \text{ReLU}'(-1)
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 16:50:34 UTC">December 16, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 17:00:48 UTC">December 16, 2025</span>
   </span>
 
     

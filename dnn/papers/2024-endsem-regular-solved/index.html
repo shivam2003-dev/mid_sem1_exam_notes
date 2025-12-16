@@ -1336,9 +1336,9 @@
 - Layer 2: 3 hidden → 2 hidden (ReLU)<br />
 - Layer 3: 2 hidden → 1 output (sigmoid)</p>
 <p><strong>Weights</strong>:
-[
+$$
 \mathbf{W}^{[1]} = \begin{bmatrix} 1 &amp; 2 \ -1 &amp; 1 \ 0 &amp; 1 \end{bmatrix}, \quad \mathbf{b}^{[1]} = \begin{bmatrix} 0 \ 1 \ -1 \end{bmatrix}
-]</p>
+$$</p>
 <div class="arithmatex">\[
 \mathbf{W}^{[2]} = \begin{bmatrix} 1 &amp; -1 &amp; 0 \\ 0 &amp; 1 &amp; -1 \end{bmatrix}, \quad \mathbf{b}^{[2]} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}
 \]</div>
@@ -1447,24 +1447,24 @@ J = -[1 \cdot \log(0.993) + 0 \cdot \log(0.007)] = -\log(0.993) = 0.007
 <h4 id="part-a-feature-map-sizes">Part (a): Feature Map Sizes</h4>
 <p><strong>Input</strong>: 28×28×1</p>
 <p><strong>Conv Layer 1</strong> (32 filters, 5×5, stride=1, padding=0):
-[
+$$
 \text{Output} = \frac{28 - 5 + 2 \times 0}{1} + 1 = 24
-]
+$$
 <strong>Size</strong>: 24×24×32</p>
 <p><strong>Max Pooling 1</strong> (2×2, stride=2):
-[
+$$
 \text{Output} = \frac{24 - 2 + 2 \times 0}{2} + 1 = 12
-]
+$$
 <strong>Size</strong>: 12×12×32</p>
 <p><strong>Conv Layer 2</strong> (64 filters, 3×3, stride=1, padding=0):
-[
+$$
 \text{Output} = \frac{12 - 3 + 2 \times 0}{1} + 1 = 10
-]
+$$
 <strong>Size</strong>: 10×10×64</p>
 <p><strong>Max Pooling 2</strong> (2×2, stride=2):
-[
+$$
 \text{Output} = \frac{10 - 2 + 2 \times 0}{2} + 1 = 5
-]
+$$
 <strong>Size</strong>: 5×5×64</p>
 <p><strong>Flatten</strong>: 5 × 5 × 64 = 1600</p>
 <p><strong>FC Layer</strong>: 128 neurons</p>
@@ -1485,9 +1485,9 @@ J = -[1 \cdot \log(0.993) + 0 \cdot \log(0.007)] = -\log(0.993) = 0.007
 - Bias: 10
 - Total: 1,290</p>
 <p><strong>Total Parameters</strong>:
-[
+$$
 832 + 18,496 + 204,928 + 1,290 = 225,546
-]</p>
+$$</p>
 <p><strong>Answer</strong>: Total parameters = <strong>225,546</strong></p>
 <hr />
 <h2 id="summary">Summary</h2>
@@ -1523,7 +1523,7 @@ J = -[1 \cdot \log(0.993) + 0 \cdot \log(0.007)] = -\log(0.993) = 0.007
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 16:51:43 UTC">December 16, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 17:00:48 UTC">December 16, 2025</span>
   </span>
 
     

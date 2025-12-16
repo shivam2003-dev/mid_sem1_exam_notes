@@ -2156,7 +2156,9 @@
 <p><strong>Convergence</strong>: When assignments don't change between iterations</p>
 <h3 id="mathematical-formulation">Mathematical Formulation</h3>
 <p><strong>Objective Function</strong> (Within-cluster sum of squares):</p>
-<div class="arithmatex">\[J = \sum_{i=1}^{m} \sum_{k=1}^{K} w_{ik} ||x^{(i)} - \mu_k||^2\]</div>
+<div class="arithmatex">\[
+J = \sum_{i=1}^{m} \sum_{k=1}^{K} w_{ik} ||x^{(i)} - \mu_k||^2
+\]</div>
 <p>Where:
 - <span class="arithmatex">\(m\)</span> = number of data points
 - <span class="arithmatex">\(K\)</span> = number of clusters
@@ -2166,11 +2168,17 @@
 <p><strong>Goal</strong>: Minimize <span class="arithmatex">\(J\)</span></p>
 <h3 id="distance-metrics">Distance Metrics</h3>
 <p><strong>Euclidean Distance</strong> (most common):
-$<span class="arithmatex">\(d(x, y) = \sqrt{\sum_{i=1}^{n} (x_i - y_i)^2}\)</span>$</p>
+$$
+d(x, y) = \sqrt{\sum_{i=1}^{n} (x_i - y_i)^2}
+$$</p>
 <p><strong>Manhattan Distance</strong>:
-$<span class="arithmatex">\(d(x, y) = \sum_{i=1}^{n} |x_i - y_i|\)</span>$</p>
+$$
+d(x, y) = \sum_{i=1}^{n} |x_i - y_i|
+$$</p>
 <p><strong>Cosine Similarity</strong> (for high-dimensional data):
-$<span class="arithmatex">\(\text{similarity} = \frac{x \cdot y}{||x|| \cdot ||y||}\)</span>$</p>
+$$
+\text{similarity} = \frac{x \cdot y}{||x|| \cdot ||y||}
+$$</p>
 <h3 id="choosing-k">Choosing K</h3>
 <p><strong>Methods</strong>:</p>
 <ol>
@@ -2337,15 +2345,21 @@ $<span class="arithmatex">\(\text{similarity} = \frac{x \cdot y}{||x|| \cdot ||y
 <ol>
 <li>
 <p><strong>Standardize Data</strong>: Mean = 0, Std = 1
-   $<span class="arithmatex">\(z_i = \frac{x_i - \mu}{\sigma}\)</span>$</p>
+   $$
+z_i = \frac{x_i - \mu}{\sigma}
+$$</p>
 </li>
 <li>
 <p><strong>Compute Covariance Matrix</strong>:
-   $<span class="arithmatex">\(\Sigma = \frac{1}{m} X^T X\)</span>$</p>
+   $$
+\Sigma = \frac{1}{m} X^T X
+$$</p>
 </li>
 <li>
 <p><strong>Eigenvalue Decomposition</strong>:
-   $<span class="arithmatex">\(\Sigma = P \Lambda P^T\)</span>$</p>
+   $$
+\Sigma = P \Lambda P^T
+$$</p>
 </li>
 <li><span class="arithmatex">\(P\)</span> = matrix of eigenvectors (principal components)</li>
 <li>
@@ -2360,16 +2374,22 @@ $<span class="arithmatex">\(\text{similarity} = \frac{x \cdot y}{||x|| \cdot ||y
 </li>
 <li>
 <p><strong>Project Data</strong>:
-   $<span class="arithmatex">\(Y = X P_k\)</span>$</p>
+   $$
+Y = X P_k
+$$</p>
 </li>
 <li><span class="arithmatex">\(P_k\)</span> = first <span class="arithmatex">\(k\)</span> principal components</li>
 <li><span class="arithmatex">\(Y\)</span> = reduced dimension data</li>
 </ol>
 <h3 id="variance-explained">Variance Explained</h3>
 <p><strong>Proportion of Variance Explained</strong>:
-$<span class="arithmatex">\(\text{Variance Explained} = \frac{\lambda_i}{\sum_{j=1}^{n} \lambda_j}\)</span>$</p>
+$$
+\text{Variance Explained} = \frac{\lambda_i}{\sum_{j=1}^{n} \lambda_j}
+$$</p>
 <p><strong>Cumulative Variance</strong>:
-$<span class="arithmatex">\(\text{Cumulative} = \frac{\sum_{i=1}^{k} \lambda_i}{\sum_{j=1}^{n} \lambda_j}\)</span>$</p>
+$$
+\text{Cumulative} = \frac{\sum_{i=1}^{k} \lambda_i}{\sum_{j=1}^{n} \lambda_j}
+$$</p>
 <p><strong>Rule of Thumb</strong>: Choose <span class="arithmatex">\(k\)</span> such that cumulative variance ≥ 0.95 (95% variance retained)</p>
 <h3 id="choosing-number-of-components">Choosing Number of Components</h3>
 <p><strong>Methods</strong>:</p>
@@ -2426,11 +2446,17 @@ $<span class="arithmatex">\(\text{Cumulative} = \frac{\sum_{i=1}^{k} \lambda_i}{
 <h3 id="key-concepts">Key Concepts</h3>
 <p><strong>Itemset</strong>: Set of items (e.g., {Bread, Butter})</p>
 <p><strong>Support</strong>: Frequency of itemset in dataset
-$<span class="arithmatex">\(\text{Support}(A) = \frac{\text{Count}(A)}{N}\)</span>$</p>
+$$
+\text{Support}(A) = \frac{\text{Count}(A)}{N}
+$$</p>
 <p><strong>Confidence</strong>: Probability that B occurs given A
-$<span class="arithmatex">\(\text{Confidence}(A \to B) = \frac{\text{Support}(A \cup B)}{\text{Support}(A)} = P(B|A)\)</span>$</p>
+$$
+\text{Confidence}(A \to B) = \frac{\text{Support}(A \cup B)}{\text{Support}(A)} = P(B|A)
+$$</p>
 <p><strong>Lift</strong>: How much more likely B is when A occurs
-$<span class="arithmatex">\(\text{Lift}(A \to B) = \frac{\text{Confidence}(A \to B)}{\text{Support}(B)} = \frac{P(B|A)}{P(B)}\)</span>$</p>
+$$
+\text{Lift}(A \to B) = \frac{\text{Confidence}(A \to B)}{\text{Support}(B)} = \frac{P(B|A)}{P(B)}
+$$</p>
 <p><strong>Interpretation</strong>:
 - Lift = 1: A and B independent
 - Lift &gt; 1: Positive correlation
@@ -2524,7 +2550,7 @@ $<span class="arithmatex">\(\text{Lift}(A \to B) = \frac{\text{Confidence}(A \to
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 15, 2025 19:52:44 UTC">December 15, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 17:00:48 UTC">December 16, 2025</span>
   </span>
 
     
