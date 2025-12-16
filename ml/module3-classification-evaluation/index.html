@@ -962,6 +962,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#worked-examples-exam-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Examples (Exam-Style)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Worked Examples (Exam-Style)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#worked-example-1-metrics-from-confusion-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Example 1: Metrics from Confusion Matrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worked-example-2-roc-point-at-a-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Example 2: ROC Point at a Threshold
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-revision-checklist-2-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Revision Checklist (2 minutes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#important-points-to-remember" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1967,6 +2028,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#worked-examples-exam-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Examples (Exam-Style)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Worked Examples (Exam-Style)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#worked-example-1-metrics-from-confusion-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Example 1: Metrics from Confusion Matrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worked-example-2-roc-point-at-a-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Example 2: ROC Point at a Threshold
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-revision-checklist-2-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Revision Checklist (2 minutes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#important-points-to-remember" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2280,6 +2402,59 @@ $$</p>
 <li><strong>FPR (X-axis)</strong>: <span class="arithmatex">\(\frac{FP}{FP + TN}\)</span></li>
 </ul>
 <hr />
+<h2 id="worked-examples-exam-style">Worked Examples (Exam-Style)</h2>
+<h3 id="worked-example-1-metrics-from-confusion-matrix">Worked Example 1: Metrics from Confusion Matrix</h3>
+<p>Given:
+- <span class="arithmatex">\(TP=50,\ FP=10,\ FN=5,\ TN=35\)</span></p>
+<p>1) <strong>Accuracy</strong>:</p>
+<div class="arithmatex">\[
+\text{Accuracy}=\frac{TP+TN}{TP+TN+FP+FN}=\frac{50+35}{50+35+10+5}=\frac{85}{100}=0.85
+\]</div>
+<p>2) <strong>Precision</strong>:</p>
+<div class="arithmatex">\[
+\text{Precision}=\frac{TP}{TP+FP}=\frac{50}{50+10}=\frac{50}{60}=0.833
+\]</div>
+<p>3) <strong>Recall</strong>:</p>
+<div class="arithmatex">\[
+\text{Recall}=\frac{TP}{TP+FN}=\frac{50}{50+5}=\frac{50}{55}=0.909
+\]</div>
+<p>4) <strong>F1</strong>:</p>
+<div class="arithmatex">\[
+F1=2\cdot\frac{PR}{P+R}
+=2\cdot\frac{0.833\cdot0.909}{0.833+0.909}
+\approx 0.869
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">How to score full marks</p>
+<p>Write the <strong>formula</strong> first, then substitute numbers, then final value (with 3 decimals).</p>
+</div>
+<h3 id="worked-example-2-roc-point-at-a-threshold">Worked Example 2: ROC Point at a Threshold</h3>
+<p>If a classifier at threshold <span class="arithmatex">\(t\)</span> gives <span class="arithmatex">\(TP=40,\ FN=10,\ FP=20,\ TN=30\)</span>:</p>
+<div class="arithmatex">\[
+TPR=\frac{TP}{TP+FN}=\frac{40}{50}=0.8
+\]</div>
+<div class="arithmatex">\[
+FPR=\frac{FP}{FP+TN}=\frac{20}{50}=0.4
+\]</div>
+<p>So ROC has a point <strong>(0.4, 0.8)</strong>.</p>
+<hr />
+<h2 id="common-pitfalls">Common Pitfalls</h2>
+<ul>
+<li><strong>Using Accuracy on imbalanced data</strong>: can look “high” even for a useless model.</li>
+<li><strong>Mixing up Precision and Recall</strong>:</li>
+<li>Precision cares about <strong>FP</strong></li>
+<li>Recall cares about <strong>FN</strong></li>
+<li><strong>Forgetting class meaning</strong>: always state which class is “positive”.</li>
+</ul>
+<hr />
+<h2 id="quick-revision-checklist-2-minutes">Quick Revision Checklist (2 minutes)</h2>
+<ul>
+<li>Can you draw confusion matrix and label <strong>TP/FP/FN/TN</strong>?</li>
+<li>Do you remember all metric formulas?</li>
+<li>Can you explain when to use <strong>F1 vs ROC-AUC vs PR-AUC</strong>?</li>
+<li>Can you compute one ROC point from counts?</li>
+</ul>
+<hr />
 <h2 id="important-points-to-remember">Important Points to Remember</h2>
 <p>✅ <strong>Confusion Matrix</strong>: Foundation for all classification metrics</p>
 <p>✅ <strong>Precision</strong>: "Of predictions, how many correct?" → Minimize false positives</p>
@@ -2311,7 +2486,7 @@ $$</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 17:00:48 UTC">December 16, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 17:02:44 UTC">December 16, 2025</span>
   </span>
 
     
