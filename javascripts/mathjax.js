@@ -3,35 +3,22 @@ window.MathJax = {
     inlineMath: [["$", "$"], ["\\(", "\\)"]],
     displayMath: [["$$", "$$"], ["\\[", "\\]"]],
     processEscapes: true,
-    processEnvironments: true
+    processEnvironments: true,
+    tags: 'ams'
   },
   options: {
     ignoreHtmlClass: ".*|",
     processHtmlClass: "arithmatex"
+  },
+  startup: {
+    ready: function() {
+      MathJax.startup.defaultReady();
+      // Re-typeset when Material theme switches pages
+      if (typeof document$ !== 'undefined') {
+        document$.subscribe(function() {
+          MathJax.typesetPromise();
+        });
+      }
+    }
   }
 };
-
-// Process MathJax when document is ready
-if (typeof document$ !== 'undefined') {
-  document$.subscribe(() => {
-    if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
-      MathJax.typesetPromise();
-    }
-  });
-} else {
-  // Fallback if document$ is not available
-  window.addEventListener('DOMContentLoaded', function() {
-    if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
-      MathJax.typesetPromise();
-    }
-  });
-  
-  // Also try after page load
-  window.addEventListener('load', function() {
-    if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
-      setTimeout(() => {
-        MathJax.typesetPromise();
-      }, 500);
-    }
-  });
-}
