@@ -42,11 +42,12 @@ jobs:
         run: |
           jupyter-book build --html .
           ls -la _build/
+          ls -la _build/html/ | head -20
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './_build/site'
+          path: './_build/html'
 
   deploy:
     environment:
