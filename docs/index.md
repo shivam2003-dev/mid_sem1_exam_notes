@@ -12,6 +12,15 @@ Complete revision notes covering all modules:
 - **Module 4**: Unsupervised Learning (Clustering, Dimensionality Reduction)
 - **Module 5**: Decision Trees
 
+### Deep Neural Networks (DNN)
+Complete revision notes covering all modules:
+- **Module 1**: Introduction to Neural Networks
+- **Module 2**: ANN & Perceptron
+- **Module 3**: Linear NN Regression
+- **Module 4**: Linear NN Classification
+- **Module 5**: Deep Feedforward Neural Networks
+- **Module 6**: Convolutional Neural Networks (CNN)
+
 ## 📝 Solved Previous Year Papers
 
 - **2024 Regular Paper** - Complete step-by-step solutions

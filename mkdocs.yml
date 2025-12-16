@@ -53,8 +53,8 @@ markdown_extensions:
   - pymdownx.tilde
 
 extra_javascript:
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
@@ -74,6 +74,17 @@ nav:
       - 2024 Regular Paper - Solved: ml/papers/2024-regular-solved.md
       - 2024 Makeup Paper - Solved: ml/papers/2024-makeup-solved.md
       - 2025 Practice Set - Solved: ml/papers/2025-practice-solved.md
+  - Deep Neural Networks:
+    - DNN Overview: dnn/index.md
+    - Cheat Sheet: dnn/cheatsheet.md
+    - Module 1 - Introduction: dnn/module1-introduction.md
+    - Module 2 - ANN & Perceptron: dnn/module2-ann-perceptron.md
+    - Module 3 - Linear NN Regression: dnn/module3-linear-nn-regression.md
+    - Module 4 - Linear NN Classification: dnn/module4-linear-nn-classification.md
+    - Module 5 - Deep Feedforward Networks: dnn/module5-dfnn.md
+    - Module 6 - Convolutional Neural Networks: dnn/module6-cnn.md
+    - Previous Year Papers:
+      - 2024 MidSem Regular - Solved: dnn/papers/2024-midsem-regular-solved.md
 
 plugins:
   - search
