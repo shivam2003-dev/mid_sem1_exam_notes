@@ -4,9 +4,12 @@
 
 Unsupervised learning finds hidden patterns in data **without labeled outputs**. This module covers clustering algorithms (K-Means, Hierarchical), dimensionality reduction (PCA), and association rules.
 
-!!! info "Key Difference from Supervised Learning"
-    - **Supervised**: "Here's the input and the correct answer, learn the pattern"
-    - **Unsupervised**: "Here's the data, find interesting patterns on your own"
+```{admonition} Key Difference from Supervised Learning
+:class: note
+- **Supervised**: "Here's the input and the correct answer, learn the pattern"
+- **Unsupervised**: "Here's the data, find interesting patterns on your own"
+
+```
 
 ---
 
@@ -16,11 +19,14 @@ Unsupervised learning finds hidden patterns in data **without labeled outputs**.
 
 **Clustering** groups similar data points together based on their features. The goal is to find natural groupings in data.
 
-!!! success "Definition"
-    Clustering partitions a dataset into groups (clusters) such that:
-    
-    - Points **within** a cluster are similar to each other
-    - Points **across** clusters are dissimilar
+```{admonition} Definition
+:class: tip
+Clustering partitions a dataset into groups (clusters) such that:
+
+- Points **within** a cluster are similar to each other
+- Points **across** clusters are dissimilar
+
+```
 
 ### Applications of Clustering
 
@@ -49,8 +55,11 @@ Unsupervised learning finds hidden patterns in data **without labeled outputs**.
 
 **K-Means** partitions data into **K clusters** by minimizing the within-cluster variance.
 
-!!! note "Key Idea"
-    Iteratively assign points to nearest centroid, then update centroids to be the mean of assigned points.
+```{admonition} Key Idea
+:class: note
+Iteratively assign points to nearest centroid, then update centroids to be the mean of assigned points.
+
+```
 
 ### Algorithm Steps (Detailed)
 
@@ -106,8 +115,11 @@ $$
 d(x, y) = \sqrt{\sum_{i=1}^{n} (x_i - y_i)^2} = ||x - y||_2
 $$
 
-!!! tip "When to Use"
-    Best for continuous data where all features have similar scales.
+```{admonition} When to Use
+:class: tip
+Best for continuous data where all features have similar scales.
+
+```
 
 #### Manhattan Distance (L1)
 
@@ -115,8 +127,11 @@ $$
 d(x, y) = \sum_{i=1}^{n} |x_i - y_i|
 $$
 
-!!! tip "When to Use"
-    Better when dealing with high-dimensional data or when outliers are present.
+```{admonition} When to Use
+:class: tip
+Better when dealing with high-dimensional data or when outliers are present.
+
+```
 
 #### Cosine Similarity
 
@@ -124,24 +139,30 @@ $$
 \text{similarity}(x, y) = \frac{x \cdot y}{||x|| \cdot ||y||} = \frac{\sum_{i=1}^{n} x_i y_i}{\sqrt{\sum_{i=1}^{n} x_i^2} \cdot \sqrt{\sum_{i=1}^{n} y_i^2}}
 $$
 
-!!! tip "When to Use"
-    Best for text data and high-dimensional sparse data (measures angle, not magnitude).
+```{admonition} When to Use
+:class: tip
+Best for text data and high-dimensional sparse data (measures angle, not magnitude).
+
+```
 
 ---
 
 ### Worked Example: K-Means Step by Step
 
-!!! example "Problem"
-    Cluster the following 2D points into K=2 clusters:
-    
-    | Point | x₁ | x₂ |
-    |-------|----|----|
-    | A | 1 | 1 |
-    | B | 1.5 | 2 |
-    | C | 3 | 4 |
-    | D | 5 | 7 |
-    | E | 3.5 | 5 |
-    | F | 4.5 | 5 |
+```{admonition} Problem
+:class: tip
+Cluster the following 2D points into K=2 clusters:
+
+| Point | x₁ | x₂ |
+|-------|----|----|
+| A | 1 | 1 |
+| B | 1.5 | 2 |
+| C | 3 | 4 |
+| D | 5 | 7 |
+| E | 3.5 | 5 |
+| F | 4.5 | 5 |
+
+```
 
 **Step 1: Initialize Centroids**
 
@@ -191,7 +212,10 @@ Recalculate distances with new centroids and reassign...
 
 ### Choosing K: The Elbow Method
 
-!!! question "How do we choose the optimal number of clusters K?"
+```{admonition} How do we choose the optimal number of clusters K?
+:class: hint
+
+```
 
 **Elbow Method**:
 
@@ -212,8 +236,11 @@ WCSS
     1  2  3  4  5  K
 ```
 
-!!! tip "Exam Tip"
-    The elbow point represents the optimal K - adding more clusters doesn't significantly reduce WCSS.
+```{admonition} Exam Tip
+:class: tip
+The elbow point represents the optimal K - adding more clusters doesn't significantly reduce WCSS.
+
+```
 
 ### Other Methods for Choosing K
 
@@ -225,8 +252,11 @@ WCSS
 
 ### K-Means++ Initialization
 
-!!! warning "Problem with Random Initialization"
-    Random initialization can lead to poor local minima and inconsistent results.
+```{admonition} Problem with Random Initialization
+:class: warning
+Random initialization can lead to poor local minima and inconsistent results.
+
+```
 
 **K-Means++ Algorithm**:
 
@@ -251,10 +281,13 @@ WCSS
 | ✅ Guaranteed to converge | ❌ Sensitive to outliers |
 | ✅ Works well for compact clusters | ❌ Struggles with varying cluster sizes |
 
-!!! warning "Common Mistakes"
-    1. **Not scaling features**: K-Means uses distance, so features with larger ranges dominate
-    2. **Wrong K**: Always use elbow method or domain knowledge
-    3. **Single run**: Always run multiple times with different initializations
+```{admonition} Common Mistakes
+:class: warning
+1. **Not scaling features**: K-Means uses distance, so features with larger ranges dominate
+2. **Wrong K**: Always use elbow method or domain knowledge
+3. **Single run**: Always run multiple times with different initializations
+
+```
 
 ---
 
@@ -363,8 +396,11 @@ $$
 
 ### Dendrogram
 
-!!! success "Definition"
-    A **dendrogram** is a tree diagram showing the hierarchical relationship between clusters.
+```{admonition} Definition
+:class: tip
+A **dendrogram** is a tree diagram showing the hierarchical relationship between clusters.
+
+```
 
 ```
 Height (Distance)
@@ -385,13 +421,19 @@ Height (Distance)
 - **Height**: Distance at which clusters merge
 - **Horizontal cut**: Determines number of clusters
 
-!!! tip "Choosing Number of Clusters"
-    Draw a horizontal line at desired height - number of vertical lines it crosses = number of clusters.
+```{admonition} Choosing Number of Clusters
+:class: tip
+Draw a horizontal line at desired height - number of vertical lines it crosses = number of clusters.
+
+```
 
 ### Worked Example: Hierarchical Clustering
 
-!!! example "Problem"
-    Cluster points A(0,0), B(1,0), C(4,0), D(5,0) using single linkage.
+```{admonition} Problem
+:class: tip
+Cluster points A(0,0), B(1,0), C(4,0), D(5,0) using single linkage.
+
+```
 
 **Distance Matrix**:
 
@@ -438,13 +480,16 @@ Height
 
 ### Why Reduce Dimensions?
 
-!!! warning "Curse of Dimensionality"
-    As dimensions increase:
-    
-    - Data becomes sparse
-    - Distance metrics become less meaningful
-    - Computational cost increases exponentially
-    - More data needed to avoid overfitting
+```{admonition} Curse of Dimensionality
+:class: warning
+As dimensions increase:
+
+- Data becomes sparse
+- Distance metrics become less meaningful
+- Computational cost increases exponentially
+- More data needed to avoid overfitting
+
+```
 
 **Benefits of Dimensionality Reduction**:
 
@@ -469,8 +514,11 @@ Height
 
 ### Key Idea
 
-!!! success "PCA in One Sentence"
-    PCA finds new axes (principal components) that capture the **maximum variance** in the data.
+```{admonition} PCA in One Sentence
+:class: tip
+PCA finds new axes (principal components) that capture the **maximum variance** in the data.
+
+```
 
 **Intuition**: 
 - First PC: Direction of maximum variance
@@ -489,8 +537,11 @@ $$
 z_i = \frac{x_i - \mu_i}{\sigma_i}
 $$
 
-!!! warning "Important"
-    Always standardize before PCA! Otherwise, features with larger scales dominate.
+```{admonition} Important
+:class: warning
+Always standardize before PCA! Otherwise, features with larger scales dominate.
+
+```
 
 **Step 2: Compute Covariance Matrix**
 
@@ -548,8 +599,11 @@ $$
 \text{Cumulative}_k = \frac{\sum_{i=1}^{k} \lambda_i}{\sum_{j=1}^{n} \lambda_j}
 $$
 
-!!! tip "Rule of Thumb"
-    Choose k such that cumulative variance ≥ **95%** (or 90% for more compression).
+```{admonition} Rule of Thumb
+:class: tip
+Choose k such that cumulative variance ≥ **95%** (or 90% for more compression).
+
+```
 
 ### Choosing Number of Components
 
@@ -583,16 +637,19 @@ Keep components with eigenvalue > 1 (for standardized data).
 
 ### Worked Example: PCA
 
-!!! example "Problem"
-    Perform PCA on the following 2D data and reduce to 1D:
-    
-    | Point | x₁ | x₂ |
-    |-------|----|----|
-    | 1 | 2.5 | 2.4 |
-    | 2 | 0.5 | 0.7 |
-    | 3 | 2.2 | 2.9 |
-    | 4 | 1.9 | 2.2 |
-    | 5 | 3.1 | 3.0 |
+```{admonition} Problem
+:class: tip
+Perform PCA on the following 2D data and reduce to 1D:
+
+| Point | x₁ | x₂ |
+|-------|----|----|
+| 1 | 2.5 | 2.4 |
+| 2 | 0.5 | 0.7 |
+| 3 | 2.2 | 2.9 |
+| 4 | 1.9 | 2.2 |
+| 5 | 3.1 | 3.0 |
+
+```
 
 **Step 1: Calculate means**
 
@@ -659,10 +716,13 @@ Eigenvectors: $v_1 = [0.677, 0.736]$, $v_2 = [-0.736, 0.677]$
 
 **Association Rules** discover interesting relationships between variables in large datasets.
 
-!!! example "Classic Example: Market Basket Analysis"
-    "Customers who buy **bread** and **butter** also buy **milk**"
-    
-    Rule: {Bread, Butter} → {Milk}
+```{admonition} Classic Example: Market Basket Analysis
+:class: tip
+"Customers who buy **bread** and **butter** also buy **milk**"
+
+Rule: {Bread, Butter} → {Milk}
+
+```
 
 ### Key Concepts
 
@@ -681,10 +741,13 @@ $$
 \text{Support}(A) = \frac{\text{Number of transactions containing A}}{\text{Total number of transactions}}
 $$
 
-!!! example "Support Example"
-    If 100 transactions and 30 contain {Bread, Milk}:
-    
-    Support({Bread, Milk}) = 30/100 = 0.30 = 30%
+```{admonition} Support Example
+:class: tip
+If 100 transactions and 30 contain {Bread, Milk}:
+
+Support({Bread, Milk}) = 30/100 = 0.30 = 30%
+
+```
 
 #### Confidence
 
@@ -694,13 +757,16 @@ $$
 \text{Confidence}(A \rightarrow B) = \frac{\text{Support}(A \cup B)}{\text{Support}(A)} = P(B|A)
 $$
 
-!!! example "Confidence Example"
-    - Support({Bread}) = 50%
-    - Support({Bread, Milk}) = 30%
-    
-    Confidence(Bread → Milk) = 30%/50% = 60%
-    
-    "60% of customers who buy bread also buy milk"
+```{admonition} Confidence Example
+:class: tip
+- Support({Bread}) = 50%
+- Support({Bread, Milk}) = 30%
+
+Confidence(Bread → Milk) = 30%/50% = 60%
+
+"60% of customers who buy bread also buy milk"
+
+```
 
 #### Lift
 
@@ -715,20 +781,26 @@ $$
 - **Lift > 1**: Positive correlation (A increases likelihood of B)
 - **Lift < 1**: Negative correlation (A decreases likelihood of B)
 
-!!! example "Lift Example"
-    - Confidence(Bread → Milk) = 60%
-    - Support(Milk) = 40%
-    
-    Lift = 60%/40% = 1.5
-    
-    "Customers who buy bread are 1.5× more likely to buy milk"
+```{admonition} Lift Example
+:class: tip
+- Confidence(Bread → Milk) = 60%
+- Support(Milk) = 40%
+
+Lift = 60%/40% = 1.5
+
+"Customers who buy bread are 1.5× more likely to buy milk"
+
+```
 
 ### Apriori Algorithm
 
-!!! success "Apriori Principle"
-    If an itemset is **infrequent**, all its supersets are also infrequent.
-    
-    Contrapositive: If an itemset is **frequent**, all its subsets are also frequent.
+```{admonition} Apriori Principle
+:class: tip
+If an itemset is **infrequent**, all its supersets are also infrequent.
+
+Contrapositive: If an itemset is **frequent**, all its subsets are also frequent.
+
+```
 
 **Algorithm**:
 
@@ -756,15 +828,18 @@ Output: Association rules
 
 ### Worked Example: Apriori
 
-!!! example "Problem"
-    Given transactions and min_support = 50%, min_confidence = 60%:
-    
-    | TID | Items |
-    |-----|-------|
-    | 1 | {Bread, Milk} |
-    | 2 | {Bread, Butter, Milk} |
-    | 3 | {Bread, Butter} |
-    | 4 | {Milk, Eggs} |
+```{admonition} Problem
+:class: tip
+Given transactions and min_support = 50%, min_confidence = 60%:
+
+| TID | Items |
+|-----|-------|
+| 1 | {Bread, Milk} |
+| 2 | {Bread, Butter, Milk} |
+| 3 | {Bread, Butter} |
+| 4 | {Milk, Eggs} |
+
+```
 
 **Step 1: Count 1-itemsets**
 
@@ -843,33 +918,45 @@ From {Bread, Butter}:
 
 ## Common Exam Questions
 
-!!! question "Q1: Explain K-Means algorithm with example"
-    1. Initialize K centroids randomly
-    2. Assign each point to nearest centroid
-    3. Update centroids as mean of assigned points
-    4. Repeat until convergence
-    
-    (Include numerical example with distance calculations)
+```{admonition} Q1: Explain K-Means algorithm with example
+:class: hint
+1. Initialize K centroids randomly
+2. Assign each point to nearest centroid
+3. Update centroids as mean of assigned points
+4. Repeat until convergence
 
-!!! question "Q2: How to choose optimal K in K-Means?"
-    **Elbow Method**: Plot WCSS vs K, choose K at the elbow where decrease slows down.
-    
-    **Silhouette Score**: Measures cluster quality, choose K with highest score.
-    
-    **Domain Knowledge**: Use prior knowledge about expected clusters.
+(Include numerical example with distance calculations)
 
-!!! question "Q3: Explain PCA and its applications"
-    PCA finds principal components (directions of maximum variance) to reduce dimensionality.
-    
-    **Steps**: Standardize → Covariance matrix → Eigendecomposition → Select top k → Project
-    
-    **Applications**: Visualization, noise reduction, feature extraction, preprocessing
+```
 
-!!! question "Q4: Calculate Support, Confidence, Lift"
-    Given transactions, calculate:
-    - Support = Count(itemset) / Total transactions
-    - Confidence = Support(A∪B) / Support(A)
-    - Lift = Confidence / Support(B)
+```{admonition} Q2: How to choose optimal K in K-Means?
+:class: hint
+**Elbow Method**: Plot WCSS vs K, choose K at the elbow where decrease slows down.
+
+**Silhouette Score**: Measures cluster quality, choose K with highest score.
+
+**Domain Knowledge**: Use prior knowledge about expected clusters.
+
+```
+
+```{admonition} Q3: Explain PCA and its applications
+:class: hint
+PCA finds principal components (directions of maximum variance) to reduce dimensionality.
+
+**Steps**: Standardize → Covariance matrix → Eigendecomposition → Select top k → Project
+
+**Applications**: Visualization, noise reduction, feature extraction, preprocessing
+
+```
+
+```{admonition} Q4: Calculate Support, Confidence, Lift
+:class: hint
+Given transactions, calculate:
+- Support = Count(itemset) / Total transactions
+- Confidence = Support(A∪B) / Support(A)
+- Lift = Confidence / Support(B)
+
+```
 
 ---
 

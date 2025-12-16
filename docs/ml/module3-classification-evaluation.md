@@ -373,8 +373,11 @@ F1=2\cdot\frac{PR}{P+R}
 \approx 0.869
 $$
 
-!!! note "How to score full marks"
-    Write the **formula** first, then substitute numbers, then final value (with 3 decimals).
+```{admonition} How to score full marks
+:class: note
+Write the **formula** first, then substitute numbers, then final value (with 3 decimals).
+
+```
 
 ### Worked Example 2: ROC Point at a Threshold
 

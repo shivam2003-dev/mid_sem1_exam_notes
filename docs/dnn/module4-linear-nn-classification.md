@@ -48,8 +48,11 @@ $$
 
 **Use**: Binary classification output layer
 
-!!! note "Key Point"
-    The sigmoid function squashes any real number into the range (0, 1), making it perfect for representing probabilities.
+```{admonition} Key Point
+:class: note
+The sigmoid function squashes any real number into the range (0, 1), making it perfect for representing probabilities.
+
+```
 
 ### 2. Tanh Function (Hyperbolic Tangent)
 
@@ -102,8 +105,11 @@ $$
 
 **Use**: Hidden layers (most common in modern deep learning)
 
-!!! warning "Dead ReLU Problem"
-    If a ReLU neuron outputs 0 for all inputs, it becomes "dead" and never activates. Use Leaky ReLU or initialization techniques to prevent this.
+```{admonition} Dead ReLU Problem
+:class: warning
+If a ReLU neuron outputs 0 for all inputs, it becomes "dead" and never activates. Use Leaky ReLU or initialization techniques to prevent this.
+
+```
 
 ### 4. Softmax Function
 
@@ -187,8 +193,11 @@ $$
 \frac{\partial J}{\partial w_j} = \frac{\hat{y} - y}{\hat{y}(1-\hat{y})} \cdot \hat{y}(1-\hat{y}) \cdot x_j = (\hat{y} - y) \cdot x_j
 $$
 
-!!! tip "Important"
-    Notice that the gradient for binary cross-entropy with sigmoid has the same form as MSE with linear activation! This is a beautiful property.
+```{admonition} Important
+:class: tip
+Notice that the gradient for binary cross-entropy with sigmoid has the same form as MSE with linear activation! This is a beautiful property.
+
+```
 
 ---
 
@@ -246,8 +255,11 @@ $$
 \frac{\partial J}{\partial b_k} = \frac{1}{m} \sum_{i=1}^{m} (\hat{y}_k^{(i)} - y_k^{(i)})
 $$
 
-!!! note "Key Insight"
-    The gradient for softmax + cross-entropy has the same elegant form: prediction error times input!
+```{admonition} Key Insight
+:class: note
+The gradient for softmax + cross-entropy has the same elegant form: prediction error times input!
+
+```
 
 ---
 

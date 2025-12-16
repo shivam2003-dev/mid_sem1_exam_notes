@@ -489,8 +489,11 @@ $$
 
 **Answer**: $\frac{\partial J}{\partial \mathbf{z}^{[2]}} = [0.5, 0]^T$
 
-!!! note "Key Point"
-    Notice that the gradient for the second neuron is 0 because ReLU is inactive (input was negative). This is the "dead ReLU" problem.
+```{admonition} Key Point
+:class: note
+Notice that the gradient for the second neuron is 0 because ReLU is inactive (input was negative). This is the "dead ReLU" problem.
+
+```
 
 ---
 

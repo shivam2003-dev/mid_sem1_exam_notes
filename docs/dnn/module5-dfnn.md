@@ -169,8 +169,11 @@ $$
 \mathbf{b}^{[l]} := \mathbf{b}^{[l]} - \alpha \frac{\partial J}{\partial \mathbf{b}^{[l]}}
 $$
 
-!!! note "Key Point"
-    Backpropagation uses the chain rule to compute gradients layer by layer, starting from the output and working backward to the input.
+```{admonition} Key Point
+:class: note
+Backpropagation uses the chain rule to compute gradients layer by layer, starting from the output and working backward to the input.
+
+```
 
 ---
 
@@ -314,8 +317,11 @@ $$
 W_{ij} \sim \mathcal{N}\left(0, \frac{2}{n^{[l-1]}}\right)
 $$
 
-!!! recommendation "Best Practice"
-    Use He initialization for ReLU networks and Xavier initialization for tanh/sigmoid networks.
+```{admonition} Best Practice
+:class: tip
+Use He initialization for ReLU networks and Xavier initialization for tanh/sigmoid networks.
+
+```
 
 ---
 

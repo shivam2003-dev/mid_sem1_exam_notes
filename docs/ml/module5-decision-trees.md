@@ -108,11 +108,17 @@ Where:
 - **Impure node**: [5 Yes, 5 No] → $H = -0.5 \cdot \log_2(0.5) - 0.5 \cdot \log_2(0.5) = -0.5 \cdot (-1) - 0.5 \cdot (-1) = 1$
 - **Mixed node**: [7 Yes, 3 No] → $H = -0.7 \cdot \log_2(0.7) - 0.3 \cdot \log_2(0.3) \approx 0.88$
 
-!!! tip "Remember"
-    When $p_i = 0$, we define $p_i \log_2(p_i) = 0$ (by convention) to avoid $\log(0)$ which is undefined.
+```{admonition} Remember
+:class: tip
+When $p_i = 0$, we define $p_i \log_2(p_i) = 0$ (by convention) to avoid $\log(0)$ which is undefined.
 
-!!! recommendation "Exam Tip"
-    For binary classification, memorize: Maximum entropy = 1 when classes are perfectly balanced (50-50 split).
+```
+
+```{admonition} Exam Tip
+:class: tip
+For binary classification, memorize: Maximum entropy = 1 when classes are perfectly balanced (50-50 split).
+
+```
 
 ### Gini Impurity (Gini Index)
 
@@ -139,11 +145,17 @@ Where:
 - **Impure node**: [5 Yes, 5 No] → $\text{Gini} = 1 - (0.5^2 + 0.5^2) = 1 - 0.5 = 0.5$
 - **Mixed node**: [7 Yes, 3 No] → $\text{Gini} = 1 - (0.7^2 + 0.3^2) = 1 - (0.49 + 0.09) = 0.42$
 
-!!! note "Key Point"
-    Gini Impurity is computationally faster than Entropy because it doesn't require logarithms. Use Gini when performance is critical.
+```{admonition} Key Point
+:class: note
+Gini Impurity is computationally faster than Entropy because it doesn't require logarithms. Use Gini when performance is critical.
 
-!!! warning "Common Mistake"
-    Don't confuse Gini Impurity with Gini Coefficient (used in economics). They are different concepts!
+```
+
+```{admonition} Common Mistake
+:class: warning
+Don't confuse Gini Impurity with Gini Coefficient (used in economics). They are different concepts!
+
+```
 
 ### Comparison: Entropy vs Gini
 

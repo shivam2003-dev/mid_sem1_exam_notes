@@ -148,11 +148,17 @@ $$
 b := b + \alpha \cdot y^{(i)}
 $$
 
-!!! note "Key Point"
-    The perceptron only updates weights when there's a misclassification. If the prediction is correct, no update occurs.
+```{admonition} Key Point
+:class: note
+The perceptron only updates weights when there's a misclassification. If the prediction is correct, no update occurs.
 
-!!! tip "Learning Rate"
-    A smaller learning rate ($\alpha = 0.1$) provides smoother convergence, while a larger rate ($\alpha = 1.0$) may converge faster but could overshoot.
+```
+
+```{admonition} Learning Rate
+:class: tip
+A smaller learning rate ($\alpha = 0.1$) provides smoother convergence, while a larger rate ($\alpha = 1.0$) may converge faster but could overshoot.
+
+```
 
 ---
 
@@ -172,8 +178,11 @@ $$
 - Number of updates is bounded
 - Convergence is guaranteed (not just probable)
 
-!!! warning "Important"
-    The perceptron will **NOT converge** if the data is **not linearly separable**. It will keep updating weights indefinitely.
+```{admonition} Important
+:class: warning
+The perceptron will **NOT converge** if the data is **not linearly separable**. It will keep updating weights indefinitely.
+
+```
 
 ---
 

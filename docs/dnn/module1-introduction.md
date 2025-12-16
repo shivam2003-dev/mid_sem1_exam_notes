@@ -8,8 +8,11 @@ This module introduces the fundamental concepts of neural networks, their biolog
 
 ## What are Neural Networks?
 
-!!! success "Definition"
-    **Neural Networks** are computational models inspired by biological neural networks in animal brains. They consist of interconnected nodes (artificial neurons) that process information through weighted connections.
+```{admonition} Definition
+:class: tip
+**Neural Networks** are computational models inspired by biological neural networks in animal brains. They consist of interconnected nodes (artificial neurons) that process information through weighted connections.
+
+```
 
 ### The Big Picture
 
@@ -24,8 +27,11 @@ Neural Networks:
     Data → Network learns hierarchical representations → Output
 ```
 
-!!! note "Key Insight"
-    Neural networks automatically learn **feature representations** from raw data, eliminating the need for manual feature engineering.
+```{admonition} Key Insight
+:class: note
+Neural networks automatically learn **feature representations** from raw data, eliminating the need for manual feature engineering.
+
+```
 
 ---
 
@@ -95,8 +101,11 @@ Where:
 - $b$ = bias term
 - $f$ = activation function
 
-!!! tip "Exam Tip"
-    The bias $b$ allows the neuron to shift the activation function, enabling it to fit data that doesn't pass through the origin.
+```{admonition} Exam Tip
+:class: tip
+The bias $b$ allows the neuron to shift the activation function, enabling it to fit data that doesn't pass through the origin.
+
+```
 
 ### Comparison Table
 
@@ -154,8 +163,11 @@ Where:
 
 #### 1969: The XOR Problem (Minsky & Papert)
 
-!!! warning "The Problem"
-    Single-layer perceptrons cannot solve **non-linearly separable** problems like XOR.
+```{admonition} The Problem
+:class: warning
+Single-layer perceptrons cannot solve **non-linearly separable** problems like XOR.
+
+```
 
 | $x_1$ | $x_2$ | XOR |
 |-------|-------|-----|
@@ -323,8 +335,11 @@ Image → [Conv] → [Pool] → [Conv] → [Pool] → [FC] → Output
 | ✅ **Parallel Processing** | Can process multiple inputs simultaneously |
 | ✅ **Universal Approximation** | Can approximate any continuous function |
 
-!!! success "Universal Approximation Theorem"
-    A feedforward network with a single hidden layer containing a finite number of neurons can approximate any continuous function on compact subsets of $\mathbb{R}^n$.
+```{admonition} Universal Approximation Theorem
+:class: tip
+A feedforward network with a single hidden layer containing a finite number of neurons can approximate any continuous function on compact subsets of $\mathbb{R}^n$.
+
+```
 
 ---
 
@@ -374,31 +389,43 @@ Image → [Conv] → [Pool] → [Conv] → [Pool] → [FC] → Output
 
 ## Common Exam Questions
 
-!!! question "Q1: Compare biological and artificial neurons"
-    | Aspect | Biological | Artificial |
-    |--------|------------|------------|
-    | Input | Dendrites | Input features |
-    | Processing | Cell body | Weighted sum + activation |
-    | Output | Axon | Single output value |
-    | Connection strength | Synapse | Weights |
-    | Threshold | Firing threshold | Bias |
+```{admonition} Q1: Compare biological and artificial neurons
+:class: hint
+| Aspect | Biological | Artificial |
+|--------|------------|------------|
+| Input | Dendrites | Input features |
+| Processing | Cell body | Weighted sum + activation |
+| Output | Axon | Single output value |
+| Connection strength | Synapse | Weights |
+| Threshold | Firing threshold | Bias |
 
-!!! question "Q2: Why couldn't single-layer perceptrons solve XOR?"
-    XOR is **not linearly separable** - no single straight line can separate the classes. Single-layer perceptrons can only learn linear decision boundaries. Solution: Use multi-layer networks with hidden layers.
+```
 
-!!! question "Q3: What is the Universal Approximation Theorem?"
-    A feedforward network with one hidden layer and sufficient neurons can approximate any continuous function to arbitrary accuracy. However, it doesn't guarantee:
-    - The network can be trained efficiently
-    - The network will generalize well
-    - The number of neurons is practical
+```{admonition} Q2: Why couldn't single-layer perceptrons solve XOR?
+:class: hint
+XOR is **not linearly separable** - no single straight line can separate the classes. Single-layer perceptrons can only learn linear decision boundaries. Solution: Use multi-layer networks with hidden layers.
 
-!!! question "Q4: List different types of neural networks and their applications"
-    - **FNN/MLP**: Classification, regression
-    - **CNN**: Image recognition, computer vision
-    - **RNN/LSTM**: Sequence modeling, NLP, time series
-    - **Transformers**: Language models, translation
-    - **GANs**: Image generation
-    - **Autoencoders**: Compression, denoising
+```
+
+```{admonition} Q3: What is the Universal Approximation Theorem?
+:class: hint
+A feedforward network with one hidden layer and sufficient neurons can approximate any continuous function to arbitrary accuracy. However, it doesn't guarantee:
+- The network can be trained efficiently
+- The network will generalize well
+- The number of neurons is practical
+
+```
+
+```{admonition} Q4: List different types of neural networks and their applications
+:class: hint
+- **FNN/MLP**: Classification, regression
+- **CNN**: Image recognition, computer vision
+- **RNN/LSTM**: Sequence modeling, NLP, time series
+- **Transformers**: Language models, translation
+- **GANs**: Image generation
+- **Autoencoders**: Compression, denoising
+
+```
 
 ---
 

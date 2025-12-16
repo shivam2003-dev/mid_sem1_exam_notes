@@ -4,8 +4,11 @@
 
 **Machine Learning (ML)** is a subset of artificial intelligence that enables systems to learn and improve from experience without being explicitly programmed. Instead of following pre-programmed instructions, ML algorithms build mathematical models based on training data to make predictions or decisions.
 
-!!! quote "Tom Mitchell's Definition"
-    "A computer program is said to learn from experience **E** with respect to some class of tasks **T** and performance measure **P**, if its performance at tasks in T, as measured by P, improves with experience E."
+```{admonition} Tom Mitchell's Definition
+:class: note
+"A computer program is said to learn from experience **E** with respect to some class of tasks **T** and performance measure **P**, if its performance at tasks in T, as measured by P, improves with experience E."
+
+```
 
 ### Breaking Down the Definition
 
@@ -15,12 +18,15 @@
 | **Experience (E)** | Data the system learns from | Collection of labeled emails |
 | **Performance (P)** | How we measure success | Accuracy of classification |
 
-!!! example "Spam Filter Example"
-    - **Task**: Classify incoming emails as spam or not spam
-    - **Experience**: Database of 10,000 labeled emails
-    - **Performance**: 98% accuracy on new emails
-    
-    The system "learns" by finding patterns in spam emails (certain words, sender patterns, etc.)
+```{admonition} Spam Filter Example
+:class: tip
+- **Task**: Classify incoming emails as spam or not spam
+- **Experience**: Database of 10,000 labeled emails
+- **Performance**: 98% accuracy on new emails
+
+The system "learns" by finding patterns in spam emails (certain words, sender patterns, etc.)
+
+```
 
 ---
 
@@ -36,8 +42,11 @@ Machine Learning:
     Input Data + Output → Computer → Rules (Model)
 ```
 
-!!! note "Key Insight"
-    In traditional programming, humans write rules. In ML, the computer discovers rules from data!
+```{admonition} Key Insight
+:class: note
+In traditional programming, humans write rules. In ML, the computer discovers rules from data!
+
+```
 
 ### When to Use Machine Learning
 
@@ -61,8 +70,11 @@ Machine Learning:
 
 ### 1. Supervised Learning
 
-!!! success "Definition"
-    Learning with **labeled** training data. The algorithm learns from input-output pairs to predict outputs for new inputs.
+```{admonition} Definition
+:class: tip
+Learning with **labeled** training data. The algorithm learns from input-output pairs to predict outputs for new inputs.
+
+```
 
 **How it works**:
 
@@ -83,16 +95,22 @@ Prediction Phase:
 | **Examples** | Spam detection, disease diagnosis | House price, temperature |
 | **Evaluation** | Accuracy, F1-Score | MSE, RMSE, R² |
 
-!!! example "Classification Examples"
-    - **Binary Classification**: Email spam detection (Spam/Not Spam)
-    - **Multi-class Classification**: Digit recognition (0-9)
-    - **Multi-label Classification**: Image tagging (can have multiple tags)
+```{admonition} Classification Examples
+:class: tip
+- **Binary Classification**: Email spam detection (Spam/Not Spam)
+- **Multi-class Classification**: Digit recognition (0-9)
+- **Multi-label Classification**: Image tagging (can have multiple tags)
 
-!!! example "Regression Examples"
-    - House price prediction based on features
-    - Stock price forecasting
-    - Temperature prediction
-    - Sales forecasting
+```
+
+```{admonition} Regression Examples
+:class: tip
+- House price prediction based on features
+- Stock price forecasting
+- Temperature prediction
+- Sales forecasting
+
+```
 
 **Common Supervised Learning Algorithms**:
 
@@ -109,8 +127,11 @@ Prediction Phase:
 
 ### 2. Unsupervised Learning
 
-!!! success "Definition"
-    Learning from **unlabeled** data. The algorithm finds hidden patterns or structures without guidance.
+```{admonition} Definition
+:class: tip
+Learning from **unlabeled** data. The algorithm finds hidden patterns or structures without guidance.
+
+```
 
 **How it works**:
 
@@ -135,11 +156,14 @@ Application:
 | Hierarchical | Build tree of clusters | Unknown K, hierarchies |
 | DBSCAN | Density-based clustering | Arbitrary shapes, outliers |
 
-!!! example "Clustering Applications"
-    - Customer segmentation for marketing
-    - Image segmentation
-    - Anomaly/fraud detection
-    - Document grouping
+```{admonition} Clustering Applications
+:class: tip
+- Customer segmentation for marketing
+- Image segmentation
+- Anomaly/fraud detection
+- Document grouping
+
+```
 
 **b) Dimensionality Reduction**
 
@@ -152,27 +176,36 @@ Application:
 | t-SNE | Non-linear, preserves local structure | Visualization |
 | Autoencoders | Neural network-based | Complex patterns |
 
-!!! example "Dimensionality Reduction Applications"
-    - Data visualization (reduce to 2D/3D)
-    - Feature extraction
-    - Noise reduction
-    - Data compression
+```{admonition} Dimensionality Reduction Applications
+:class: tip
+- Data visualization (reduce to 2D/3D)
+- Feature extraction
+- Noise reduction
+- Data compression
+
+```
 
 **c) Association Rule Learning**
 
 - **Goal**: Discover relationships between variables
 - **Output**: Rules like "If A, then B"
 
-!!! example "Market Basket Analysis"
-    - "Customers who buy bread also buy butter" (70% confidence)
-    - Used for product recommendations, store layout optimization
+```{admonition} Market Basket Analysis
+:class: tip
+- "Customers who buy bread also buy butter" (70% confidence)
+- Used for product recommendations, store layout optimization
+
+```
 
 ---
 
 ### 3. Reinforcement Learning
 
-!!! success "Definition"
-    Learning through **interaction** with an environment. The agent takes actions and receives rewards/penalties.
+```{admonition} Definition
+:class: tip
+Learning through **interaction** with an environment. The agent takes actions and receives rewards/penalties.
+
+```
 
 **How it works**:
 
@@ -193,12 +226,15 @@ Agent → Action → Environment
 | **Reward** | Feedback signal (positive/negative) |
 | **Policy** | Strategy for choosing actions |
 
-!!! example "Reinforcement Learning Applications"
-    - Game playing (AlphaGo, Chess engines)
-    - Robotics (walking, manipulation)
-    - Autonomous vehicles
-    - Recommendation systems
-    - Resource management
+```{admonition} Reinforcement Learning Applications
+:class: tip
+- Game playing (AlphaGo, Chess engines)
+- Robotics (walking, manipulation)
+- Autonomous vehicles
+- Recommendation systems
+- Resource management
+
+```
 
 ---
 
@@ -211,12 +247,15 @@ Agent → Action → Environment
 | **Feedback** | Direct (labels) | None | Delayed (rewards) |
 | **Example** | Spam detection | Customer clustering | Game playing |
 
-!!! tip "Exam Tip"
-    When asked to identify learning type, ask:
-    
-    1. Is there a labeled output? → **Supervised**
-    2. Is there no output, just finding patterns? → **Unsupervised**
-    3. Is there an agent learning from rewards? → **Reinforcement**
+```{admonition} Exam Tip
+:class: tip
+When asked to identify learning type, ask:
+
+1. Is there a labeled output? → **Supervised**
+2. Is there no output, just finding patterns? → **Unsupervised**
+3. Is there an agent learning from rewards? → **Reinforcement**
+
+```
 
 ---
 
@@ -260,8 +299,11 @@ Agent → Action → Environment
 
 #### 3. Data Preprocessing
 
-!!! warning "Critical Step"
-    Most ML projects spend 60-80% of time on data preprocessing!
+```{admonition} Critical Step
+:class: warning
+Most ML projects spend 60-80% of time on data preprocessing!
+
+```
 
 **Common preprocessing steps**:
 
@@ -287,9 +329,12 @@ $$
 x_{standardized} = \frac{x - \mu}{\sigma}
 $$
 
-!!! note "When to Use Which"
-    - **Min-Max**: When you need bounded values (e.g., neural networks with sigmoid)
-    - **Standardization**: When data has outliers, or algorithm assumes normal distribution
+```{admonition} When to Use Which
+:class: note
+- **Min-Max**: When you need bounded values (e.g., neural networks with sigmoid)
+- **Standardization**: When data has outliers, or algorithm assumes normal distribution
+
+```
 
 #### 4. Feature Engineering
 
@@ -297,10 +342,13 @@ $$
 - Select most relevant features
 - Domain knowledge is crucial
 
-!!! example "Feature Engineering Examples"
-    - **Date**: Extract day, month, year, day of week, is_weekend
-    - **Text**: Word count, sentiment score, TF-IDF
-    - **Combinations**: price_per_sqft = price / area
+```{admonition} Feature Engineering Examples
+:class: tip
+- **Date**: Extract day, month, year, day of week, is_weekend
+- **Text**: Word count, sentiment score, TF-IDF
+- **Combinations**: price_per_sqft = price / area
+
+```
 
 #### 5. Model Selection
 
@@ -334,21 +382,27 @@ Consider:
 
 ### The Fundamental Tradeoff
 
-!!! danger "Overfitting"
-    Model is **too complex** - memorizes training data, fails on new data.
-    
-    **Symptoms**:
-    - High training accuracy
-    - Low test accuracy
-    - Large gap between train and test performance
+```{admonition} Overfitting
+:class: danger
+Model is **too complex** - memorizes training data, fails on new data.
 
-!!! danger "Underfitting"
-    Model is **too simple** - cannot capture underlying patterns.
-    
-    **Symptoms**:
-    - Low training accuracy
-    - Low test accuracy
-    - Both performances are poor
+**Symptoms**:
+- High training accuracy
+- Low test accuracy
+- Large gap between train and test performance
+
+```
+
+```{admonition} Underfitting
+:class: danger
+Model is **too simple** - cannot capture underlying patterns.
+
+**Symptoms**:
+- Low training accuracy
+- Low test accuracy
+- Both performances are poor
+
+```
 
 ### Visual Understanding
 
@@ -393,10 +447,13 @@ Error                           Error
     Training Size                   Training Size
 ```
 
-!!! tip "Exam Tip"
-    - **High training error, high test error** → Underfitting
-    - **Low training error, high test error** → Overfitting
-    - **Low training error, low test error** → Good fit
+```{admonition} Exam Tip
+:class: tip
+- **High training error, high test error** → Underfitting
+- **Low training error, high test error** → Overfitting
+- **Low training error, low test error** → Good fit
+
+```
 
 ---
 
@@ -450,8 +507,11 @@ Error
     Model Complexity
 ```
 
-!!! success "Goal"
-    Find the sweet spot where **total error is minimized** - not too simple (high bias), not too complex (high variance).
+```{admonition} Goal
+:class: tip
+Find the sweet spot where **total error is minimized** - not too simple (high bias), not too complex (high variance).
+
+```
 
 ---
 
@@ -459,8 +519,11 @@ Error
 
 ### Why Split Data?
 
-!!! warning "Critical"
-    Never evaluate your model on data it was trained on! This gives an overly optimistic estimate.
+```{admonition} Critical
+:class: warning
+Never evaluate your model on data it was trained on! This gives an overly optimistic estimate.
+
+```
 
 ### Standard Split
 
@@ -504,10 +567,13 @@ Final Score = Average of all fold scores
 - More robust performance estimate
 - Standard: 5-fold or 10-fold CV
 
-!!! tip "Exam Tip"
-    - **Training set**: Model learns from this
-    - **Validation set**: We tune hyperparameters using this
-    - **Test set**: Final evaluation, use only ONCE at the end
+```{admonition} Exam Tip
+:class: tip
+- **Training set**: Model learns from this
+- **Validation set**: We tune hyperparameters using this
+- **Test set**: Final evaluation, use only ONCE at the end
+
+```
 
 ---
 
@@ -565,27 +631,39 @@ Final Score = Average of all fold scores
 
 ## Common Exam Questions
 
-!!! question "Q1: Differentiate between supervised and unsupervised learning"
-    **Supervised**: Uses labeled data, learns input-output mapping, used for classification/regression.
-    
-    **Unsupervised**: Uses unlabeled data, finds hidden patterns, used for clustering/dimensionality reduction.
+```{admonition} Q1: Differentiate between supervised and unsupervised learning
+:class: hint
+**Supervised**: Uses labeled data, learns input-output mapping, used for classification/regression.
 
-!!! question "Q2: What is overfitting? How to prevent it?"
-    **Overfitting**: Model memorizes training data, performs poorly on new data.
-    
-    **Prevention**: Regularization, cross-validation, more data, simpler model, early stopping, dropout.
+**Unsupervised**: Uses unlabeled data, finds hidden patterns, used for clustering/dimensionality reduction.
 
-!!! question "Q3: Explain bias-variance tradeoff"
-    - **Bias**: Error from simplistic assumptions (underfitting)
-    - **Variance**: Error from sensitivity to training data (overfitting)
-    - **Tradeoff**: Reducing one often increases the other
-    - **Goal**: Find optimal model complexity minimizing total error
+```
 
-!!! question "Q4: Why split data into train/validation/test?"
-    - **Training**: Model learns parameters
-    - **Validation**: Tune hyperparameters, prevent overfitting
-    - **Test**: Final unbiased evaluation
-    - Prevents overfitting to test data, gives realistic performance estimate
+```{admonition} Q2: What is overfitting? How to prevent it?
+:class: hint
+**Overfitting**: Model memorizes training data, performs poorly on new data.
+
+**Prevention**: Regularization, cross-validation, more data, simpler model, early stopping, dropout.
+
+```
+
+```{admonition} Q3: Explain bias-variance tradeoff
+:class: hint
+- **Bias**: Error from simplistic assumptions (underfitting)
+- **Variance**: Error from sensitivity to training data (overfitting)
+- **Tradeoff**: Reducing one often increases the other
+- **Goal**: Find optimal model complexity minimizing total error
+
+```
+
+```{admonition} Q4: Why split data into train/validation/test?
+:class: hint
+- **Training**: Model learns parameters
+- **Validation**: Tune hyperparameters, prevent overfitting
+- **Test**: Final unbiased evaluation
+- Prevents overfitting to test data, gives realistic performance estimate
+
+```
 
 ---
 

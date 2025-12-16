@@ -90,8 +90,11 @@ $$
 
 **Why $\frac{1}{2}$?**: Makes derivative cleaner (the 2 cancels out)
 
-!!! note "Important"
-    The factor $\frac{1}{2}$ doesn't change the optimal solution, but simplifies gradient calculations.
+```{admonition} Important
+:class: note
+The factor $\frac{1}{2}$ doesn't change the optimal solution, but simplifies gradient calculations.
+
+```
 
 ---
 
