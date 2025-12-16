@@ -44,6 +44,12 @@ project:
         - title: Previous Year Papers
           children:
             - file: docs/dnn/papers/2024-midsem-regular-solved.md
+    - title: Mathematical Foundations for ML
+      children:
+        - file: docs/mfml/index.md
+        - title: Assignments
+          children:
+            - file: docs/mfml/assignments/assignment1-solved.md
 
 site:
   template: book-theme
