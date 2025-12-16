@@ -1,0 +1,2430 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive revision notes and solved papers for Mid Semester 1 exams">
+      
+      
+        <meta name="author" content="Shivam Kumar">
+      
+      
+      
+        <link rel="prev" href="../module4-linear-nn-classification/">
+      
+      
+        <link rel="next" href="../module6-cnn/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Module 5 - Deep Feedforward Networks - Mid Semester 1 Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-5-deep-feedforward-neural-networks-dfnn" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mid Semester 1 Exam Notes" class="md-header__button md-logo" aria-label="Mid Semester 1 Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mid Semester 1 Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 5 - Deep Feedforward Networks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/shivam2003-dev/mid_sem1_exam_notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mid_sem1_exam_notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ml/" class="md-tabs__link">
+          
+  
+  
+  Machine Learning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Deep Neural Networks
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mid Semester 1 Exam Notes" class="md-nav__button md-logo" aria-label="Mid Semester 1 Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Mid Semester 1 Exam Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/shivam2003-dev/mid_sem1_exam_notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mid_sem1_exam_notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Machine Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/module1-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 1 - Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/module2-supervised-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 2 - Supervised Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/module3-classification-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 3 - Classification & Evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/module4-unsupervised-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 4 - Unsupervised Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/module5-decision-trees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 5 - Decision Trees
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Previous Year Papers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Previous Year Papers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/papers/2024-regular-solved/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2024 Regular Paper - Solved
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/papers/2024-makeup-solved/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2024 Makeup Paper - Solved
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/papers/2025-practice-solved/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025 Practice Set - Solved
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Neural Networks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Neural Networks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DNN Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module1-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 1 - Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module2-ann-perceptron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 2 - ANN & Perceptron
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module3-linear-nn-regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 3 - Linear NN Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module4-linear-nn-classification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 4 - Linear NN Classification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 5 - Deep Feedforward Networks
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 5 - Deep Feedforward Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-feedforward-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Feedforward Neural Networks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deep Feedforward Neural Networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forward-propagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forward Propagation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Forward Propagation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-layer-forward-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Layer Forward Pass
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-forward-propagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Forward Propagation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-layer-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: 3-Layer Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backpropagation-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backpropagation Algorithm
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backpropagation Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chain-rule-for-multiple-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chain Rule for Multiple Layers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backpropagation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backpropagation Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detailed-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Formulas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vanishing-gradient-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vanishing Gradient Problem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vanishing Gradient Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploding-gradient-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exploding Gradient Problem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exploding Gradient Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solutions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regularization-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regularization Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regularization Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-l2-regularization-weight-decay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. L2 Regularization (Weight Decay)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dropout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dropout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-early-stopping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Early Stopping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-batch-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Batch Normalization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weight-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weight Initialization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Weight Initialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poor-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Poor Initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#good-initialization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Good Initialization Strategies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-formulas-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Formulas Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Formulas Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-propagation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forward Propagation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backpropagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backpropagation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regularization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regularization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-points-to-remember" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module6-cnn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 6 - Convolutional Neural Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Previous Year Papers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Previous Year Papers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../papers/2024-midsem-regular-solved/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2024 MidSem Regular - Solved
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-feedforward-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Feedforward Neural Networks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deep Feedforward Neural Networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forward-propagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forward Propagation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Forward Propagation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-layer-forward-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Layer Forward Pass
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-forward-propagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Forward Propagation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-layer-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: 3-Layer Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backpropagation-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backpropagation Algorithm
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backpropagation Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chain-rule-for-multiple-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chain Rule for Multiple Layers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backpropagation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backpropagation Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detailed-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Formulas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vanishing-gradient-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vanishing Gradient Problem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vanishing Gradient Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploding-gradient-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exploding Gradient Problem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exploding Gradient Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solutions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regularization-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regularization Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regularization Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-l2-regularization-weight-decay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. L2 Regularization (Weight Decay)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dropout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dropout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-early-stopping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Early Stopping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-batch-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Batch Normalization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weight-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weight Initialization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Weight Initialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poor-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Poor Initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#good-initialization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Good Initialization Strategies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-formulas-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Formulas Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Formulas Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-propagation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forward Propagation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backpropagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backpropagation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regularization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regularization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-points-to-remember" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="module-5-deep-feedforward-neural-networks-dfnn">Module 5: Deep Feedforward Neural Networks (DFNN)</h1>
+<h2 id="overview">Overview</h2>
+<p>This module covers deep feedforward neural networks (multi-layer perceptrons), including forward propagation, backpropagation through multiple layers, and techniques to handle gradient problems.</p>
+<hr />
+<h2 id="deep-feedforward-neural-networks">Deep Feedforward Neural Networks</h2>
+<h3 id="definition">Definition</h3>
+<p><strong>Deep Feedforward Neural Network (DFNN)</strong> is a multi-layer neural network where information flows in one direction (forward) from input to output through multiple hidden layers.</p>
+<p><strong>Also called</strong>:
+- Multi-Layer Perceptron (MLP)
+- Deep Neural Network (DNN)
+- Fully Connected Network</p>
+<h3 id="architecture">Architecture</h3>
+<p><strong>Structure</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Input Layer → Hidden Layer 1 → Hidden Layer 2 → ... → Hidden Layer L → Output Layer
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    x₁            h₁¹              h₁²                        h₁^L          y₁
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    x₂            h₂¹              h₂²                        h₂^L          y₂
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ...           ...               ...                        ...
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    xₙ            hₘ¹              hₘ²                        hₘ^L
+</code></pre></div>
+<p><strong>Key Components</strong>:
+- <strong>Input Layer</strong>: <span class="arithmatex">\(n\)</span> neurons (features)
+- <strong>Hidden Layers</strong>: <span class="arithmatex">\(L\)</span> layers with varying number of neurons
+- <strong>Output Layer</strong>: <span class="arithmatex">\(K\)</span> neurons (for <span class="arithmatex">\(K\)</span> classes) or 1 neuron (for regression)</p>
+<hr />
+<h2 id="forward-propagation">Forward Propagation</h2>
+<h3 id="single-layer-forward-pass">Single Layer Forward Pass</h3>
+<p><strong>For layer <span class="arithmatex">\(l\)</span></strong>:</p>
+<div class="arithmatex">\[
+\mathbf{z}^{[l]} = \mathbf{W}^{[l]} \mathbf{a}^{[l-1]} + \mathbf{b}^{[l]}
+\]</div>
+<div class="arithmatex">\[
+\mathbf{a}^{[l]} = g^{[l]}(\mathbf{z}^{[l]})
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(\mathbf{W}^{[l]}\)</span> = weight matrix for layer <span class="arithmatex">\(l\)</span> (size: <span class="arithmatex">\(n^{[l]} \times n^{[l-1]}\)</span>)
+- <span class="arithmatex">\(\mathbf{a}^{[l-1]}\)</span> = activations from previous layer
+- <span class="arithmatex">\(\mathbf{b}^{[l]}\)</span> = bias vector for layer <span class="arithmatex">\(l\)</span>
+- <span class="arithmatex">\(g^{[l]}\)</span> = activation function for layer <span class="arithmatex">\(l\)</span>
+- <span class="arithmatex">\(\mathbf{z}^{[l]}\)</span> = pre-activation (linear combination)
+- <span class="arithmatex">\(\mathbf{a}^{[l]}\)</span> = post-activation (output of layer <span class="arithmatex">\(l\)</span>)</p>
+<p><strong>Notation</strong>:
+- <span class="arithmatex">\(n^{[l]}\)</span> = number of neurons in layer <span class="arithmatex">\(l\)</span>
+- <span class="arithmatex">\(\mathbf{a}^{[0]} = \mathbf{x}\)</span> (input)
+- <span class="arithmatex">\(\mathbf{a}^{[L]} = \hat{\mathbf{y}}\)</span> (output)</p>
+<h3 id="complete-forward-propagation">Complete Forward Propagation</h3>
+<p><strong>For a network with <span class="arithmatex">\(L\)</span> layers</strong>:</p>
+<ol>
+<li>
+<p><strong>Input</strong>: <span class="arithmatex">\(\mathbf{a}^{[0]} = \mathbf{x}\)</span></p>
+</li>
+<li>
+<p><strong>For each layer <span class="arithmatex">\(l = 1, 2, \ldots, L\)</span></strong>:
+   [
+   \mathbf{z}^{[l]} = \mathbf{W}^{[l]} \mathbf{a}^{[l-1]} + \mathbf{b}^{[l]}
+   ]
+   [
+   \mathbf{a}^{[l]} = g<sup _l_="[l]">{[l]}(\mathbf{z}</sup>)
+   ]</p>
+</li>
+<li>
+<p><strong>Output</strong>: <span class="arithmatex">\(\hat{\mathbf{y}} = \mathbf{a}^{[L]}\)</span></p>
+</li>
+</ol>
+<h3 id="example-3-layer-network">Example: 3-Layer Network</h3>
+<p><strong>Architecture</strong>: Input (2) → Hidden (3) → Output (1)</p>
+<p><strong>Layer 1 (Hidden)</strong>:
+[
+\mathbf{z}^{[1]} = \mathbf{W}^{[1]} \mathbf{x} + \mathbf{b}^{[1]}
+]
+[
+\mathbf{a}^{[1]} = \text{ReLU}(\mathbf{z}^{[1]})
+]</p>
+<p><strong>Layer 2 (Output)</strong>:
+[
+\mathbf{z}^{[2]} = \mathbf{W}^{[2]} \mathbf{a}^{[1]} + \mathbf{b}^{[2]}
+]
+[
+\hat{y} = \sigma(\mathbf{z}^{[2]}) \quad \text{(for binary classification)}
+]</p>
+<hr />
+<h2 id="backpropagation-algorithm">Backpropagation Algorithm</h2>
+<h3 id="goal">Goal</h3>
+<p>Compute gradients for all layers to update weights using gradient descent.</p>
+<h3 id="chain-rule-for-multiple-layers">Chain Rule for Multiple Layers</h3>
+<p><strong>Key Insight</strong>: Gradients flow backward from output to input.</p>
+<h3 id="backpropagation-steps">Backpropagation Steps</h3>
+<p><strong>Given</strong>: Loss function <span class="arithmatex">\(J\)</span> and network output <span class="arithmatex">\(\hat{\mathbf{y}}\)</span></p>
+<p><strong>Step 1</strong>: Compute output layer gradient</p>
+<div class="arithmatex">\[
+\frac{\partial J}{\partial \mathbf{a}^{[L]}} = \frac{\partial J}{\partial \hat{\mathbf{y}}}
+\]</div>
+<p><strong>Step 2</strong>: For each layer <span class="arithmatex">\(l = L, L-1, \ldots, 1\)</span> (backward):</p>
+<p>a. <strong>Gradient w.r.t. pre-activation</strong>:
+[
+\frac{\partial J}{\partial \mathbf{z}^{[l]}} = \frac{\partial J}{\partial \mathbf{a}^{[l]}} \odot g'<sup _l_="[l]">{[l]}(\mathbf{z}</sup>)
+]</p>
+<p>Where <span class="arithmatex">\(\odot\)</span> is element-wise multiplication.</p>
+<p>b. <strong>Gradient w.r.t. weights</strong>:
+[
+\frac{\partial J}{\partial \mathbf{W}^{[l]}} = \frac{\partial J}{\partial \mathbf{z}^{[l]}} (\mathbf{a}<sup>{[l-1]})</sup>T
+]</p>
+<p>c. <strong>Gradient w.r.t. bias</strong>:
+[
+\frac{\partial J}{\partial \mathbf{b}^{[l]}} = \frac{\partial J}{\partial \mathbf{z}^{[l]}}
+]</p>
+<p>d. <strong>Gradient w.r.t. previous layer activations</strong>:
+[
+\frac{\partial J}{\partial \mathbf{a}^{[l-1]}} = (\mathbf{W}<sup>{[l]})</sup>T \frac{\partial J}{\partial \mathbf{z}^{[l]}}
+]</p>
+<h3 id="detailed-formulas">Detailed Formulas</h3>
+<p><strong>For output layer <span class="arithmatex">\(L\)</span></strong> (binary classification with sigmoid):</p>
+<div class="arithmatex">\[
+\frac{\partial J}{\partial \mathbf{z}^{[L]}} = \mathbf{a}^{[L]} - \mathbf{y} = \hat{\mathbf{y}} - \mathbf{y}
+\]</div>
+<p><strong>For hidden layer <span class="arithmatex">\(l\)</span></strong>:</p>
+<div class="arithmatex">\[
+\frac{\partial J}{\partial \mathbf{z}^{[l]}} = (\mathbf{W}^{[l+1]})^T \frac{\partial J}{\partial \mathbf{z}^{[l+1]}} \odot g'^{[l]}(\mathbf{z}^{[l]})
+\]</div>
+<p><strong>Weight updates</strong>:</p>
+<div class="arithmatex">\[
+\mathbf{W}^{[l]} := \mathbf{W}^{[l]} - \alpha \frac{\partial J}{\partial \mathbf{W}^{[l]}}
+\]</div>
+<div class="arithmatex">\[
+\mathbf{b}^{[l]} := \mathbf{b}^{[l]} - \alpha \frac{\partial J}{\partial \mathbf{b}^{[l]}}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Key Point</p>
+<p>Backpropagation uses the chain rule to compute gradients layer by layer, starting from the output and working backward to the input.</p>
+</div>
+<hr />
+<h2 id="vanishing-gradient-problem">Vanishing Gradient Problem</h2>
+<h3 id="problem">Problem</h3>
+<p>In deep networks, gradients can become <strong>extremely small</strong> as they propagate backward through many layers.</p>
+<p><strong>Cause</strong>: When activation function derivatives are small (e.g., sigmoid: <span class="arithmatex">\(\sigma'(z) = \sigma(z)(1-\sigma(z)) \leq 0.25\)</span>), repeated multiplication makes gradients vanish.</p>
+<p><strong>Effect</strong>: Early layers learn very slowly or not at all.</p>
+<h3 id="example">Example</h3>
+<p><strong>5-layer network with sigmoid</strong>:</p>
+<div class="arithmatex">\[
+\frac{\partial J}{\partial \mathbf{W}^{[1]}} = \frac{\partial J}{\partial \mathbf{z}^{[5]}} \cdot \sigma'(\mathbf{z}^{[5]}) \cdot \sigma'(\mathbf{z}^{[4]}) \cdot \sigma'(\mathbf{z}^{[3]}) \cdot \sigma'(\mathbf{z}^{[2]}) \cdot \sigma'(\mathbf{z}^{[1]})
+\]</div>
+<p>If each <span class="arithmatex">\(\sigma'(z) \approx 0.25\)</span>, then:</p>
+<div class="arithmatex">\[
+\frac{\partial J}{\partial \mathbf{W}^{[1]}} \approx \text{(small)} \times 0.25^4 = \text{(very small)}
+\]</div>
+<h3 id="solutions">Solutions</h3>
+<ol>
+<li><strong>Use ReLU</strong>: Derivative is 1 (when active), prevents vanishing</li>
+<li><strong>Residual Connections</strong>: Skip connections (ResNet)</li>
+<li><strong>Batch Normalization</strong>: Normalize activations</li>
+<li><strong>Proper Initialization</strong>: Xavier/He initialization</li>
+<li><strong>Gradient Clipping</strong>: Prevent exploding gradients</li>
+</ol>
+<hr />
+<h2 id="exploding-gradient-problem">Exploding Gradient Problem</h2>
+<h3 id="problem_1">Problem</h3>
+<p>Gradients can become <strong>extremely large</strong>, causing unstable training.</p>
+<p><strong>Cause</strong>: Large weights or many layers with large derivatives.</p>
+<p><strong>Effect</strong>: Weights update too much, training diverges.</p>
+<h3 id="solutions_1">Solutions</h3>
+<ol>
+<li>
+<p><strong>Gradient Clipping</strong>: Limit gradient magnitude
+   [
+   \text{if } ||\mathbf{g}|| &gt; \text{threshold}: \mathbf{g} = \mathbf{g} \cdot \frac{\text{threshold}}{||\mathbf{g}||}
+   ]</p>
+</li>
+<li>
+<p><strong>Weight Initialization</strong>: Start with small weights</p>
+</li>
+<li><strong>Batch Normalization</strong>: Stabilize activations</li>
+<li><strong>Lower Learning Rate</strong>: Smaller steps</li>
+</ol>
+<hr />
+<h2 id="regularization-techniques">Regularization Techniques</h2>
+<h3 id="1-l2-regularization-weight-decay">1. L2 Regularization (Weight Decay)</h3>
+<p><strong>Modified Loss Function</strong>:</p>
+<div class="arithmatex">\[
+J_{\text{reg}} = J + \frac{\lambda}{2m} \sum_{l=1}^{L} ||\mathbf{W}^{[l]}||_F^2
+\]</div>
+<p>Where <span class="arithmatex">\(||\mathbf{W}^{[l]}||_F^2\)</span> is Frobenius norm (sum of squares of all elements).</p>
+<p><strong>Weight Update</strong>:</p>
+<div class="arithmatex">\[
+\mathbf{W}^{[l]} := \mathbf{W}^{[l]} - \alpha \left(\frac{\partial J}{\partial \mathbf{W}^{[l]}} + \frac{\lambda}{m} \mathbf{W}^{[l]}\right)
+\]</div>
+<p><strong>Effect</strong>: Penalizes large weights, prevents overfitting.</p>
+<h3 id="2-dropout">2. Dropout</h3>
+<p><strong>During Training</strong>:
+- Randomly set some neurons to 0 with probability <span class="arithmatex">\(p\)</span> (dropout rate)
+- Only keep neurons with probability <span class="arithmatex">\((1-p)\)</span></p>
+<p><strong>During Testing</strong>:
+- Use all neurons
+- Scale activations by <span class="arithmatex">\((1-p)\)</span></p>
+<p><strong>Effect</strong>: Prevents co-adaptation, reduces overfitting.</p>
+<h3 id="3-early-stopping">3. Early Stopping</h3>
+<ul>
+<li>Monitor validation loss</li>
+<li>Stop training when validation loss starts increasing</li>
+<li>Prevents overfitting</li>
+</ul>
+<h3 id="4-batch-normalization">4. Batch Normalization</h3>
+<p><strong>Normalize activations</strong>:</p>
+<div class="arithmatex">\[
+\hat{z}^{[l]} = \frac{z^{[l]} - \mu}{\sqrt{\sigma^2 + \epsilon}}
+\]</div>
+<div class="arithmatex">\[
+\tilde{z}^{[l]} = \gamma \hat{z}^{[l]} + \beta
+\]</div>
+<p><strong>Benefits</strong>:
+- Faster training
+- Less sensitive to initialization
+- Acts as regularization</p>
+<hr />
+<h2 id="weight-initialization">Weight Initialization</h2>
+<h3 id="poor-initialization">Poor Initialization</h3>
+<p><strong>Problem</strong>: If all weights are same (e.g., all zeros), all neurons learn same thing (symmetry breaking problem).</p>
+<h3 id="good-initialization-strategies">Good Initialization Strategies</h3>
+<p><strong>1. Xavier/Glorot Initialization</strong> (for tanh/sigmoid):</p>
+<div class="arithmatex">\[
+W_{ij} \sim \mathcal{N}\left(0, \frac{1}{n^{[l-1]}}\right)
+\]</div>
+<p>or</p>
+<div class="arithmatex">\[
+W_{ij} \sim \mathcal{U}\left(-\frac{\sqrt{6}}{\sqrt{n^{[l-1]} + n^{[l]}}}, \frac{\sqrt{6}}{\sqrt{n^{[l-1]} + n^{[l]}}}\right)
+\]</div>
+<p><strong>2. He Initialization</strong> (for ReLU):</p>
+<div class="arithmatex">\[
+W_{ij} \sim \mathcal{N}\left(0, \frac{2}{n^{[l-1]}}\right)
+\]</div>
+<div class="admonition recommendation">
+<p class="admonition-title">Best Practice</p>
+<p>Use He initialization for ReLU networks and Xavier initialization for tanh/sigmoid networks.</p>
+</div>
+<hr />
+<h2 id="key-formulas-summary">Key Formulas Summary</h2>
+<h3 id="forward-propagation_1">Forward Propagation</h3>
+<div class="arithmatex">\[
+\mathbf{z}^{[l]} = \mathbf{W}^{[l]} \mathbf{a}^{[l-1]} + \mathbf{b}^{[l]}
+\]</div>
+<div class="arithmatex">\[
+\mathbf{a}^{[l]} = g^{[l]}(\mathbf{z}^{[l]})
+\]</div>
+<h3 id="backpropagation">Backpropagation</h3>
+<p><strong>Output Layer</strong>:
+[
+\frac{\partial J}{\partial \mathbf{z}^{[L]}} = \hat{\mathbf{y}} - \mathbf{y}
+]</p>
+<p><strong>Hidden Layers</strong>:
+[
+\frac{\partial J}{\partial \mathbf{z}^{[l]}} = (\mathbf{W}<sup>{[l+1]})</sup>T \frac{\partial J}{\partial \mathbf{z}^{[l+1]}} \odot g'<sup _l_="[l]">{[l]}(\mathbf{z}</sup>)
+]</p>
+<p><strong>Weights</strong>:
+[
+\frac{\partial J}{\partial \mathbf{W}^{[l]}} = \frac{\partial J}{\partial \mathbf{z}^{[l]}} (\mathbf{a}<sup>{[l-1]})</sup>T
+]</p>
+<p><strong>Bias</strong>:
+[
+\frac{\partial J}{\partial \mathbf{b}^{[l]}} = \frac{\partial J}{\partial \mathbf{z}^{[l]}}
+]</p>
+<h3 id="regularization">Regularization</h3>
+<p><strong>L2 Regularization</strong>:
+[
+J_{\text{reg}} = J + \frac{\lambda}{2m} \sum_{l=1}^{L} ||\mathbf{W}<sup>{[l]}||_F</sup>2
+]</p>
+<hr />
+<h2 id="important-points-to-remember">Important Points to Remember</h2>
+<p>✅ <strong>DFNN</strong>: Multi-layer network with forward and backward propagation</p>
+<p>✅ <strong>Forward Pass</strong>: Compute activations layer by layer</p>
+<p>✅ <strong>Backpropagation</strong>: Compute gradients using chain rule, backward through layers</p>
+<p>✅ <strong>Vanishing Gradient</strong>: Use ReLU, proper initialization, batch norm</p>
+<p>✅ <strong>Exploding Gradient</strong>: Use gradient clipping, proper initialization</p>
+<p>✅ <strong>Regularization</strong>: L2, dropout, early stopping, batch normalization</p>
+<p>✅ <strong>Initialization</strong>: He for ReLU, Xavier for tanh/sigmoid</p>
+<hr />
+<p><strong>Previous</strong>: <a href="../module4-linear-nn-classification/">Module 4 - Linear NN Classification</a> | <strong>Next</strong>: <a href="../module6-cnn/">Module 6 - Convolutional Neural Networks</a></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 16:50:34 UTC">December 16, 2025</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 16:50:34 UTC">December 16, 2025</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

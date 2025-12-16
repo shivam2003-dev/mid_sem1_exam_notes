@@ -12,16 +12,5 @@ window.MathJax = {
 };
 
 document$.subscribe(() => {
-  setTimeout(() => {
-    if (typeof MathJax !== 'undefined') {
-      if (MathJax.startup) {
-        MathJax.startup.defaultReady();
-      }
-      if (MathJax.typesetPromise) {
-        MathJax.typesetPromise().catch(function (err) {
-          console.log('MathJax typeset error:', err);
-        });
-      }
-    }
-  }, 100);
+  MathJax.typesetPromise()
 })
