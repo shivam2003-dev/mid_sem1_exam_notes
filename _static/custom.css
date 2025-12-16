@@ -1,0 +1,82 @@
+/* Custom styles for the exam notes book */
+
+/* Better math display */
+.math {
+  font-size: 1.1em;
+}
+
+/* Admonition styling */
+.admonition {
+  margin: 1em 0;
+  padding: 1em;
+  border-radius: 8px;
+}
+
+.admonition.tip {
+  background-color: #e8f5e9;
+  border-left: 4px solid #4caf50;
+}
+
+.admonition.warning {
+  background-color: #fff3e0;
+  border-left: 4px solid #ff9800;
+}
+
+.admonition.note {
+  background-color: #e3f2fd;
+  border-left: 4px solid #2196f3;
+}
+
+.admonition.important {
+  background-color: #fce4ec;
+  border-left: 4px solid #e91e63;
+}
+
+/* Table styling */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Code block styling */
+pre {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  padding: 1em;
+  overflow-x: auto;
+}
+
+/* Formula boxes */
+.formula-box {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1em;
+  margin: 1em 0;
+}
+
+/* Exam tip boxes */
+.exam-tip {
+  background-color: #fff8e1;
+  border-left: 4px solid #ffc107;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 0 8px 8px 0;
+}
+
