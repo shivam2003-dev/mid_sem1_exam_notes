@@ -173,87 +173,47 @@ $$
 \lambda^3 - 9\lambda^2 + 23\lambda - 17 = 0
 $$
 
-By inspection or rational root theorem, $\lambda = 1$ is a root:
+By inspection or rational root theorem, we check for integer roots (divisors of 17: $\pm 1, \pm 17$). None of them satisfy the equation.
 
-$$
-(\lambda - 1)(\lambda^2 - 8\lambda + 17) = 0
-$$
+**Eigenvalues:** The roots of $\lambda^3 - 9\lambda^2 + 23\lambda - 17 = 0$ are approximately $\lambda_1 \approx 5.21$, $\lambda_2 \approx 2.46$, $\lambda_3 \approx 1.32$.
 
-Solving $\lambda^2 - 8\lambda + 17 = 0$:
+**Note:** The matrix $A$ is **symmetric** ($A = A^T$), so all eigenvalues are real. However, since the eigenvalues are irrational, finding the exact eigenvectors and performing the full decomposition $A = PDP^{-1}$ by hand is computationally tedious and involves carrying complex radical terms.
 
-$$
-\lambda = \frac{8 \pm \sqrt{64 - 68}}{2} = \frac{8 \pm \sqrt{-4}}{2} = \frac{8 \pm 2i}{2} = 4 \pm i
-$$
-
-**Eigenvalues:** $\lambda_1 = 1$, $\lambda_2 = 4 + i$, $\lambda_3 = 4 - i$
-
-**Note:** Since we have complex eigenvalues, the eigen-decomposition method becomes more complex. For a real symmetric positive definite matrix, we would use this method, but here we'll proceed with the understanding that for computational purposes, we typically use this for symmetric matrices.
-
-**Alternative Approach for Real Matrices:**
-
-For this specific problem, since the matrix is not symmetric, eigen-decomposition is not the most efficient method. However, we can still demonstrate the concept:
-
-If $A = PDP^{-1}$ where $D$ is diagonal (eigenvalues) and $P$ contains eigenvectors, then:
-
-$$Ax = b \Rightarrow PDP^{-1}x = b \Rightarrow P^{-1}x = D^{-1}P^{-1}b \Rightarrow x = PD^{-1}P^{-1}b$$
-
-**For this problem, we note that:** The eigen-decomposition method is computationally expensive (O(n³) for finding eigenvalues) and not ideal for this non-symmetric matrix. The solution remains $x = 1, y = 1, z = 1$.
+**Conclusion for this method:**
+While the method is theoretically valid and applicable (since $A$ is symmetric), it is not practical for manual calculation with these specific numbers compared to Gaussian elimination. The solution would still converge to $x=1, y=1, z=1$.
 
 ---
 
 ### (c) Cholesky Decomposition Method [1.5M]
 
-**Important Note:** Cholesky decomposition requires the matrix to be **symmetric and positive definite**. Our matrix $A$ is not symmetric:
+**Check Conditions:** Cholesky decomposition requires the matrix to be **symmetric and positive definite**.
 
-$$
-A = \begin{pmatrix}
-4 & 1 & 1 \\
-1 & 3 & 1 \\
-1 & 1 & 2
-\end{pmatrix} \neq A^T
-$$
+1.  **Symmetric:** $A = A^T$.
+    $$
+    A = \begin{pmatrix}
+    4 & 1 & 1 \\
+    1 & 3 & 1 \\
+    1 & 1 & 2
+    \end{pmatrix}
+    $$
+    $A_{12}=A_{21}=1$, $A_{13}=A_{31}=1$, $A_{23}=A_{32}=1$. The matrix is symmetric.
 
-However, we can form $A^TA$ which is symmetric positive definite, or we can use **LU decomposition** instead. For educational purposes, let's demonstrate with $A^TA$:
+2.  **Positive Definite:** Check leading principal minors.
+    - $D_1 = 4 > 0$
+    - $D_2 = \det\begin{pmatrix} 4 & 1 \\ 1 & 3 \end{pmatrix} = 12 - 1 = 11 > 0$
+    - $D_3 = \det(A) = 17 > 0$ (from characteristic equation constant term)
 
-**Step 1: Form $A^TA$**
+Since $A$ is symmetric and positive definite, we can apply Cholesky decomposition directly to $A$.
 
-$$
-A^TA = \begin{pmatrix}
-4 & 1 & 1 \\
-1 & 3 & 1 \\
-1 & 1 & 2
-\end{pmatrix}^T \begin{pmatrix}
-4 & 1 & 1 \\
-1 & 3 & 1 \\
-1 & 1 & 2
-\end{pmatrix} = \begin{pmatrix}
-4 & 1 & 1 \\
-1 & 3 & 1 \\
-1 & 1 & 2
-\end{pmatrix} \begin{pmatrix}
-4 & 1 & 1 \\
-1 & 3 & 1 \\
-1 & 1 & 2
-\end{pmatrix}
-$$
+**Step 1: Decomposition $A = LL^T$**
 
-$$
-A^TA = \begin{pmatrix}
-18 & 8 & 7 \\
-8 & 11 & 6 \\
-7 & 6 & 6
-\end{pmatrix}
-$$
-
-**Step 2: Cholesky Decomposition of $A^TA = LL^T$**
-
-We want to find lower triangular $L$ such that:
+We want lower triangular $L$ such that:
 
 $$
 \begin{pmatrix}
-18 & 8 & 7 \\
-8 & 11 & 6 \\
-7 & 6 & 6
+4 & 1 & 1 \\
+1 & 3 & 1 \\
+1 & 1 & 2
 \end{pmatrix} = \begin{pmatrix}
 l_{11} & 0 & 0 \\
 l_{21} & l_{22} & 0 \\
@@ -265,80 +225,62 @@ l_{11} & l_{21} & l_{31} \\
 \end{pmatrix}
 $$
 
-Solving element by element:
+**Calculations:**
 
-- $l_{11}^2 = 18 \Rightarrow l_{11} = 3\sqrt{2}$
-- $l_{21}l_{11} = 8 \Rightarrow l_{21} = \frac{8}{3\sqrt{2}} = \frac{4\sqrt{2}}{3}$
-- $l_{31}l_{11} = 7 \Rightarrow l_{31} = \frac{7}{3\sqrt{2}} = \frac{7\sqrt{2}}{6}$
-- $l_{21}^2 + l_{22}^2 = 11 \Rightarrow l_{22}^2 = 11 - \frac{32}{9} = \frac{99-32}{9} = \frac{67}{9} \Rightarrow l_{22} = \frac{\sqrt{67}}{3}$
-- $l_{31}l_{21} + l_{32}l_{22} = 6 \Rightarrow l_{32} = \frac{6 - l_{31}l_{21}}{l_{22}} = \frac{6 - \frac{28}{9}}{\frac{\sqrt{67}}{3}} = \frac{\frac{26}{9}}{\frac{\sqrt{67}}{3}} = \frac{26}{3\sqrt{67}}$
-- $l_{31}^2 + l_{32}^2 + l_{33}^2 = 6 \Rightarrow l_{33}^2 = 6 - \frac{49}{18} - \frac{676}{9 \cdot 67} = \frac{108-49}{18} - \frac{676}{603} = \frac{59}{18} - \frac{676}{603}$
+1.  $l_{11} = \sqrt{a_{11}} = \sqrt{4} = 2$
+2.  $l_{21} = \frac{a_{21}}{l_{11}} = \frac{1}{2} = 0.5$
+3.  $l_{31} = \frac{a_{31}}{l_{11}} = \frac{1}{2} = 0.5$
+4.  $l_{22} = \sqrt{a_{22} - l_{21}^2} = \sqrt{3 - 0.5^2} = \sqrt{2.75} = \frac{\sqrt{11}}{2} \approx 1.658$
+5.  $l_{32} = \frac{a_{32} - l_{31}l_{21}}{l_{22}} = \frac{1 - 0.5 \cdot 0.5}{\frac{\sqrt{11}}{2}} = \frac{0.75}{\frac{\sqrt{11}}{2}} = \frac{1.5}{\sqrt{11}} = \frac{3}{2\sqrt{11}} \approx 0.452$
+6.  $l_{33} = \sqrt{a_{33} - l_{31}^2 - l_{32}^2} = \sqrt{2 - 0.5^2 - (\frac{3}{2\sqrt{11}})^2} = \sqrt{2 - 0.25 - \frac{9}{44}} = \sqrt{\frac{88-11-9}{44}} = \sqrt{\frac{68}{44}} = \sqrt{\frac{17}{11}} \approx 1.243$
 
-This becomes quite complex. **For the original system, we should use LU decomposition instead.**
-
-**LU Decomposition of $A$:**
-
-We want $A = LU$ where $L$ is lower triangular and $U$ is upper triangular.
-
-From our Gaussian elimination in part (a), we have:
-
-$$
-U = \begin{pmatrix}
-1 & 1 & 2 \\
-0 & 2 & -1 \\
-0 & 0 & -\frac{17}{2}
-\end{pmatrix}
-$$
-
-The multipliers give us $L$:
-
+So,
 $$
 L = \begin{pmatrix}
-1 & 0 & 0 \\
-1 & 1 & 0 \\
-4 & \frac{3}{2} & 1
+2 & 0 & 0 \\
+0.5 & \frac{\sqrt{11}}{2} & 0 \\
+0.5 & \frac{3}{2\sqrt{11}} & \sqrt{\frac{17}{11}}
 \end{pmatrix}
 $$
 
-**Step 3: Solve using LU decomposition**
-
-$$Ax = b \Rightarrow LUx = b$$
-
-Let $Ux = y$, then solve $Ly = b$:
+**Step 2: Solve $Ly = b$ (Forward Substitution)**
 
 $$
 \begin{pmatrix}
-1 & 0 & 0 \\
-1 & 1 & 0 \\
-4 & \frac{3}{2} & 1
+2 & 0 & 0 \\
+0.5 & \frac{\sqrt{11}}{2} & 0 \\
+0.5 & \frac{3}{2\sqrt{11}} & \sqrt{\frac{17}{11}}
 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix} = \begin{pmatrix} 6 \\ 5 \\ 4 \end{pmatrix}
 $$
 
-Forward substitution:
-- $y_1 = 6$
-- $y_1 + y_2 = 5 \Rightarrow y_2 = -1$
-- $4y_1 + \frac{3}{2}y_2 + y_3 = 4 \Rightarrow 24 - \frac{3}{2} + y_3 = 4 \Rightarrow y_3 = 4 - 24 + \frac{3}{2} = -\frac{37}{2}$
+1.  $2y_1 = 6 \Rightarrow y_1 = 3$
+2.  $0.5(3) + \frac{\sqrt{11}}{2}y_2 = 5 \Rightarrow 1.5 + \frac{\sqrt{11}}{2}y_2 = 5 \Rightarrow \frac{\sqrt{11}}{2}y_2 = 3.5 \Rightarrow y_2 = \frac{7}{\sqrt{11}}$
+3.  $0.5(3) + \frac{3}{2\sqrt{11}}(\frac{7}{\sqrt{11}}) + \sqrt{\frac{17}{11}}y_3 = 4$
+    $1.5 + \frac{21}{22} + \sqrt{\frac{17}{11}}y_3 = 4$
+    $\sqrt{\frac{17}{11}}y_3 = 4 - 1.5 - \frac{21}{22} = 2.5 - \frac{21}{22} = \frac{55}{22} - \frac{21}{22} = \frac{34}{22} = \frac{17}{11}$
+    $y_3 = \frac{17/11}{\sqrt{17/11}} = \sqrt{\frac{17}{11}}$
 
-Now solve $Ux = y$:
+So $y = \begin{pmatrix} 3 \\ \frac{7}{\sqrt{11}} \\ \sqrt{\frac{17}{11}} \end{pmatrix}$.
+
+**Step 3: Solve $L^T x = y$ (Backward Substitution)**
 
 $$
 \begin{pmatrix}
-1 & 1 & 2 \\
-0 & 2 & -1 \\
-0 & 0 & -\frac{17}{2}
-\end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 6 \\ -1 \\ -\frac{37}{2} \end{pmatrix}
+2 & 0.5 & 0.5 \\
+0 & \frac{\sqrt{11}}{2} & \frac{3}{2\sqrt{11}} \\
+0 & 0 & \sqrt{\frac{17}{11}}
+\end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 3 \\ \frac{7}{\sqrt{11}} \\ \sqrt{\frac{17}{11}} \end{pmatrix}
 $$
 
-Backward substitution:
-- $-\frac{17}{2}z = -\frac{37}{2} \Rightarrow z = \frac{37}{17}$ ❌ (This doesn't match!)
+1.  $\sqrt{\frac{17}{11}} z = \sqrt{\frac{17}{11}} \Rightarrow z = 1$
+2.  $\frac{\sqrt{11}}{2} y + \frac{3}{2\sqrt{11}} (1) = \frac{7}{\sqrt{11}}$
+    Multiply by $2\sqrt{11}$:
+    $11y + 3 = 14 \Rightarrow 11y = 11 \Rightarrow y = 1$
+3.  $2x + 0.5(1) + 0.5(1) = 3$
+    $2x + 1 = 3 \Rightarrow 2x = 2 \Rightarrow x = 1$
 
-**Correction:** Let me recalculate the LU decomposition properly from the Gaussian elimination steps.
-
-Actually, from part (a), the correct echelon form after proper elimination should yield $z = 1$. Let me verify the LU decomposition is correct.
-
-**Correct Solution using LU:**
-
-After proper Gaussian elimination, we get the solution directly: $\boxed{x = 1, y = 1, z = 1}$
+**Solution:**
+$$\boxed{x = 1, \quad y = 1, \quad z = 1}$$
 
 ---
 
@@ -351,9 +293,9 @@ After proper Gaussian elimination, we get the solution directly: $\boxed{x = 1, 
 | **Cholesky/LU Decomposition** | O(n³) for decomposition, O(n²) for each solve | Efficient for multiple RHS, numerically stable | Requires matrix to be positive definite (Cholesky) or invertible (LU) |
 
 **For this specific problem:**
-- **Most Efficient:** Gaussian elimination (echelon form) - **O(n³)** - Direct and straightforward for a single solve
-- **Best for Multiple Solves:** LU decomposition - Decomposition is O(n³), but each subsequent solve is only O(n²)
-- **Least Suitable:** Eigen-decomposition - Overkill for this problem, especially with complex eigenvalues
+- **Most Efficient:** Gaussian elimination (echelon form) - **O(n³)** - Direct and straightforward for a single solve.
+- **Best for Multiple Solves:** Cholesky decomposition (since A is symmetric positive definite) or LU decomposition. Cholesky is generally faster (by a factor of 2) than LU for symmetric positive definite matrices.
+- **Least Suitable:** Eigen-decomposition - Overkill for this problem, and finding eigenvalues by hand is difficult due to irrational roots.
 
 ---
 
