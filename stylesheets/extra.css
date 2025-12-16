@@ -1,0 +1,12 @@
+/* Ensure MathJax formulas are visible */
+.arithmatex {
+  display: inline-block;
+}
+
+/* Style for display math */
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
