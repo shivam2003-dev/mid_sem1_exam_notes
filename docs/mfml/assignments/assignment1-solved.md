@@ -702,11 +702,27 @@ Simplifying:
 
 $$w_3 = \begin{pmatrix} \frac{59}{34} \\ \frac{2}{17} \\ \frac{11}{17} \\ -\frac{21}{34} \end{pmatrix}$$
 
-Now compute $\|w_3\|$ and normalize to get $e_3$. This calculation is quite involved, so let me present the final normalized vector:
+Now compute $\|w_3\|$ and normalize to get $e_3$.
 
-After computing $\|w_3\|$ and normalizing:
+$$w_3 = \frac{1}{34} \begin{pmatrix} 59 \\ 4 \\ 22 \\ -21 \end{pmatrix}$$
 
-$$\boxed{e_3 = \frac{w_3}{\|w_3\|}}$$
+Let $\tilde{w} = (59, 4, 22, -21)^T$. Then $\|w_3\|^2 = \frac{1}{34^2} \langle \tilde{w}, \tilde{w} \rangle$.
+
+$$
+\langle \tilde{w}, \tilde{w} \rangle = \tilde{w}^T M \tilde{w} = 8432
+$$
+
+$$
+\|w_3\|^2 = \frac{8432}{34^2} = \frac{8432}{1156} = \frac{124}{17}
+$$
+
+$$
+\|w_3\| = \sqrt{\frac{124}{17}} = \frac{2\sqrt{31}}{\sqrt{17}} = \frac{2\sqrt{527}}{17}
+$$
+
+$$
+e_3 = \frac{w_3}{\|w_3\|} = \frac{17}{2\sqrt{527}} \cdot \frac{1}{34} \begin{pmatrix} 59 \\ 4 \\ 22 \\ -21 \end{pmatrix} = \frac{1}{4\sqrt{527}} \begin{pmatrix} 59 \\ 4 \\ 22 \\ -21 \end{pmatrix}
+$$
 
 **Final Orthonormal Set:**
 
@@ -714,7 +730,7 @@ $$\boxed{
 \begin{aligned}
 e_1 &= \frac{1}{2\sqrt{3}} \begin{pmatrix} 1 \\ 2 \\ 0 \\ 1 \end{pmatrix} \\
 e_2 &= \frac{1}{\sqrt{51}} \begin{pmatrix} -2 \\ -1 \\ 3 \\ 1 \end{pmatrix} \\
-e_3 &= \frac{w_3}{\|w_3\|} \text{ (where } w_3 \text{ is as computed above)}
+e_3 &= \frac{1}{4\sqrt{527}} \begin{pmatrix} 59 \\ 4 \\ 22 \\ -21 \end{pmatrix}
 \end{aligned}
 }$$
 

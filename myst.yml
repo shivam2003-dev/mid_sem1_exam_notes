@@ -47,9 +47,29 @@ project:
     - title: Mathematical Foundations for ML
       children:
         - file: docs/mfml/index.md
+        - file: docs/mfml/modules/module1-linear-algebra.md
+        - file: docs/mfml/modules/module2-matrix-decompositions.md
+        - file: docs/mfml/modules/module3-vector-spaces.md
+        - file: docs/mfml/modules/module4-linear-systems.md
+        - file: docs/mfml/modules/module5-calculus-optimization.md
+        - file: docs/mfml/modules/module6-probability-statistics.md
+        - file: docs/mfml/modules/module7-numerical-methods.md
         - title: Assignments
           children:
             - file: docs/mfml/assignments/assignment1-solved.md
+        - title: Previous Year Papers
+          children:
+            - file: docs/mfml/papers/2024-midsem-regular-solved.md
+            - file: docs/mfml/papers/2024-midsem-makeup-solved.md
+    - title: Information Systems Management
+      children:
+        - file: docs/ism/index.md
+        - file: docs/ism/modules/module1-introduction.md
+        - title: Previous Year Papers
+          children:
+            - file: docs/ism/papers/2024-midsem-regular-solved.md
+            - file: docs/ism/papers/2024-midsem-makeup-solved.md
+            - file: docs/ism/papers/2024-endsem-regular-solved.md
 
 site:
   template: book-theme

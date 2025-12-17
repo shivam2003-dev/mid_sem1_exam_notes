@@ -21,6 +21,25 @@ Complete revision notes covering all modules:
 - **Module 5**: Deep Feedforward Neural Networks
 - **Module 6**: Convolutional Neural Networks (CNN)
 
+### Mathematical Foundations for ML (MFML)
+Complete revision notes covering all modules:
+- **Module 1**: Linear Algebra Fundamentals
+- **Module 2**: Matrix Decompositions (LU, QR, Cholesky, SVD, Eigen-decomposition)
+- **Module 3**: Vector Spaces and Inner Products (Gram-Schmidt)
+- **Module 4**: Systems of Linear Equations (REF/RREF, Linear Independence)
+- **Module 5**: Calculus for Optimization (Gradients, Jacobian, Hessian, Taylor Series)
+- **Module 6**: Probability and Statistics
+- **Module 7**: Numerical Methods
+
+### Information Systems Management (ISM)
+Complete revision notes covering all modules:
+- **Module 1**: Introduction to Information Systems
+- **Module 2**: System Analysis and Design
+- **Module 3**: Database Management Systems
+- **Module 4**: Network and Communication Systems
+- **Module 5**: Enterprise Systems and ERP
+- **Module 6**: Information Security and Ethics
+
 ## 📝 Solved Previous Year Papers
 
 - **2024 Regular Paper** - Complete step-by-step solutions

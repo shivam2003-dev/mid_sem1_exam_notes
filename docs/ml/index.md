@@ -42,24 +42,59 @@ Welcome to the Machine Learning revision guide. This section covers all modules 
 - [2024 Makeup Paper - Detailed Solutions](papers/2024-makeup-solved.md)
 - [2025 Practice Set - Step-by-Step Solutions](papers/2025-practice-solved.md)
 
-## 🎯 Important Topics for Exam
+## 🎯 MidSem Important Topics
 
 ### Must Know Concepts
-- Supervised vs Unsupervised Learning
-- Linear Regression (Simple and Multiple)
-- Logistic Regression and Sigmoid Function
-- Evaluation Metrics (all formulas)
-- Decision Tree Construction
-- K-Means Clustering Algorithm
-- Principal Component Analysis (PCA)
+
+1. **Decision Tree**
+   - ID3 Algorithm with Example & Calculations
+   - Information Gain computation
+   - Entropy and Gini Impurity
+   - Step-by-step tree construction
+
+2. **Linear/Logistic Regression**
+   - Cost function (MSE for linear, Cross-Entropy for logistic)
+   - Gradient descent algorithm
+   - Step-by-step calculations
+
+3. **Confusion Matrix and Metrics**
+   - Confusion matrix construction
+   - Accuracy, Precision, Recall, F1-Score
+   - ROC Curve and AUC
+   - Precision-Recall Curve
+
+4. **Gradient Descent**
+   - Step-by-step algorithm
+   - Update rules
+   - Learning rate selection
+
+### Important Note
+
+```{admonition} Exam Strategy
+:class: warning
+
+**Make sure to go through all the slides and write answers or solutions step-by-step in the exam. Marks are given based on the steps, not just the final answer.**
+```
 
 ### Key Formulas
 - Cost Function (MSE, Cross-Entropy)
-- Gradient Descent Update Rule
-- Information Gain
-- Entropy
-- Gini Index
-- Precision, Recall, F1-Score
+- Gradient Descent Update Rule: $\theta_j := \theta_j - \alpha \frac{\partial J}{\partial \theta_j}$
+- Information Gain: $IG(S, A) = H(S) - \sum_{v \in Values(A)} \frac{|S_v|}{|S|} H(S_v)$
+- Entropy: $H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)$
+- Gini Index: $Gini(S) = 1 - \sum_{i=1}^{c} p_i^2$
+- Precision: $\frac{TP}{TP + FP}$
+- Recall: $\frac{TP}{TP + FN}$
+- F1-Score: $\frac{2 \times Precision \times Recall}{Precision + Recall}$
+
+### Study Resources
+
+- Past papers topic wise: ML Past Papers
+- Practice questions: ML_Practice_Set_2025_Sem1.pdf
+- Additional resources: ML Additional Resources
+- Decision tree: Lec-10: Decision Tree 🌲 ID3 Algorithm with Example & Calculations 🧮
+- Linear/Logistic - cost function
+- Confusion matrix, score, F1, recall, other metrics
+- Gradient descent: Gradient Descent, Step-by-Step
 
 ---
 
