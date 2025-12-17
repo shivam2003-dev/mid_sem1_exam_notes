@@ -61,10 +61,16 @@ project:
           children:
             - file: docs/mfml/papers/2024-midsem-regular-solved.md
             - file: docs/mfml/papers/2024-midsem-makeup-solved.md
-    - title: Information Systems Management
+    - title: Introduction to Statistical Methods
       children:
         - file: docs/ism/index.md
         - file: docs/ism/modules/module1-introduction.md
+        - file: docs/ism/modules/module2-probability.md
+        - file: docs/ism/modules/module3-random-variables.md
+        - file: docs/ism/modules/module4-sampling.md
+        - file: docs/ism/modules/module5-estimation.md
+        - file: docs/ism/modules/module6-hypothesis-testing.md
+        - file: docs/ism/modules/module7-regression.md
         - title: Previous Year Papers
           children:
             - file: docs/ism/papers/2024-midsem-regular-solved.md

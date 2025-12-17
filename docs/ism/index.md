@@ -1,44 +1,57 @@
-# Information Systems Management (ISM) - Complete Revision Guide
+# Introduction to Statistical Methods (ISM) - Complete Revision Guide
 
-Welcome to the Information Systems Management revision guide. This section covers all modules with detailed explanations, concepts, and important topics.
+Welcome to the Introduction to Statistical Methods revision guide. This section covers all modules with detailed explanations, formulas, and important statistical concepts.
 
 ## 📖 Modules Overview
 
-1. **[Module 1: Introduction to Information Systems](modules/module1-introduction.md)**
-    - Introduction to Information Systems
-    - Types of Information Systems
-    - System Components
-    - Business Information Systems
+1. **[Module 1: Introduction to Statistics](modules/module1-introduction.md)**
+    - What is Statistics
+    - Descriptive vs Inferential Statistics
+    - Types of Data
+    - Measures of Central Tendency
+    - Measures of Dispersion
 
-2. **[Module 2: System Analysis and Design](modules/module2-system-analysis-design.md)**
-    - System Development Life Cycle (SDLC)
-    - Requirements Analysis
-    - System Design Principles
-    - Modeling Techniques
+2. **[Module 2: Probability Fundamentals](modules/module2-probability.md)**
+    - Basic Probability Concepts
+    - Conditional Probability
+    - Bayes' Theorem
+    - Independence
+    - Probability Rules
 
-3. **[Module 3: Database Management Systems](modules/module3-database-management.md)**
-    - Database Concepts
-    - Relational Database Model
-    - SQL Fundamentals
-    - Database Design and Normalization
+3. **[Module 3: Random Variables and Distributions](modules/module3-random-variables.md)**
+    - Discrete Random Variables
+    - Continuous Random Variables
+    - Common Probability Distributions
+    - Expectation and Variance
+    - Moment Generating Functions
 
-4. **[Module 4: Network and Communication Systems](modules/module4-networks-communication.md)**
-    - Network Fundamentals
-    - Network Topologies
-    - Communication Protocols
-    - Internet and Web Technologies
+4. **[Module 4: Sampling and Sampling Distributions](modules/module4-sampling.md)**
+    - Sampling Methods
+    - Central Limit Theorem
+    - Sampling Distribution of Mean
+    - Sampling Distribution of Proportion
+    - t-distribution and Chi-square distribution
 
-5. **[Module 5: Enterprise Systems and ERP](modules/module5-enterprise-systems.md)**
-    - Enterprise Resource Planning (ERP)
-    - Customer Relationship Management (CRM)
-    - Supply Chain Management (SCM)
-    - Business Process Management
+5. **[Module 5: Estimation and Confidence Intervals](modules/module5-estimation.md)**
+    - Point Estimation
+    - Properties of Estimators
+    - Confidence Intervals for Mean
+    - Confidence Intervals for Proportion
+    - Sample Size Determination
 
-6. **[Module 6: Information Security and Ethics](modules/module6-security-ethics.md)**
-    - Information Security Fundamentals
-    - Threats and Vulnerabilities
-    - Security Controls
-    - IT Ethics and Privacy
+6. **[Module 6: Hypothesis Testing](modules/module6-hypothesis-testing.md)**
+    - Hypothesis Testing Framework
+    - Type I and Type II Errors
+    - Tests for Mean (Z-test, t-test)
+    - Tests for Proportion
+    - P-values and Significance Levels
+
+7. **[Module 7: Regression and Correlation](modules/module7-regression.md)**
+    - Simple Linear Regression
+    - Correlation Coefficient
+    - Least Squares Method
+    - Regression Analysis
+    - Residual Analysis
 
 ## 📚 Solved Previous Year Papers
 
@@ -49,26 +62,54 @@ Welcome to the Information Systems Management revision guide. This section cover
 ## 🎯 MidSem Important Topics
 
 ### Must Know Concepts
-- System Development Life Cycle (SDLC)
-- Database Normalization (1NF, 2NF, 3NF)
-- Network Topologies and Protocols
-- ERP Systems and Implementation
-- Information Security Threats and Controls
-- System Analysis and Design Methodologies
 
-### Key Definitions
-- Information System Components
-- Database Relationships (1:1, 1:M, M:M)
-- Network Models (OSI, TCP/IP)
-- ERP Modules and Integration
-- Security Frameworks
+1. **Conditional Probability**
+   - Understanding conditional probability
+   - Bayes' theorem applications
+   - Independence vs dependence
+
+2. **Probability Distributions**
+   - Discrete distributions (Binomial, Poisson)
+   - Continuous distributions (Normal, Exponential)
+   - Properties and applications
+
+3. **Descriptive Statistics**
+   - Mean, median, mode
+   - Variance, standard deviation
+   - Skewness and kurtosis
+
+4. **Sampling Distributions**
+   - Central Limit Theorem
+   - Standard error
+   - Distribution of sample mean
+
+5. **Hypothesis Testing**
+   - Null and alternative hypotheses
+   - Test statistics
+   - P-values and decision making
+
+6. **Confidence Intervals**
+   - Construction of confidence intervals
+   - Interpretation
+   - Sample size calculations
+
+### Key Formulas
+
+- **Mean:** $\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$
+- **Variance:** $s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2$
+- **Standard Deviation:** $s = \sqrt{s^2}$
+- **Conditional Probability:** $P(A|B) = \frac{P(A \cap B)}{P(B)}$
+- **Bayes' Theorem:** $P(A|B) = \frac{P(B|A)P(A)}{P(B)}$
+- **Z-score:** $z = \frac{x - \mu}{\sigma}$
+- **Confidence Interval (Mean):** $\bar{x} \pm z_{\alpha/2} \frac{\sigma}{\sqrt{n}}$
+- **Test Statistic (Z-test):** $z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}}$
 
 ### Study Resources
 
 - Past papers topic wise: ISM Past Papers.docx
 - To build your intuition, start by exploring:
-  - www.stat-i-stics.com: work in progress by Saurabh sir
-  - https://seeing-theory.brown.edu/: for developing an understanding of Conditional Probability
+  - **www.stat-i-stics.com**: work in progress by Saurabh sir
+  - **https://seeing-theory.brown.edu/**: for developing an understanding of Conditional Probability
 - Formula/Concept slides by Ravi sir: ISM Concept slides.pptx
 - Practice from here: ISM Additional Resources - by Saurabh Sir
 - Practice questions by Saurabh sir: ISM_Practice_Questions.PDF
@@ -76,6 +117,5 @@ Welcome to the Information Systems Management revision guide. This section cover
 ---
 
 **Course Information:**
-- Course: Information Systems Management (ISM)
-- Focus: Understanding how information systems support business operations
-
+- Course: Introduction to Statistical Methods (ISM)
+- Focus: Understanding statistical concepts, probability, and data analysis

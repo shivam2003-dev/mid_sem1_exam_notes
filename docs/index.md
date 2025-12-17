@@ -31,14 +31,15 @@ Complete revision notes covering all modules:
 - **Module 6**: Probability and Statistics
 - **Module 7**: Numerical Methods
 
-### Information Systems Management (ISM)
+### Introduction to Statistical Methods (ISM)
 Complete revision notes covering all modules:
-- **Module 1**: Introduction to Information Systems
-- **Module 2**: System Analysis and Design
-- **Module 3**: Database Management Systems
-- **Module 4**: Network and Communication Systems
-- **Module 5**: Enterprise Systems and ERP
-- **Module 6**: Information Security and Ethics
+- **Module 1**: Introduction to Statistics
+- **Module 2**: Probability Fundamentals
+- **Module 3**: Random Variables and Distributions
+- **Module 4**: Sampling and Sampling Distributions
+- **Module 5**: Estimation and Confidence Intervals
+- **Module 6**: Hypothesis Testing
+- **Module 7**: Regression and Correlation
 
 ## 📝 Solved Previous Year Papers
 
