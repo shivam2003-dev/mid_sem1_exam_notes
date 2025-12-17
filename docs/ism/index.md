@@ -1,57 +1,63 @@
 # Introduction to Statistical Methods (ISM) - Complete Revision Guide
 
-Welcome to the Introduction to Statistical Methods revision guide. This section covers all modules with detailed explanations, formulas, and important statistical concepts.
+Welcome to the Introduction to Statistical Methods revision guide. This section covers all modules with detailed explanations, formulas, and important statistical concepts according to the course syllabus.
 
 ## 📖 Modules Overview
 
-1. **[Module 1: Introduction to Statistics](modules/module1-introduction.md)**
-    - What is Statistics
-    - Descriptive vs Inferential Statistics
-    - Types of Data
-    - Measures of Central Tendency
-    - Measures of Dispersion
+1. **[Module 1: Basic Probability & Statistics](modules/module1-basic-probability-statistics.md)**
+    - 1.1 Measures of Central Tendency
+    - 1.2 Measures of Variability
+    - 1.3 Basic Probability Concepts
+      - 1.3.1 Axioms of Probability
+      - 1.3.2 Definition of Probability
+      - 1.3.3 Mutually Exclusive and Independent Events
 
-2. **[Module 2: Probability Fundamentals](modules/module2-probability.md)**
-    - Basic Probability Concepts
-    - Conditional Probability
-    - Bayes' Theorem
-    - Independence
-    - Probability Rules
+2. **[Module 2: Conditional Probability & Bayes Theorem](modules/module2-conditional-probability-bayes.md)**
+    - 2.1 Conditional Probability
+    - 2.2 Conditional Probability of Independent Events
+    - 2.3 Bayes Theorem
+    - 2.4 Introduction to Naïve Bayes Concept
 
-3. **[Module 3: Random Variables and Distributions](modules/module3-random-variables.md)**
-    - Discrete Random Variables
-    - Continuous Random Variables
-    - Common Probability Distributions
-    - Expectation and Variance
-    - Moment Generating Functions
+3. **[Module 3: Probability Distributions](modules/module3-probability-distributions.md)**
+    - 3.1 Random Variables
+      - 3.1.1 Discrete Random Variable – Single and Two Variables
+      - 3.1.2 Continuous Random Variable – Single and Two Variables
+      - 3.1.3 Mean, Variance, Co-Variance of Random Variables
+      - 3.1.4 Transformation of Random Variables
+    - 3.2 Probability Distributions
+      - 3.2.1 Bernoulli Distribution
+      - 3.2.2 Binomial Distribution
+      - 3.2.3 Poisson Distribution
+      - 3.2.4 Normal (Gaussian) Distribution
+      - 3.2.5 Introduction to t-Distribution, F-Distribution, Chi-Square Distribution
 
-4. **[Module 4: Sampling and Sampling Distributions](modules/module4-sampling.md)**
-    - Sampling Methods
-    - Central Limit Theorem
-    - Sampling Distribution of Mean
-    - Sampling Distribution of Proportion
-    - t-distribution and Chi-square distribution
+4. **[Module 4: Hypothesis Testing](modules/module4-hypothesis-testing.md)**
+    - 4.1 Sampling – Random Sampling and Stratified Sampling
+    - 4.2 Sampling Distribution – Central Limit Theorem
+    - 4.3 Estimation – Interval Estimation, Confidence Level
+    - 4.4 Testing of Hypothesis
+      - 4.4.1 Mean Based
+      - 4.4.2 Proportions Related
+      - 4.4.3 ANOVA – Single and Dual Factor
+    - 4.5 Maximum Likelihood
 
-5. **[Module 5: Estimation and Confidence Intervals](modules/module5-estimation.md)**
-    - Point Estimation
-    - Properties of Estimators
-    - Confidence Intervals for Mean
-    - Confidence Intervals for Proportion
-    - Sample Size Determination
+5. **[Module 5: Prediction & Forecasting](modules/module5-prediction-forecasting.md)**
+    - 5.1 Correlation
+    - 5.2 Regression
+    - 5.3 Time Series Analysis
+      - 5.3.1 Introduction, Components of Time Series Data
+      - 5.3.2 MA Model – Basic and Weighted MA Model
+      - 5.3.3 Time Series Models
+        - 5.3.3.1 AR Model
+        - 5.3.3.2 ARIMA Model
+        - 5.3.3.3 SARIMA, SARIMAX, VAR, VARMAX
+        - 5.3.3.4 Simple Exponential Smoothing Model
 
-6. **[Module 6: Hypothesis Testing](modules/module6-hypothesis-testing.md)**
-    - Hypothesis Testing Framework
-    - Type I and Type II Errors
-    - Tests for Mean (Z-test, t-test)
-    - Tests for Proportion
-    - P-values and Significance Levels
-
-7. **[Module 7: Regression and Correlation](modules/module7-regression.md)**
-    - Simple Linear Regression
-    - Correlation Coefficient
-    - Least Squares Method
-    - Regression Analysis
-    - Residual Analysis
+6. **[Module 6: Gaussian Mixture Model & Expectation Maximization](modules/module6-gmm-em.md)**
+    - Gaussian Mixture Model (GMM)
+    - Expectation-Maximization (EM) Algorithm
+    - EM for GMM
+    - Applications and Model Selection
 
 ## 📚 Solved Previous Year Papers
 
@@ -63,35 +69,42 @@ Welcome to the Introduction to Statistical Methods revision guide. This section 
 
 ### Must Know Concepts
 
-1. **Conditional Probability**
-   - Understanding conditional probability
-   - Bayes' theorem applications
-   - Independence vs dependence
+1. **Basic Probability & Statistics**
+   - Measures of central tendency (mean, median, mode)
+   - Measures of variability (variance, standard deviation, IQR)
+   - Axioms of probability
+   - Mutually exclusive vs independent events
 
-2. **Probability Distributions**
-   - Discrete distributions (Binomial, Poisson)
-   - Continuous distributions (Normal, Exponential)
-   - Properties and applications
+2. **Conditional Probability & Bayes**
+   - Conditional probability definition
+   - Bayes' theorem and applications
+   - Naïve Bayes classifier concept
 
-3. **Descriptive Statistics**
-   - Mean, median, mode
-   - Variance, standard deviation
-   - Skewness and kurtosis
+3. **Probability Distributions**
+   - Discrete distributions (Bernoulli, Binomial, Poisson)
+   - Continuous distributions (Normal, t, F, Chi-square)
+   - Random variables and transformations
+   - Mean, variance, covariance
 
-4. **Sampling Distributions**
+4. **Hypothesis Testing**
+   - Sampling methods (random, stratified)
    - Central Limit Theorem
-   - Standard error
-   - Distribution of sample mean
+   - Confidence intervals
+   - Tests for means and proportions
+   - ANOVA (single and dual factor)
+   - Maximum likelihood estimation
 
-5. **Hypothesis Testing**
-   - Null and alternative hypotheses
-   - Test statistics
-   - P-values and decision making
+5. **Prediction & Forecasting**
+   - Correlation analysis
+   - Regression (simple and multiple)
+   - Time series components
+   - AR, ARIMA, SARIMA models
+   - Exponential smoothing
 
-6. **Confidence Intervals**
-   - Construction of confidence intervals
-   - Interpretation
-   - Sample size calculations
+6. **GMM & EM**
+   - Gaussian Mixture Model
+   - Expectation-Maximization algorithm
+   - Applications in clustering
 
 ### Key Formulas
 
@@ -103,6 +116,8 @@ Welcome to the Introduction to Statistical Methods revision guide. This section 
 - **Z-score:** $z = \frac{x - \mu}{\sigma}$
 - **Confidence Interval (Mean):** $\bar{x} \pm z_{\alpha/2} \frac{\sigma}{\sqrt{n}}$
 - **Test Statistic (Z-test):** $z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}}$
+- **Correlation:** $r = \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}}$
+- **Regression Slope:** $\hat{\beta_1} = \frac{S_{xy}}{S_{xx}}$
 
 ### Study Resources
 
@@ -119,3 +134,4 @@ Welcome to the Introduction to Statistical Methods revision guide. This section 
 **Course Information:**
 - Course: Introduction to Statistical Methods (ISM)
 - Focus: Understanding statistical concepts, probability, and data analysis
+- All modules follow the exact course syllabus structure
