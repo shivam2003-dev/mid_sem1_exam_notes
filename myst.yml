@@ -47,13 +47,13 @@ project:
     - title: Mathematical Foundations for ML
       children:
         - file: docs/mfml/index.md
-        - file: docs/mfml/modules/module1-linear-algebra.md
-        - file: docs/mfml/modules/module2-matrix-decompositions.md
-        - file: docs/mfml/modules/module3-vector-spaces.md
-        - file: docs/mfml/modules/module4-linear-systems.md
-        - file: docs/mfml/modules/module5-calculus-optimization.md
-        - file: docs/mfml/modules/module6-probability-statistics.md
-        - file: docs/mfml/modules/module7-numerical-methods.md
+        - file: docs/mfml/modules/lecture1-matrices-linear-systems.md
+        - file: docs/mfml/modules/lecture2-vector-spaces.md
+        - file: docs/mfml/modules/lecture3-analytic-geometry.md
+        - file: docs/mfml/modules/lecture4-eigenvalues-determinants.md
+        - file: docs/mfml/modules/lecture5-matrix-decompositions.md
+        - file: docs/mfml/modules/lecture6-advanced-topics.md
+        - file: docs/mfml/modules/lecture7-advanced-topics.md
         - title: Assignments
           children:
             - file: docs/mfml/assignments/assignment1-solved.md

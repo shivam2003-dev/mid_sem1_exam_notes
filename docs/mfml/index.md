@@ -1,56 +1,48 @@
 # Mathematical Foundations for Machine Learning (MFML) - Complete Revision Guide
 
-Welcome to the Mathematical Foundations for Machine Learning revision guide. This section covers all modules with detailed explanations, proofs, and important mathematical concepts.
+Welcome to the Mathematical Foundations for Machine Learning revision guide. This section covers all modules with detailed explanations, proofs, and important mathematical concepts based on the actual course lectures.
 
-## 📖 Modules Overview
+## 📖 Modules Overview (Based on Lectures)
 
-1. **[Module 1: Linear Algebra Fundamentals](modules/module1-linear-algebra.md)**
-    - Vectors and Vector Spaces
+1. **[Lecture 1: Matrices and Solving System of Linear Equations](modules/lecture1-matrices-linear-systems.md)**
     - Matrices and Matrix Operations
-    - Linear Transformations
+    - Systems of Linear Equations
+    - Augmented Matrix
+    - Solving System of Equations
+    - Geometrical Interpretation
+
+2. **[Lecture 2: Vector Spaces](modules/lecture2-vector-spaces.md)**
+    - Groups and Abelian Groups
+    - Vector Spaces Definition and Properties
+    - Examples of Vector Spaces (Rn, Matrices)
+    - Vector Subspaces
+    - Applications in ML
+
+3. **[Lecture 3: Analytic Geometry and Inner Products](modules/lecture3-analytic-geometry.md)**
+    - Distance between Vectors
+    - Similarity and Dissimilarity Measures
+    - Dot Product in Rn
+    - Inner Products
+    - Symmetric and Positive Definite Matrices
+
+4. **[Lecture 4: Eigenvalues, Eigenvectors, and Determinants](modules/lecture4-eigenvalues-determinants.md)**
     - Eigenvalues and Eigenvectors
+    - Geometrical Interpretation
+    - Triangular Matrices
+    - Determinants (2x2, 3x3, general)
+    - Minor and Cofactor
 
-2. **[Module 2: Matrix Decompositions](modules/module2-matrix-decompositions.md)**
-    - LU Decomposition
-    - QR Decomposition
+5. **[Lecture 5: Matrix Decompositions](modules/lecture5-matrix-decompositions.md)**
     - Cholesky Decomposition
+    - Diagonalization Theorem
     - Singular Value Decomposition (SVD)
-    - Eigen-decomposition
+    - Applications in ML
 
-3. **[Module 3: Vector Spaces and Inner Products](modules/module3-vector-spaces.md)**
-    - Inner Product Spaces
-    - Norms and Distances
-    - Orthogonality and Orthonormal Bases
-    - Gram-Schmidt Process
-    - Projections
+6. **[Lecture 6: Advanced Topics](modules/lecture6-advanced-topics.md)**
+    - (Content based on Lecture 6 PDF)
 
-4. **[Module 4: Systems of Linear Equations](modules/module4-linear-systems.md)**
-    - Gaussian Elimination
-    - Echelon Form and Reduced Row Echelon Form
-    - Solving Linear Systems
-    - Matrix Inversion Methods
-    - Applications to Machine Learning
-
-5. **[Module 5: Calculus for Optimization](modules/module5-calculus-optimization.md)**
-    - Partial Derivatives
-    - Gradient and Hessian
-    - Chain Rule for Multivariable Functions
-    - Optimization Techniques
-    - Lagrange Multipliers
-
-6. **[Module 6: Probability and Statistics](modules/module6-probability-statistics.md)**
-    - Probability Distributions
-    - Expectation and Variance
-    - Covariance and Correlation
-    - Maximum Likelihood Estimation
-    - Bayesian Inference
-
-7. **[Module 7: Numerical Methods](modules/module7-numerical-methods.md)**
-    - Numerical Linear Algebra
-    - Iterative Methods
-    - Numerical Stability
-    - Floating Point Arithmetic
-    - Condition Numbers
+7. **[Lecture 7: Advanced Topics](modules/lecture7-advanced-topics.md)**
+    - (Content based on Lecture 7 PDF)
 
 ## 📚 Solved Previous Year Papers
 
