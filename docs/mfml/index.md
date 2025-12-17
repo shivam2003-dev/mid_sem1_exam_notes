@@ -8,10 +8,20 @@ Welcome to the Mathematical Foundations for Machine Learning revision guide. Thi
     - Matrices and Matrix Operations
     - Systems of Linear Equations
     - Augmented Matrix
+    - Echelon Form and RREF
+    - Gauss-Jordan Elimination
+    - Matrices and Matrix Operations
+    - Systems of Linear Equations
+    - Augmented Matrix
     - Solving System of Equations
     - Geometrical Interpretation
 
 2. **[Lecture 2: Vector Spaces](modules/lecture2-vector-spaces.md)**
+    - Groups and Abelian Groups
+    - Vector Spaces Definition and Properties
+    - Examples of Vector Spaces
+    - Vector Subspaces
+    - Linear Combinations and Linear Independence
     - Groups and Abelian Groups
     - Vector Spaces Definition and Properties
     - Examples of Vector Spaces (Rn, Matrices)
@@ -24,8 +34,18 @@ Welcome to the Mathematical Foundations for Machine Learning revision guide. Thi
     - Dot Product in Rn
     - Inner Products
     - Symmetric and Positive Definite Matrices
+    - Distance between Vectors
+    - Similarity and Dissimilarity Measures
+    - Dot Product in Rn
+    - Inner Products
+    - Symmetric and Positive Definite Matrices
 
 4. **[Lecture 4: Eigenvalues, Eigenvectors, and Determinants](modules/lecture4-eigenvalues-determinants.md)**
+    - Eigenvalues and Eigenvectors
+    - Triangular Matrices
+    - Determinants (2×2, 3×3, general)
+    - Characteristic Equation
+    - Finding Eigenvalues and Eigenvectors
     - Eigenvalues and Eigenvectors
     - Geometrical Interpretation
     - Triangular Matrices
@@ -37,12 +57,20 @@ Welcome to the Mathematical Foundations for Machine Learning revision guide. Thi
     - Diagonalization Theorem
     - Singular Value Decomposition (SVD)
     - Applications in ML
+    - Cholesky Decomposition
+    - Diagonalization Theorem
+    - Singular Value Decomposition (SVD)
+    - Applications in ML
 
 6. **[Lecture 6: Advanced Topics](modules/lecture6-advanced-topics.md)**
     - (Content based on Lecture 6 PDF)
 
 7. **[Lecture 7: Advanced Topics](modules/lecture7-advanced-topics.md)**
     - (Content based on Lecture 7 PDF)
+
+## 📋 Cheat Sheet
+
+- [MFML Cheat Sheet - Quick Reference](cheatsheet.md)
 
 ## 📚 Solved Previous Year Papers
 

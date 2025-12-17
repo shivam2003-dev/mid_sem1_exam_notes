@@ -47,6 +47,7 @@ project:
     - title: Mathematical Foundations for ML
       children:
         - file: docs/mfml/index.md
+        - file: docs/mfml/cheatsheet.md
         - file: docs/mfml/modules/lecture1-matrices-linear-systems.md
         - file: docs/mfml/modules/lecture2-vector-spaces.md
         - file: docs/mfml/modules/lecture3-analytic-geometry.md
