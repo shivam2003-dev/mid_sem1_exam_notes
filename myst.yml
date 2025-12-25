@@ -78,6 +78,8 @@ project:
             - file: docs/ism/papers/2024-endsem-regular-solved.md
     - title: 2025 Mid-Semester Papers
       children:
+        - file: docs/2025-exam-preparation-guide.md
+          title: 📚 Exam Preparation Guide
         - file: docs/dnn/papers/2025-midsem-regular-solved.md
           title: DNN - December 2025 (Solved)
         - file: docs/mfml/papers/2025-midsem-regular-solved.md
