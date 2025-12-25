@@ -1,0 +1,662 @@
+This document outlines the **Regular Midsem Question Paper** for December 2025, covering fundamental concepts in Machine Learning, including Perceptrons, Linear and Logistic Regression, Softmax, and Deep Feedforward Neural Networks.
+
+---
+
+## **Q.1: Perceptron & Spam Classification**
+
+** (a) Computation and Weight Update [6 Marks]**
+Consider a perceptron with 2 input features and current weights:
+
+
+ 
+
+* 
+**Bias ():** 0.5 (with input ) 
+
+
+* 
+**Training Example:** ,  with true label  
+
+
+* 
+**Parameters:** Learning rate , Step activation outputs 1 if , else 0 
+
+
+
+**Compute:**
+
+1. Weighted sum . 
+
+
+2. Predicted output using step activation. 
+
+
+3. If misclassified, calculate updated weights using the perceptron learning rule. 
+
+
+
+**(b) Feature Analysis and Limitations [2 + 4 Marks]**
+A spam classifier has weights  (bias, suspicious_words, links, length). 
+
+1. Which feature most strongly indicates spam? Explain using weight magnitudes. 
+
+
+2. The model hits 75% accuracy and stops improving. Explain what this reveals about the data's **linear separability** and the perceptron's limitations. 
+
+
+
+**(c) Generalization and Feature Engineering [3 Marks]**
+A company compares two sentiment classifier approaches for 500 reviews: 
+
+* 
+**Approach A:** 5 selected features (sentiment words, punctuation, length, rating). 
+
+
+* 
+**Approach B:** 50 features (counts of 50 most frequent words). 
+Both achieve 78% training accuracy. Evaluate which will likely **generalize better**, considering **overfitting risk** and **interpretability**. 
+
+
+
+**(d) Python Implementation [5 Marks]**
+Complete the `perceptron_train` code by providing only the expressions for the blanks. 
+
+* 
+**Blank 1:** (Line 30) Calculate weighted sum . 
+
+
+* 
+**Blank 2:** (Line 34) Calculate error. 
+
+
+* 
+**Blank 3:** (Line 36) Update weights expression. 
+
+
+* 
+**Blank 4:** (Line 44) Generate predictions for test data. 
+
+
+* 
+**Blank 5:** (Line 46) Calculate accuracy. 
+
+
+
+---
+
+## **Q.2: Linear Regression & Gradient Descent**
+
+**(a) Batch Gradient Descent [6 Marks]**
+Predict house price (1000s) from area (100s sq ft). 
+| Bias | Area () | Price () |
+| :--- | :--- | :--- |
+| 1 | 10 | 150 |
+| 1 | 20 | 250 | 
+
+Current weights . Perform **one iteration** of batch gradient descent: (i) predictions, (ii) MSE loss, (iii) gradient, (iv) updated weights. 
+
+**(b) Python Implementation [5 Marks]**
+Complete the `train_linear` function blanks: 
+
+* 
+**Blank 1:** (Line 63) Prediction vector `y_pred`. 
+
+
+* 
+**Blank 2:** (Line 65) MSE Loss calculation. 
+
+
+* 
+**Blank 3:** (Line 69) Gradient calculation. 
+
+
+* 
+**Blank 4:** (Line 71) Weight update rule. 
+
+
+* 
+**Blank 5:** (Line 82) Call the training function. 
+
+
+
+**(c) Diagnostics and Imbalanced Data [3 + 3 Marks]**
+A model detects disease in 1000 patients (50 Diseased, 950 Healthy). 
+
+* 
+**Results:** TP=40, FN=10, FP=95, TN=855. 
+
+
+
+1. Calculate accuracy. Explain why 89% accuracy is misleading. What would a "naive" (always healthy) classifier achieve? 
+
+
+2. Explain why **recall** is more critical than precision for life-threatening diseases. How does lowering the threshold to 0.3 affect FP and FN? 
+
+
+
+**(d) Business Impact Analysis [3 Marks]**
+Compare Fraud Detection models: 
+
+* 
+**Model A (3 features):** 95% Acc, 60% fraud caught. 
+
+
+* 
+**Model B (20 features):** 96% Acc, 75% fraud caught. 
+
+
+* **Costs:** Missed fraud = 100; Investigation = 10. Evaluate which model to deploy based on cost, accuracy, and complexity. 
+
+
+
+---
+
+## **Q.3: Logistic Regression**
+
+**(a) Logistic Propagation & Update [6 Marks]**
+Loan approval with . **Example:** Credit score = 0.7, Income = 0.5, True Label = 1. Calculate: (i) , (ii) Sigmoid probability, (iii) Gradient, (iv) Updated weights. 
+
+**(b) Mini-batch Implementation [5 Marks]**
+Complete the blanks for `train_logistic`: 
+
+* 
+**Blank 1:** Sigmoid function return. 
+
+
+* 
+**Blank 2:** Prediction using `sigmoid(z)`. 
+
+
+* 
+**Blank 3:** Gradient calculation. 
+
+
+* 
+**Blank 4:** Weight update. 
+
+
+* 
+**Blank 5:** Prediction logic for new data. 
+
+
+
+*(Note: Q.3(c) and Q.3(d) are identical in content to Q.2(c) and Q.2(d) respectively).*
+
+---
+
+## **Q.4: Softmax & Confusion Matrix**
+
+**(a) Softmax Sentiment Classifier [6 Marks]**
+3-class (Neg: 0, Neu: 1, Pos: 2). Logits , True label . 
+
+1. Calculate softmax probabilities for all classes (show work for one). 
+
+
+2. Calculate **Categorical Cross-Entropy (CCE)** loss. 
+
+
+3. Identify the predicted class and state if it is correct. 
+
+
+
+**(b) Mini-batch Softmax Code [5 Marks]**
+
+* 
+**Blank 1:** Softmax return expression. 
+
+
+* 
+**Blank 2:** Logit calculation . 
+
+
+* 
+**Blank 3:** Gradient calculation. 
+
+
+* 
+**Blank 4:** Weight update. 
+
+
+* 
+**Blank 5:** Final prediction (class index). 
+
+
+
+**(c) Performance Evaluation [6 Marks]**
+Confusion matrix for Cat, Dog, Bird (1000 total): 
+
+1. Calculate **Precision** and **Recall** for the "Bird" class (ID: TP, FP, FN). 
+
+
+2. If 40/50 bird errors are "Dog", what does this suggest about learned features? Does 88% overall accuracy guarantee good performance for every class? 
+
+
+
+**(d) Medical Imbalance Case Study [3 Marks]**
+X-ray diagnosis for 5 conditions (Highly imbalanced). 
+
+* 
+**Model A:** 92% Accuracy, 45% TB Recall. 
+
+
+* 
+**Model B:** 85% Accuracy, 78% TB Recall. Evaluate deployment considering clinical/ethical consequences of missing TB cases. 
+
+
+
+---
+
+## **Q.5: Deep FeedForward Neural Network (DFNN)**
+
+**(a) Forward Propagation [6 Marks]**
+Architecture: 2 Inputs  2 Hidden (ReLU)  1 Output (Sigmoid). 
+
+* 
+**Parameters:**  provided in.
+
+
+* 
+**Input:** , True label . Calculate: (i) Hidden pre-activations, (ii) ReLU activations, (iii) Output prediction, (iv) BCE loss. 
+
+
+
+**(b) Python Implementation [5 Marks]**
+
+* 
+**Blank 1:** ReLU function. 
+
+
+* 
+**Blank 2:** Layer 1 activation (). 
+
+
+* 
+**Blank 3:** Calculate `dw2`. 
+
+
+* 
+**Blank 4:** Calculate `dA1`. 
+
+
+* 
+**Blank 5:** Calculate `dW1`. 
+
+
+
+**(c) Architecture Design [6 Marks]**
+Design a DFNN for 5-class sentiment (1000 features, 50k samples). 
+
+1. Specify layers/neurons. 
+
+
+2. Choose and justify activation functions. 
+
+
+3. Choose loss function and learning algorithm (Batch vs SGD vs Mini-batch). 
+
+
+4. Calculate total parameters and evaluate overfitting risk. 
+
+
+
+**(d) Mobile Deployment Evaluation [3 Marks]**
+10 classes, 1 million images/day on smartphones. 
+
+* 
+**Arch A:** 87% Acc, 5ms speed, 200MB RAM. 
+
+
+* 
+**Arch B:** 89% Acc, 45ms speed, 3.4GB RAM. Evaluate based on inference time difference, device RAM constraints (4-6GB total), and if your choice would change for cloud servers. 
+
+
+
+---
+Here’s the **same question paper rewritten cleanly and consistently**, with clear numbering, spacing, and mark allocation. Nothing changed in meaning, only presentation.
+(Source: uploaded paper )
+
+---
+
+## **Q1. Perceptron & Spam Classification**
+
+### **Q1(a)**
+
+Consider a perceptron with **2 input features**.
+Current weights are:
+
+* ( w_0 ): bias
+* ( w_1 ): weight for feature ( x_1 )
+* ( w_2 ): weight for feature ( x_2 )
+
+A training example has:
+
+* ( x_1 = 1 ), ( x_2 = 2 )
+* True label ( y = 1 )
+* Learning rate ( \eta = 0.1 )
+
+The step activation function outputs **1 if ( z \ge 0 )**, otherwise **0**.
+
+Compute:
+
+1. The weighted sum ( z )
+2. The predicted output ( \hat{y} ) using step activation
+3. If the example is misclassified, calculate the **updated weights** using the perceptron learning rule for each weight
+   *(Note: treat bias ( w_0 ) as having input ( x_0 = 1 ))*
+
+**[6 Marks]**
+
+---
+
+### **Q1(b)**
+
+A spam classifier perceptron has learned weights:
+
+[
+w = [0.2,; 0.8,; 0.9,; -0.5]^T
+]
+
+Features (in order):
+
+* Bias
+* Suspicious words
+* Links
+* Length
+
+1. Which feature most strongly indicates spam? Explain using **weight magnitudes**.
+2. The model achieves **75% accuracy** but stops improving with more training.
+   Explain what this reveals about:
+
+   * The data’s **linear separability**
+   * The **limitations of the perceptron**
+
+**[2 + 4 = 6 Marks]**
+
+---
+
+### **Q1(c)**
+
+A company is building a perceptron-based classifier to categorize customer reviews as **positive or negative**.
+They collected **500 training reviews** and compare two approaches:
+
+* **Approach A:**
+  Uses 5 carefully selected features:
+
+  * Count of positive sentiment words
+  * Count of negative sentiment words
+  * Presence of exclamation marks
+  * Review length (word count)
+  * Star rating (1–5)
+
+* **Approach B:**
+  Uses 50 features representing counts of the **50 most frequent words** across all reviews.
+
+Both approaches achieve **78% training accuracy**.
+
+Evaluate which approach is more likely to **generalize better** on new reviews. Consider:
+
+* Risk of **overfitting** with limited data
+* **Interpretability** of the decision boundary
+
+**[3 Marks]**
+
+---
+
+### **Q1(d)**
+
+Complete the Python code for perceptron training.
+Write **only the code/expression** that replaces each blank.
+
+```python
+import numpy as np
+
+def perceptron_train(X, y, learning_rate=0.1, epochs=10):
+    """X: (N x d) with bias, y: (N,) labels {0,1}"""
+    N, d = X.shape
+    weights = np.zeros(d)
+    
+    for epoch in range(epochs):
+        for i in range(N):
+            z = ____________      # Blank 1
+            y_pred = 1 if z >= 0 else 0
+            
+            if y_pred != y[i]:
+                error = ____________   # Blank 2
+                weights = weights + ____________  # Blank 3
+    
+    return weights
+
+# Test
+X = np.array([[1,0,0],[1,0,1],[1,1,0],[1,1,1]])
+y = np.array([0,0,0,1])  # AND gate
+
+w = perceptron_train(X, y)
+preds = ____________     # Blank 4
+acc = ____________       # Blank 5
+```
+
+**[5 Marks]**
+
+---
+
+## **Q2. Linear Regression & Gradient Descent**
+
+### **Q2(a)**
+
+A linear regression model predicts **house price (in 1000s)** from **area (in 100s of sq ft)**.
+
+Given:
+
+* Bias ( w_0 = 50 )
+* Area weight ( w_1 = 8 )
+* Learning rate ( \eta = 0.01 )
+
+Perform **one batch gradient descent iteration**:
+
+1. Compute predictions
+2. Calculate MSE loss
+3. Compute gradients
+4. Update weights
+
+**[6 Marks]**
+
+---
+
+### **Q2(b)**
+
+Complete the batch gradient descent code.
+Write **only the expressions** for the blanks.
+
+```python
+def train_linear(X, y, lr=0.01, epochs=100):
+    N, d = X.shape
+    weights = np.random.randn(d) * 0.01
+    
+    for epoch in range(epochs):
+        y_pred = ____________      # Blank 1
+        loss = ____________        # Blank 2
+        error = y_pred - y
+        gradient = ____________    # Blank 3
+        weights = ____________     # Blank 4
+        
+        if epoch % 20 == 0:
+            print(f"Epoch {epoch}, Loss: {loss:.4f}")
+    
+    return weights
+
+X = np.array([[1,1],[1,2],[1,3]])
+y = np.array([2,4,5])
+w = ____________           # Blank 5
+```
+
+**[5 Marks]**
+
+---
+
+## **Q3. Logistic Regression**
+
+### **Q3(a)**
+
+A binary loan approval classifier uses logistic regression.
+
+Given:
+
+* ( w_0 = 0 ) (bias)
+* ( w_1 = 0.6 ) (credit score)
+* ( w_2 = 0.8 ) (income)
+* Learning rate ( \eta = 0.1 )
+
+Training example:
+
+* Credit score = 0.7
+* Income = 0.5
+* True label = 1
+
+Calculate:
+
+1. Weighted sum ( z )
+2. Predicted probability (sigmoid)
+3. Gradient for this example
+4. Updated weights
+
+**[6 Marks]**
+
+---
+
+### **Q3(b)**
+
+Complete the mini-batch logistic regression code.
+
+```python
+def sigmoid(z):
+    return ____________      # Blank 1
+
+def train_logistic(X, y, batch_size=32, lr=0.01, epochs=100):
+    N, d = X.shape
+    weights = np.zeros(d)
+    
+    for epoch in range(epochs):
+        indices = np.random.permutation(N)
+        
+        for i in range(0, N, batch_size):
+            idx = indices[i:i+batch_size]
+            X_batch, y_batch = X[idx], y[idx]
+            z = np.dot(X_batch, weights)
+            y_pred = ____________     # Blank 2
+            gradient = ____________   # Blank 3
+            weights = ____________    # Blank 4
+    
+    return weights
+
+def predict(X, weights):
+    return ____________       # Blank 5
+```
+
+**[5 Marks]**
+
+---
+
+## **Q4. Softmax, Confusion Matrix & Deep Learning**
+
+### **Q4(a)**
+
+A 3-class sentiment classifier (negative, neutral, positive) uses **softmax regression**.
+
+Given logits for one review and true label = **neutral (class 1)**:
+
+Calculate:
+
+1. Softmax probabilities
+2. Categorical Cross-Entropy loss
+3. Predicted class
+4. Whether prediction is correct
+
+**[6 Marks]**
+
+---
+
+### **Q4(b)**
+
+Complete the mini-batch softmax training code.
+
+```python
+def softmax(Z):
+    exp_Z = np.exp(Z - np.max(Z, axis=1, keepdims=True))
+    return ____________      # Blank 1
+
+def train_softmax(X, Y, K, batch_size=32, lr=0.01, epochs=100):
+    N, d = X.shape
+    W = np.random.randn(d, K) * 0.01
+    
+    for epoch in range(epochs):
+        indices = np.random.permutation(N)
+        
+        for i in range(0, N, batch_size):
+            idx = indices[i:i+batch_size]
+            X_batch, Y_batch = X[idx], Y[idx]
+            Z = ____________          # Blank 2
+            Y_pred = softmax(Z)
+            gradient = ____________   # Blank 3
+            W = ____________          # Blank 4
+    
+    return W
+
+def predict(X, W):
+    Z = np.dot(X, W)
+    return ____________      # Blank 5
+```
+
+**[5 Marks]**
+
+---
+
+## **Q5. Deep Feedforward Neural Networks**
+
+### **Q5(a)**
+
+Perform forward propagation through a **2-layer DFNN**:
+
+* Input: 2 features
+* Hidden layer: 2 neurons, ReLU
+* Output: 1 neuron, Sigmoid
+
+Calculate:
+
+1. Hidden layer pre-activation
+2. Hidden layer activation
+3. Output prediction
+4. Binary Cross-Entropy loss ( ( y = 1 ) )
+
+**[6 Marks]**
+
+---
+
+### **Q5(b)**
+
+Complete the DFNN forward and backward code.
+
+```python
+def relu(Z):
+    return ____________    # Blank 1
+
+def forward(X, W1, b1, W2, b2):
+    Z1 = np.dot(X, W1) + b1
+    A1 = ____________      # Blank 2
+    Z2 = np.dot(A1, W2) + b2
+    A2 = sigmoid(Z2)
+    return A2, (Z1, A1, Z2, A2)
+
+def backward(X, Y, cache, W2):
+    Z1, A1, Z2, A2 = cache
+    N = X.shape[0]
+    
+    dZ2 = A2 - Y
+    dW2 = ____________     # Blank 3
+    dA1 = ____________     # Blank 4
+    dZ1 = dA1 * (Z1 > 0)
+    dW1 = ____________     # Blank 5
+    
+    return dW1, dW2
+```
+
+**[5 Marks]**
+

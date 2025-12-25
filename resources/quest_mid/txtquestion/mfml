@@ -1,0 +1,173 @@
+mathematics for machine learning 
+
+
+This document outlines the questions from the **Mathematics for Machine Learning** Mid-Semester Examination (December 2025).
+
+---
+
+## **Question 1**
+
+**a)** Solve the system of equations  by finding the Echelon form of the augmented matrix. 
+Given:
+
+
+(Note: Matrix A elements reconstructed based on provided source snippets )
+
+**b)** Find the Echelon form of matrix : 
+
+Hence, find the **determinant** of  and the **rank** of . 
+
+---
+
+## **Question 2**
+
+**a)** Write the vector  as a **linear combination** of the vectors  and . Explain how this implies these three vectors are **linearly dependent** in . 
+
+**b)** Prove that  is a **subspace** of . Find a **basis** and the **dimension** of . 
+
+**c)** Is the element  in , where  is the subspace defined in part (b)? Justify your answer. 
+
+---
+
+## **Question 3**
+
+**a)** Find the **Singular Value Decomposition (SVD)** of: 
+
+
+
+**b)** Is the matrix  **diagonalizable**? Justify your answer. 
+
+---
+
+## **Question 4**
+
+Consider the function . 
+
+**a)** Compute the **gradient** . **b)** Using part (a), find the **critical point(s)** of . **c)** Determine whether the critical point is a **local minimum**, **local maximum**, or **saddle point**. 
+**d)** Let . Find the **Taylor series expansion** of  at . 
+
+---
+
+## **Question 5**
+
+Consider the matrix . 
+
+**a)** Define an **inner product** on  using matrix  by . 
+
+* What are the properties of  that ensure this is an inner product? 
+
+
+* Prove those properties. 
+
+
+
+**b)** Using this inner product, find the **distance** between the vectors  and . 
+
+**c)** Verify whether the vectors  and  are **orthogonal** with respect to the inner product defined in part (a). 
+
+-
+
+
+Here’s the full **Mathematics for Machine Learning** question paper, rewritten cleanly and consistently so it’s easy to study or reuse. I’ve preserved the structure, marks, and intent, just removed clutter and formatting noise.
+
+---
+
+## Mathematics for Machine Learning
+
+**Mid-Semester Examination – Question Set**
+
+---
+
+### **Question 1**
+
+Consider the matrix ( A ).
+
+**(a)** Solve the system of linear equations
+[
+AX = b
+]
+by finding the **echelon form** of the augmented matrix.
+**[3 Marks]**
+
+**(b)** Find the **echelon form** of matrix ( B ).
+Hence, determine:
+
+* the **determinant** of ( B )
+* the **rank** of ( B )
+  **[2 Marks]**
+
+---
+
+### **Question 2**
+
+Consider the vectors in ( \mathbb{R}^3 ).
+
+**(a)** Express one vector as a **linear combination** of the other two.
+Explain how this implies that the three vectors are **linearly dependent** in ( \mathbb{R}^3 ).
+**[3 Marks]**
+
+**(b)** Prove that ( V ) is a **subspace** of ( \mathbb{R}^3 ).
+Find:
+
+* a **basis** of ( V )
+* the **dimension** of ( V )
+  **[2 Marks]**
+
+**(c)** Determine whether a given element belongs to the subspace ( V ) defined in part (b).
+Justify your answer.
+**[1 Mark]**
+
+---
+
+### **Question 3**
+
+**(a)** Find the **Singular Value Decomposition (SVD)** of the given matrix ( A ).
+**[4 Marks]**
+
+**(b)** Is the matrix ( A ) **diagonalizable**?
+Justify your answer.
+**[2 Marks]**
+
+---
+
+### **Question 4**
+
+Consider the function
+[
+f(x, y) = x^2 + xy + 2y^2 - 4x + 3
+]
+
+**(a)** Compute the **gradient** ( \nabla f(x, y) ).
+**[2 Marks]**
+
+**(b)** Using part (a), find the **critical point(s)** of ( f ).
+**[1 Mark]**
+
+**(c)** Determine whether each critical point is a **local minimum**, **local maximum**, or **saddle point**.
+**[2 Marks]**
+
+**(d)** Let ( g(x) = f(x, 1) ).
+Find the **Taylor series expansion** of ( g(x) ) about ( x = 1 ).
+**[2 Marks]**
+
+---
+
+### **Question 5**
+
+Consider the matrix ( A ).
+
+**(a)** Define an inner product on ( \mathbb{R}^2 ) by
+[
+\langle X, Y \rangle = X^T A Y
+]
+State the **properties of matrix ( A )** that ensure this defines a valid inner product.
+Prove these properties.
+**[3 Marks]**
+
+**(b)** Using this inner product, find the **distance** between the given vectors.
+**[2 Marks]**
+
+**(c)** Verify whether the given vectors are **orthogonal** with respect to the inner product defined in part (a).
+**[1 Mark]**
+
+-

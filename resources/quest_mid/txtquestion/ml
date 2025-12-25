@@ -1,0 +1,447 @@
+
+
+## **Q1. IPL Playoff Prediction – Logistic Regression**
+
+An IPL franchise wants to predict whether a team will qualify for the playoffs based on its performance in the league stage (8 matches). The analyst has collected data for **5 teams**, which will be used as training data for a **logistic regression model**.
+
+One value is missing in the feature **“Mean Number of Batsmen Played.”**
+
+**(a)** Suggest appropriate methods to handle the missing value in the *Mean Number of Batsmen Played* feature before building the logistic regression model. Justify your choice.
+**[1 Mark]**
+
+**(b)** Normalize only the **Total Runs** and **Total Wickets** features using **z-score normalization**. Compute the **mean** and **standard deviation**, and present the updated dataset.
+**[3 Marks]**
+
+**(c)** Using the normalized dataset, perform **one iteration of Batch Gradient Descent** to update the weights for the logistic regression model, given:
+
+* Initial weights: θ = [0.1, 0.1, 0.1, 0.1]
+* Learning rate: α = 0.01
+  **[4 Marks]**
+
+**(d)** Calculate the value of the **Cross-Entropy Loss (Log Loss)** at the end of the first iteration.
+**[1 Mark]**
+
+**(e)** Calculate and interpret the **predicted probability of playoff qualification for Team D** after the first iteration.
+**[1 Mark]**
+
+---
+
+## **Q2. Bias–Variance and Overfitting**
+
+A student claims:
+
+> “I doubled my dataset size, but my validation RMSE still stayed high while the training RMSE kept dropping. Therefore, increasing dataset size doesn’t help.”
+
+As an instructor, critique this statement using the concepts of **model complexity**, **bias–variance trade-off**, and **training vs. validation behavior**.
+
+**(a)** State whether the model has **high or low bias** and **high or low variance**.
+*(0.5 mark each)*
+**[1 Mark]**
+
+**(b)** Give **one likely reason** for this observation.
+**[1 Mark]**
+
+**(c)** Suggest **one corrective action** to improve the model.
+**[1 Mark]**
+
+---
+
+## **Q3. Decision Tree – Entropy and Information Gain**
+
+Consider the given training dataset that tracks customer purchasing behavior based on:
+
+* Age Group
+* Income Level
+* Occupation
+
+**(i)** Calculate the **entropy of the target class “Purchased”** for the entire dataset.
+**[2 Marks]**
+
+**(ii)** If **Age Group** is chosen as the root node, calculate the entropy for the **“Young”** branch.
+
+* Is this branch pure?
+* If not, which attribute would you choose next to split this node to achieve purer leaf nodes?
+  **[3 Marks]**
+
+**(iii)** Compare **Occupation** and **Income Level**. Without performing full Information Gain calculations, argue which attribute better separates the **“Yes”** and **“No”** classes.
+**[2 Marks]**
+
+**(iv)** A new customer has the following profile:
+
+* Age: Young
+* Income: Low
+* Occupation: Professional
+
+Based **only on majority voting in the “Young” subset**, how would this customer be classified?
+**[1 Mark]**
+
+---
+
+## **Q4. Model Evaluation – Posterior Probabilities**
+
+You are asked to evaluate the performance of two classification models **M1** and **M2**.
+
+* The test set contains **26 binary attributes (A–Z)**.
+* The table provides **posterior probabilities for the positive class only**.
+* Since this is a two-class problem:
+
+  * P(−) = 1 − P(+)
+
+Assume we are mainly interested in detecting **positive class instances**.
+
+For both models, the cutoff threshold is **t = 0.5** (probability > 0.5 → positive class).
+
+**(a)** Construct the **Confusion Matrix** for both **M1** and **M2**.
+**[2 Marks]**
+
+**(b)** Compute the **Precision**, **Recall**, and **F-measure** for both models at this threshold.
+**[3 Marks]**
+
+---
+
+## **Q5. Regression Model Interpretation**
+
+A regression model for predicting house price is given as:
+
+[
+\text{House Price} = 50 + 200 \times (\text{Area}) + 5 \times (\text{Age})
+]
+
+**(a)** Interpret both regression coefficients.
+**[1 Mark]**
+
+**(b)** What happens if the unit of **Area** is changed from **m² to ft²**?
+**[1 Mark]**
+
+---
+
+### **B. Gradient Descent**
+
+In gradient descent, suppose:
+
+* ( \frac{\partial J}{\partial \theta_1} ) is **large**
+* ( \frac{\partial J}{\partial \theta_0} ) is **near zero**
+
+What can you infer about the model parameters?
+**[1 Mark]**
+
+---
+
+### **C. Feature Influence**
+
+Which feature has a **stronger influence on house price** — **Area** or **Age**? Justify your answer.
+**[1 Mark]**
+
+-------------------------
+
+
+This document outlines the **Regular Mid-Semester Examination (December 2025)**. The exam covers topics including Logistic Regression, Bias-Variance Trade-off, Decision Trees, Model Evaluation, and Linear Regression interpretation.
+
+---
+
+## **Q1: IPL Playoff Prediction (Logistic Regression)**
+
+An IPL franchise wants to predict whether a team will qualify for the playoffs based on its league stage performance (8 matches).
+
+**Training Dataset:**
+| Team | Mean Batsmen Played | Total Runs Scored | Total Wickets Taken | Qualified (Yes=1, No=0) |
+| :--- | :--- | :--- | :--- | :--- |
+| **A** | 7 | 820 | 40 | 1 |
+| **B** | 5 | 840 | 44 | 0 |
+| **C** | **? (Missing)** | 860 | 48 | 1 |
+| **D** | 8 | 880 | 52 | 1 |
+| **E** | 4 | 900 | 56 | 0 |
+
+* 
+**(a)** Suggest appropriate methods to handle the missing value in "Mean Number of Batsmen Played" and justify your choice. **(1 Mark)**
+
+**Answer (a):** Logistic regression cannot use missing values directly. Reasonable options:
+- **Mean/median imputation** (simple, stable for small datasets).
+- **KNN/regression imputation** (uses other features, but may overfit with only 5 rows).
+
+Here, **median (or mean) imputation** is appropriate due to the very small dataset.
+
+Impute Team C with mean/median of {7, 5, 8, 4}:
+
+Mean = (7 + 5 + 8 + 4) / 4 = 6.0, Median = (5 + 7) / 2 = 6.0 → **Use 6**.
+
+
+* **(b)** Normalize only "Total Runs" and "Total Wickets" using **z-score normalization**. Present the updated dataset with the computed mean () and standard deviation (). **(3 Marks)**
+
+**Answer (b):** z-score: z = (x − μ) / σ.
+
+For **Total Runs**: values = {820, 840, 860, 880, 900}
+- Mean μ_runs = 860
+- Std dev (population) σ_runs = √( (Σ(x−μ)^2)/5 ) = √(4000/5) = √800 ≈ 28.2843
+
+For **Total Wickets**: values = {40, 44, 48, 52, 56}
+- Mean μ_wkts = 48
+- Std dev (population) σ_wkts = √(160/5) = √32 ≈ 5.6569
+
+Updated dataset (only Runs/Wickets normalized; Team C batsmen imputed to 6):
+
+| Team | Mean Batsmen Played | Runs (z) | Wickets (z) | y |
+|---|---:|---:|---:|---:|
+| A | 7 | -1.4142 | -1.4142 | 1 |
+| B | 5 | -0.7071 | -0.7071 | 0 |
+| C | 6 | 0.0000 | 0.0000 | 1 |
+| D | 8 | 0.7071 | 0.7071 | 1 |
+| E | 4 | 1.4142 | 1.4142 | 0 |
+
+
+* 
+**(c)** Perform one iteration of **Batch Gradient Descent** to update the weights (). **(4 Marks)**
+
+
+* Initial weights: 
+* Learning rate: 
+
+**Answer (c):** Assume feature vector x = [1, x1, x2, x3] where:
+- x1 = Mean Batsmen Played
+- x2 = Runs (z)
+- x3 = Wickets (z)
+
+Hypothesis: h = σ(θᵀx), where σ(z) = 1/(1+e^(−z)).
+
+Given θ = [0.1, 0.1, 0.1, 0.1], α = 0.01, m = 5.
+
+Compute h for each team (using θᵀx):
+- A: z=0.5172 → h≈0.6265
+- B: z=0.4586 → h≈0.6127
+- C: z=0.7000 → h≈0.6682
+- D: z=1.0414 → h≈0.7391
+- E: z=0.7828 → h≈0.6863
+
+Gradient (cross-entropy): ∇J(θ) = (1/m) Σ (h−y) x
+
+Errors (h−y):
+- A: −0.3735, B: 0.6127, C: −0.3318, D: −0.2609, E: 0.6863
+
+Gradient components:
+- g0 = (1/5)Σ(h−y) ≈ 0.06656
+- g1 = (1/5)Σ(h−y)x1 ≈ −0.17676
+- g2 = (1/5)Σ(h−y)x2 ≈ 0.17620
+- g3 = (1/5)Σ(h−y)x3 ≈ 0.17620
+
+Update: θ := θ − α g
+
+θ(new) ≈ [
+- θ0 = 0.1000 − 0.01(0.06656) = 0.09933,
+- θ1 = 0.1000 − 0.01(−0.17676) = 0.10177,
+- θ2 = 0.1000 − 0.01(0.17620) = 0.09824,
+- θ3 = 0.1000 − 0.01(0.17620) = 0.09824
+]
+
+
+* 
+**(d)** Calculate the **Cross-Entropy Loss (Log loss)** at the end of the first iteration. **(1 Mark)**
+
+**Answer (d):** Using θ(new), predicted probabilities:
+- A: h≈0.6304, B: h≈0.6152, C: h≈0.6704, D: h≈0.7412, E: h≈0.6866
+
+Log loss:
+J = −(1/5) Σ [ y ln(h) + (1−y) ln(1−h) ] ≈ 0.655
+
+
+* 
+**(e)** Calculate and interpret the predicted probability of playoff qualification for **Team D** after the first iteration. **(1 Mark)**
+
+**Answer (e):** For Team D, after the update, h_D ≈ 0.741.
+
+Interpretation: the model assigns about **74.1% probability** that Team D qualifies for playoffs.
+
+
+
+---
+
+## **Q2: Bias-Variance & Overfitting**
+
+A student claims: *"I doubled my dataset size, but my validation RMSE still stayed high while the training RMSE kept dropping. Therefore, increasing dataset size doesn't help."*.
+
+* 
+**(a)** Comment whether the model has **(low / high) Bias** and **(low / high) Variance**. **(1 Mark)**
+
+**Answer (a):** Training RMSE keeps dropping while validation RMSE stays high → **low bias, high variance** (overfitting).
+
+
+* 
+**(b)** Provide one likely reason this observation occurred. **(1 Mark)**
+
+**Answer (b):** The model is **too complex** for the signal/noise in the features, so it fits training noise; doubling data may still be insufficient to reduce variance, or the new data may be noisy/shifted.
+
+
+* 
+**(c)** Suggest one corrective action for this model. **(1 Mark)**
+
+**Answer (c):** Reduce variance by one of: **add regularization (L2/L1)**, **simplify the model**, **early stopping**, or **better feature engineering**. (One valid action: **increase regularization**.)
+
+
+
+---
+
+## **Q3: Decision Tree (Entropy & Information Gain)**
+
+Based on the following customer purchasing data:
+
+| Agegroup | Income Level | Occupation | Purchased |
+| --- | --- | --- | --- |
+| Young | Low | Student | No |
+| Middle-aged | High | Professional | Yes |
+| Young | Medium | Student | Yes |
+| Old | Low | Retired | No |
+| Young | High | Professional | Yes |
+| Middle-aged | Low | Professional | No |
+| Old | Medium | Retired | Yes |
+| Young | Medium | Professional | Yes |
+
+* 
+**(i)** Calculate the **Entropy** of the target class "Purchased" for the entire dataset. **(2 Marks)**
+
+**Answer (i):** Purchased = Yes: 5, No: 3 (total 8)
+
+Entropy:
+H(S) = −(5/8)log2(5/8) − (3/8)log2(3/8)
+  ≈ −0.625(−0.6781) − 0.375(−1.4150)
+  ≈ 0.4238 + 0.5306
+  ≈ **0.9544 bits**
+
+
+* 
+**(ii)** If "Agegroup" is the root node, calculate the entropy for the **"Young"** branch. Is this branch pure? If not, which attribute would you use next to split it to achieve pure leaf nodes?. **(3 Marks)**
+
+**Answer (ii):** Young subset rows = 4: {No, Yes, Yes, Yes} → Yes:3, No:1
+
+H(Young) = −(3/4)log2(3/4) − (1/4)log2(1/4)
+  = −0.75(−0.4150) − 0.25(−2)
+  ≈ 0.3113 + 0.5000
+  ≈ **0.8113 bits**
+
+Branch purity: **not pure** (has both Yes and No).
+
+Next split choice: splitting the Young subset by **Income Level** yields pure leaves:
+- Low → {No}
+- Medium → {Yes, Yes}
+- High → {Yes}
+So choose **Income Level**.
+
+
+
+**Answer (iii):** **Income Level** separates better: in this dataset,
+- Low income → all **No**
+- Medium/High income → all **Yes**
+* **(iii)** Compare **"Occupation"** and **"Income Level"**. Without full calculations, argue which attribute separates the classes more effectively. **(2 Marks)**
+
+
+* 
+**(iv)** How would a new customer (Age: Young, Income: Low, Occupation: Professional) be classified based on **majority voting** of the "Young" subset?. **(1 Mark)**
+
+**Answer (iv):** In the Young subset, majority class is **Yes (3 out of 4)** → classify as **Purchased = Yes**.
+
+
+
+---
+
+## **Q4: Model Evaluation (Posterior Probabilities)**
+
+Evaluate two models ( and ) using a test set of 10 instances. Assume a **cutoff threshold **.
+
+| Instance | True Class |  |  |
+| :--- | :--- | :--- | :--- |
+| 1 | + | 0.73 | 0.61 |
+| 2 | + | 0.69 | 0.03 |
+| 3 | - | 0.44 | 0.68 |
+| 4 | - | 0.55 | 0.31 |
+| 5 | + | 0.67 | 0.45 |
+| 6 | + | 0.47 | 0.09 |
+| 7 | - | 0.08 | 0.38 |
+| 8 | - | 0.15 | 0.05 |
+| 9 | + | 0.45 | 0.01 |
+| 10 | - | 0.35 | 0.04 |
+
+* 
+**(a)** Construct the **Confusion Matrix** for both models. **(2 Marks)**
+
+**Answer (a):** Threshold t = 0.5.
+
+For **M1** predictions (>0.5 is +):
+- TP: 3 (instances 1,2,5)
+- FP: 1 (instance 4)
+- TN: 4 (instances 3,7,8,10)
+- FN: 2 (instances 6,9)
+
+Confusion Matrix (rows = actual, cols = predicted):
+
+M1:
+|   | Pred + | Pred - |
+|---|---:|---:|
+| Actual + | 3 | 2 |
+| Actual - | 1 | 4 |
+
+For **M2** predictions (>0.5 is +):
+- TP: 1 (instance 1)
+- FP: 1 (instance 3)
+- TN: 4 (instances 4,7,8,10)
+- FN: 4 (instances 2,5,6,9)
+
+M2:
+|   | Pred + | Pred - |
+|---|---:|---:|
+| Actual + | 1 | 4 |
+| Actual - | 1 | 4 |
+
+
+* 
+**(b)** Compute **Precision, Recall, and F-measure** for both models. **(3 Marks)**
+
+**Answer (b):**
+
+M1:
+- Precision = TP/(TP+FP) = 3/4 = **0.75**
+- Recall = TP/(TP+FN) = 3/5 = **0.60**
+- F1 = 2PR/(P+R) = 2(0.75)(0.60)/(1.35) ≈ **0.6667**
+
+M2:
+- Precision = 1/(1+1) = **0.50**
+- Recall = 1/(1+4) = **0.20**
+- F1 = 2(0.50)(0.20)/(0.70) ≈ **0.2857**
+
+
+
+---
+
+## **Q5: Regression Model Interpretation**
+
+Given the house price regression model:
+
+
+* 
+**(a)** Interpret both coefficients. **(1 Mark)**
+
+**Answer (a):**
+- Area coefficient (200): holding Age constant, increasing Area by 1 unit increases predicted price by **200** units.
+- Age coefficient (5): holding Area constant, increasing Age by 1 year increases predicted price by **5** units.
+
+
+* 
+**(b)** What happens if the units of "Area" are changed from  to ?. **(1 Mark)**
+
+**Answer (b):** The numeric value of the Area coefficient changes with the unit scale. Since 1 m² ≈ 10.7639 ft², the new coefficient becomes:
+
+200 (per m²) = (200 / 10.7639) ≈ **18.58 (per ft²)**
+
+Predictions remain the same if the input Area is converted consistently.
+
+
+* 
+**(c)** In gradient descent, if  is large while  is near zero, what can you infer about the parameters?. **(1 Mark)**
+
+**Answer (c):** A large ∂J/∂θ1 means the cost is very sensitive to θ1 → **θ1 needs a significant update**. A near-zero ∂J/∂θ0 suggests **θ0 is close to an optimum** (only small/no update needed).
+
+
+* **(d)** Which feature has a **stronger influence** on house price: Area or Age? Justify your answer. **(1 Mark)**
+
+**Answer (d):** **Area** has stronger influence because its coefficient magnitude (200 per unit) is much larger than Age’s (5 per unit), assuming comparable unit scaling.
+
+
+
+---
