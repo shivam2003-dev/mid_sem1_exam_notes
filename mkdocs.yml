@@ -98,9 +98,9 @@ nav:
       - 2024 MidSem Regular - Solved: mfml/papers/2024-midsem-regular-solved.md
       - 2024 MidSem Makeup - Solved: mfml/papers/2024-midsem-makeup-solved.md
   - 2025 Mid-Semester Papers:
-    - DNN - December 2025 (Solved): dnn/papers/2025-midsem-regular-solved.md
-    - MFML - December 2025 (Solved): mfml/papers/2025-midsem-regular-solved.md
-    - ML - December 2025 (Solved): ml/papers/2025-midsem-regular-solved.md
+    - DNN - December 2025 (Solved): docs/dnn/papers/2025-midsem-regular-solved.md
+    - MFML - December 2025 (Solved): docs/mfml/papers/2025-midsem-regular-solved.md
+    - ML - December 2025 (Solved): docs/ml/papers/2025-midsem-regular-solved.md
 
 plugins:
   - search
