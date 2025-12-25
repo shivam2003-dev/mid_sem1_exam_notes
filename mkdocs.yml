@@ -84,6 +84,23 @@ nav:
     - Module 6 - Convolutional Neural Networks: dnn/module6-cnn.md
     - Previous Year Papers:
       - 2024 MidSem Regular - Solved: dnn/papers/2024-midsem-regular-solved.md
+  - Mathematics for ML:
+    - MFML Overview: mfml/index.md
+    - Cheat Sheet: mfml/cheatsheet.md
+    - Lecture 1 - Matrices & Linear Systems: mfml/modules/lecture1-matrices-linear-systems.md
+    - Lecture 2 - Vector Spaces: mfml/modules/lecture2-vector-spaces.md
+    - Lecture 3 - Analytic Geometry: mfml/modules/lecture3-analytic-geometry.md
+    - Lecture 4 - Eigenvalues & Determinants: mfml/modules/lecture4-eigenvalues-determinants.md
+    - Lecture 5 - Matrix Decompositions: mfml/modules/lecture5-matrix-decompositions.md
+    - Lecture 6 - Advanced Topics: mfml/modules/lecture6-advanced-topics.md
+    - Lecture 7 - Advanced Topics: mfml/modules/lecture7-advanced-topics.md
+    - Previous Year Papers:
+      - 2024 MidSem Regular - Solved: mfml/papers/2024-midsem-regular-solved.md
+      - 2024 MidSem Makeup - Solved: mfml/papers/2024-midsem-makeup-solved.md
+  - 2025 Mid-Semester Papers:
+    - DNN - December 2025 (Solved): dnn/papers/2025-midsem-regular-solved.md
+    - MFML - December 2025 (Solved): mfml/papers/2025-midsem-regular-solved.md
+    - ML - December 2025 (Solved): ml/papers/2025-midsem-regular-solved.md
 
 plugins:
   - search
