@@ -76,6 +76,14 @@ project:
             - file: docs/ism/papers/2024-midsem-regular-solved.md
             - file: docs/ism/papers/2024-midsem-makeup-solved.md
             - file: docs/ism/papers/2024-endsem-regular-solved.md
+    - title: 2025 Mid-Semester Papers
+      children:
+        - file: docs/dnn/papers/2025-midsem-regular-solved.md
+          title: DNN - December 2025 (Solved)
+        - file: docs/mfml/papers/2025-midsem-regular-solved.md
+          title: MFML - December 2025 (Solved)
+        - file: docs/ml/papers/2025-midsem-regular-solved.md
+          title: ML - December 2025 (Solved)
 
 site:
   template: book-theme
